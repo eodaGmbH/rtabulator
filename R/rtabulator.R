@@ -5,7 +5,9 @@
 #' @import htmlwidgets
 #'
 #' @export
-rtabulator <- function(data, table_options = NULL, rtabulator_auto_columns = TRUE, width = NULL, height = NULL, elementId = NULL) {
+rtabulator <- function(data, table_options = NULL,
+                       rtabulator_auto_columns = TRUE,
+                       width = NULL, height = NULL, elementId = NULL) {
   # forward options using x
   if (is.null(table_options)) table_options <- list()
 
