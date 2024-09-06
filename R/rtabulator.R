@@ -5,16 +5,15 @@
 #' @import htmlwidgets
 #'
 #' @export
-rtabulator <- function(data = NULL, spreadsheet_data = NULL, table_options = NULL, width = NULL, height = NULL, elementId = NULL) {
+rtabulator <- function(data, table_options = NULL, width = NULL, height = NULL, elementId = NULL) {
   # forward options using x
   if (is.null(table_options)) table_options <- list()
 
   # Experimental
-  if (!is.null(spreadsheet_data)) {
-    table_options$spreadsheet <- TRUE
-    table_options$spreadsheetData <- spreadsheet_data
-  }
-  if (!is.null(data)){
+
+  if (isTRUE(table_options$spreadsheet)) {
+    # ...
+  } else {
     data <- fix_colnames(data)
     if (is.null(table_options$columns)) {
       table_options$columns <- create_columns(data)

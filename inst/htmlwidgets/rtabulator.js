@@ -51,8 +51,8 @@
       options.data = data;
       this._container = container;
       console.log("columns", options.columns);
-      if (options.columns == null)
-        options.autoColumns = true;
+      if (options.columns == null) {}
+        // options.autoColumns = true;
       this._table = new Tabulator(this._container, options);
       if (typeof Shiny === "object") {
         addEventListeners(this._table, this._container);
@@ -75,12 +75,19 @@
   function tabulatorFactory(widgetElement, width, height) {
     let table = null;
     function renderValue(payload) {
-      payload.data = HTMLWidgets.dataframeToD3(payload.data);
       console.log(payload);
       if (payload.options === null) {
         payload.options = {};
       }
-      const widget = new TabulatorWidget(widgetElement, payload.data, payload.options);
+
+      let data = null;
+      if (payload.options.spreadsheet === true) {
+        payload.options.spreadsheetData = payload.data;
+      } else {
+        data = HTMLWidgets.dataframeToD3(payload.data);
+      }
+
+      const widget = new TabulatorWidget(widgetElement, data, payload.options);
       table = widget.getTable();
     }
     function resize(width2, height2) {
