@@ -7,13 +7,15 @@
 #' @export
 rtabulator <- function(data, table_options = NULL, width = NULL, height = NULL, elementId = NULL) {
   # forward options using x
+  if (is.null(table_options)) table_options <- list()
+
   if (is.null(table_options$columns)) {
-    table_options <- list(columns = create_columns(data))
+    table_options$columns = create_columns(data)
   }
 
   x <- list(
     data = fix_colnames(data),
-    options = table_options
+    options = keys_to_camel_case(compact(table_options))
   )
 
   # create widget
