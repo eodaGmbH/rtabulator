@@ -5,11 +5,12 @@
 #' @import htmlwidgets
 #'
 #' @export
-rtabulator <- function(message, width = NULL, height = NULL, elementId = NULL) {
+rtabulator <- function(data, options = NULL, width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
-    message = message
+    data = data,
+    options = options
   )
 
   # create widget
