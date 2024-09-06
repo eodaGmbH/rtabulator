@@ -26,6 +26,7 @@ rtabulator <- function(data = NULL, spreadsheet_data = NULL, table_options = NUL
     options = keys_to_camel_case(compact(table_options))
   )
 
+
   # create widget
   htmlwidgets::createWidget(
     name = "rtabulator",

@@ -8,8 +8,8 @@ table_options <- function(
     movable_rows = FALSE,
     frozen_rows = NULL,
     row_height = NULL,
+    # Experimental
     spreadsheet = FALSE,
-    #
     spreadsheet_rows = NULL,
     spreadsheet_columns = NULL,
     ...) {
