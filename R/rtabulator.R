@@ -7,9 +7,9 @@
 #' @export
 rtabulator <- function(data, table_options = NULL,
                        rtabulator_auto_columns = TRUE,
-                       width = NULL, height = NULL, elementId = NULL) {
-  # forward options using x
-  if (is.null(table_options)) table_options <- list()
+                       width = NULL, height = NULL, elementId = NULL, ...) {
+  table_options <- merge_lists(table_options, list(...))
+  # if (is.null(table_options)) table_options <- list()
 
   if (isTRUE(table_options$spreadsheet)) {
     # ...

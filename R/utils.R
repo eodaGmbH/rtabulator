@@ -1,3 +1,9 @@
+# Avoid duplicates
+merge_lists <- function(l1, l2) {
+  for (key in names(l2)) l1[[key]] <- NULL
+  c(compact(l1), l2)
+}
+
 to_camel_case <- function(x) {
   gsub("_(\\w?)", "\\U\\1", x, perl = TRUE)
 }

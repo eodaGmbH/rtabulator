@@ -12,6 +12,7 @@ table_options <- function(
     spreadsheet = FALSE,
     spreadsheet_rows = NULL,
     spreadsheet_columns = NULL,
+    spreadsheet_column_definition = list(editor="input"),
     ...) {
   params <- as.list(environment())
   params$layout <- match.arg(layout)
