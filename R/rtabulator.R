@@ -5,21 +5,24 @@
 #' @import htmlwidgets
 #'
 #' @export
-rtabulator <- function(data, options = NULL, width = NULL, height = NULL, elementId = NULL) {
-
+rtabulator <- function(data, table_options = NULL, width = NULL, height = NULL, elementId = NULL) {
   # forward options using x
-  x = list(
-    data = data,
-    options = options
+  if (is.null(table_options$columns)) {
+    table_options <- list(columns = create_columns(data))
+  }
+
+  x <- list(
+    data = fix_colnames(data),
+    options = table_options
   )
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'rtabulator',
+    name = "rtabulator",
     x,
     width = width,
     height = height,
-    package = 'rtabulator',
+    package = "rtabulator",
     elementId = elementId
   )
 }
@@ -41,13 +44,15 @@ rtabulator <- function(data, options = NULL, width = NULL, height = NULL, elemen
 #' @name rtabulator-shiny
 #'
 #' @export
-rtabulatorOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'rtabulator', width, height, package = 'rtabulator')
+rtabulatorOutput <- function(outputId, width = "100%", height = "400px") {
+  htmlwidgets::shinyWidgetOutput(outputId, "rtabulator", width, height, package = "rtabulator")
 }
 
 #' @rdname rtabulator-shiny
 #' @export
 renderRtabulator <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
+  if (!quoted) {
+    expr <- substitute(expr)
+  } # force quoted
   htmlwidgets::shinyRenderWidget(expr, rtabulatorOutput, env, quoted = TRUE)
 }
