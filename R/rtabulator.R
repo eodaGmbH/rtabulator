@@ -18,6 +18,7 @@ tabulator <- function(data, table_options = NULL,
     if (rtabulator_auto_columns && is.null(table_options$columns)) {
       table_options$columns <- create_columns(data)
     }
+    data <- set_auto_id(data)
   }
 
   x <- list(

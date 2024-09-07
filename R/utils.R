@@ -35,4 +35,11 @@ create_columns <- function(data) {
   )
 }
 
-# hozAlign = ifelse(is.numeric(.x), "right", "left")
+set_auto_id <- function(data) {
+  if ("id" %in% colnames(data)) {
+    return(data)
+  }
+
+  data$id <- seq(1:nrow(iris))
+  return(data)
+}
