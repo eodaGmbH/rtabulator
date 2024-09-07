@@ -8,12 +8,15 @@ ui <- fluidPage(
   textOutput("row"),
   actionButton("download", "Download csv"),
   actionButton("delete", "Delete selected rows"),
-  actionButton("add", "Add row")
+  actionButton("add", "Add row"),
+  actionButton("undo", "Undo"),
+  actionButton("redo", "Redo")
 )
 
 table_options <- table_options(
   selectable_rows = TRUE,
-  add_row_pos = "top"
+  add_row_pos = "top",
+  history = TRUE
 )
 
 server <- function(input, output) {
@@ -23,7 +26,9 @@ server <- function(input, output) {
 
   output$row <- renderText({
     print(input$table_row_clicked)
-    input$table_row_clicked$Sepal_Length
+    input$table_row_clicked |>
+      as.character() |>
+      paste(collapse = ", ")
   })
 
   observeEvent(input$download, {
@@ -44,6 +49,20 @@ server <- function(input, output) {
     print(input$add)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
       add_row() |>
+      send_table_calls()
+  })
+
+  observeEvent(input$undo, {
+    print(input$undo)
+    tabulatorContext(TABULATOR_OUTPUT_ID) |>
+      undo() |>
+      send_table_calls()
+  })
+
+  observeEvent(input$redo, {
+    print(input$redo)
+    tabulatorContext(TABULATOR_OUTPUT_ID) |>
+      redo() |>
       send_table_calls()
   })
 }

@@ -2,13 +2,13 @@
 % Please edit documentation in R/rtabulator.R
 \name{rtabulator-shiny}
 \alias{rtabulator-shiny}
-\alias{rtabulatorOutput}
-\alias{renderRtabulator}
+\alias{tabulatorOutput}
+\alias{renderTabulator}
 \title{Shiny bindings for rtabulator}
 \usage{
-rtabulatorOutput(outputId, width = "100\%", height = "400px")
+tabulatorOutput(outputId, width = "100\%", height = "400px")
 
-renderRtabulator(expr, env = parent.frame(), quoted = FALSE)
+renderTabulator(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{outputId}{output variable to read from}

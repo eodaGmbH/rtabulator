@@ -4,6 +4,9 @@ table_options <- function(
     index = "id",
     columns = NULL,
     height = NULL,
+    group_by = NULL,
+    # Must be TRUE in order to use 'undo' and 'redo'
+    history = FALSE,
     layout = c("fitColumns", "fitData", "fitDataFill", "fitDataStretch", "fitDataTable"),
     # 'highlight', bool or integer
     selectable_rows = "highlight",
