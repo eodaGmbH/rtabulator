@@ -5,11 +5,11 @@
 #' @import htmlwidgets
 #'
 #' @export
-rtabulator <- function(data, table_options = NULL,
+tabulator <- function(data, table_options = NULL,
                        rtabulator_auto_columns = TRUE,
                        width = NULL, height = NULL, elementId = NULL, ...) {
   table_options <- merge_lists(table_options, list(...))
-  # if (is.null(table_options)) table_options <- list()
+  if (is.null(table_options)) table_options <- list()
 
   if (isTRUE(table_options$spreadsheet)) {
     # ...
@@ -54,15 +54,15 @@ rtabulator <- function(data, table_options = NULL,
 #' @name rtabulator-shiny
 #'
 #' @export
-rtabulatorOutput <- function(outputId, width = "100%", height = "400px") {
+tabulatorOutput <- function(outputId, width = "100%", height = "400px") {
   htmlwidgets::shinyWidgetOutput(outputId, "rtabulator", width, height, package = "rtabulator")
 }
 
 #' @rdname rtabulator-shiny
 #' @export
-renderRtabulator <- function(expr, env = parent.frame(), quoted = FALSE) {
+renderTabulator <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) {
     expr <- substitute(expr)
   } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, rtabulatorOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, tabulatorOutput, env, quoted = TRUE)
 }
