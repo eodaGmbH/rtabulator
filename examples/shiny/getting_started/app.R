@@ -16,7 +16,8 @@ ui <- fluidPage(
 table_options <- table_options(
   selectable_rows = TRUE,
   add_row_pos = "top",
-  history = TRUE
+  history = TRUE,
+  columns = create_columns(iris) |> add_editor_to_columns()
 )
 
 server <- function(input, output) {
