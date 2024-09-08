@@ -1,1 +1,1 @@
-tabulator(data=NULL, table_options(spreadsheet = TRUE))
+tabulator(data = NULL, tabulator_options(spreadsheet = TRUE))

@@ -3,8 +3,16 @@
 #' @param type (character): csv or json
 #' @param file_name (character): file name
 #' @export
-trigger_download <- function(ctx, type, file_name) {
-  invoke_method(ctx, "download", type, file_name)
+# TODO: Add support for xlsx
+trigger_download <- function(ctx, type = c("csv", "json"), file_name) {
+  invoke_method(ctx, "download", match.arg(type), file_name)
+}
+
+#' Submit data to R
+#' @inheritParams trigger_download
+#' @export
+trigger_get_data <- function(ctx) {
+  invoke_method(ctx, "getData")
 }
 
 #' Add a row to the table

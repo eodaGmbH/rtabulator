@@ -13,7 +13,7 @@ ui <- fluidPage(
   actionButton("redo", "Redo")
 )
 
-options <- table_options(
+options <- tabulator_options(
   selectable_rows = TRUE,
   add_row_pos = "top",
   history = TRUE,

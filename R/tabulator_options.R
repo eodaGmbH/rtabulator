@@ -1,6 +1,7 @@
 #' Table Options
+#' https://tabulator.info/docs/6.2/options
 #' @export
-table_options <- function(
+tabulator_options <- function(
     index = "id",
     columns = NULL,
     height = NULL,
@@ -15,6 +16,7 @@ table_options <- function(
     frozen_rows = NULL,
     row_height = NULL,
     add_row_pos = c("bottom", "top"),
+    edit_trigger_event = "dblclick",
     # Spreadsheet
     spreadsheet = FALSE,
     spreadsheet_rows = NULL,

@@ -5,12 +5,12 @@
 #' @import htmlwidgets
 #'
 #' @export
-tabulator <- function(data, options = NULL,
+tabulator <- function(data, options = tabulator_options(),
                       rtabulator_auto_columns = TRUE,
                       width = NULL, height = NULL, elementId = NULL, ...) {
-  options <- utils::modifyList(options, list(...))
   if (is.null(options)) options <- list()
 
+  options <- utils::modifyList(options, list(...))
   if (isTRUE(options$spreadsheet)) {
     # ...
   } else {
