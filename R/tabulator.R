@@ -5,25 +5,25 @@
 #' @import htmlwidgets
 #'
 #' @export
-tabulator <- function(data, table_options = NULL,
+tabulator <- function(data, options = NULL,
                       rtabulator_auto_columns = TRUE,
                       width = NULL, height = NULL, elementId = NULL, ...) {
-  table_options <- utils::modifyList(table_options, list(...))
-  if (is.null(table_options)) table_options <- list()
+  options <- utils::modifyList(options, list(...))
+  if (is.null(options)) options <- list()
 
-  if (isTRUE(table_options$spreadsheet)) {
+  if (isTRUE(options$spreadsheet)) {
     # ...
   } else {
     data <- fix_colnames(data)
-    if (rtabulator_auto_columns && is.null(table_options$columns)) {
-      table_options$columns <- create_columns(data)
+    if (rtabulator_auto_columns && is.null(options$columns)) {
+      options$columns <- create_columns(data)
     }
     data <- set_auto_id(data)
   }
 
   x <- list(
     data = data,
-    options = keys_to_camel_case(compact(table_options))
+    options = keys_to_camel_case(compact(options))
   )
 
 
