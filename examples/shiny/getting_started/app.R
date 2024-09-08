@@ -35,36 +35,31 @@ server <- function(input, output) {
   observeEvent(input$download, {
     print(input$download)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
-      trigger_download("csv", "data.csv") |>
-      send_table_calls()
+      trigger_download("csv", "data.csv")
   })
 
   observeEvent(input$delete, {
     print(input$delete)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
-      delete_selected_rows() |>
-      send_table_calls()
+      delete_selected_rows()
   })
 
   observeEvent(input$add, {
     print(input$add)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
-      add_row() |>
-      send_table_calls()
+      add_row()
   })
 
   observeEvent(input$undo, {
     print(input$undo)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
-      undo() |>
-      send_table_calls()
+      undo()
   })
 
   observeEvent(input$redo, {
     print(input$redo)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
-      redo() |>
-      send_table_calls()
+      redo()
   })
 }
 

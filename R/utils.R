@@ -41,6 +41,6 @@ set_auto_id <- function(data) {
     return(data)
   }
 
-  data$id <- seq(1:nrow(iris))
+  data$id <- seq(1:nrow(data))
   return(data)
 }
