@@ -10,7 +10,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$titanic <- renderTabulator({
-    tabulator(titanic_tibble)
+    tabulator(titanic_tibble, editable = TRUE)
   })
 }
 

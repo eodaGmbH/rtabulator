@@ -7,6 +7,7 @@
 #' @export
 tabulator <- function(data, options = tabulator_options(),
                       rtabulator_auto_columns = TRUE,
+                      editable = FALSE,
                       width = NULL, height = NULL, elementId = NULL, ...) {
   if (is.null(options)) options <- list()
 
@@ -16,7 +17,7 @@ tabulator <- function(data, options = tabulator_options(),
   } else {
     data <- fix_colnames(data)
     if (rtabulator_auto_columns && is.null(options$columns)) {
-      options$columns <- create_columns(data)
+      options$columns <- create_columns(data, editor = editable)
     }
     data <- set_auto_id(data)
   }

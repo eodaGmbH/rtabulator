@@ -18,7 +18,7 @@ options <- tabulator_options(
   selectable_rows = TRUE,
   add_row_pos = "top",
   history = TRUE,
-  columns = create_columns(iris) |> add_editor_to_columns(data = iris)
+  columns = create_columns(iris, editor = TRUE, filter = TRUE)
 )
 
 server <- function(input, output) {

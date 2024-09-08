@@ -1,12 +1,12 @@
-fix_colnames <- function(data) {
-  colnames(data) <- sub("\\.", "_", colnames(data))
-  return(data)
-}
-
-create_columns <- function(data) {
+#' Create columns definition from data
+#' @param data (data.frame) data
+#' @param editor (bool): Whether to make columns editable.
+#' @param filter (bool): Whether to add a header filter to the columns.
+#' @export
+create_columns <- function(data, editor = FALSE, filter = FALSE) {
   data <- fix_colnames(data)
   dtype_is_numeric <- sapply(data, is.numeric)
-  purrr::map(
+  columns <- purrr::map(
     colnames(data),
     ~ list(
       title = .x,
@@ -14,6 +14,20 @@ create_columns <- function(data) {
       hozAlign = as.vector(ifelse(dtype_is_numeric[.x], "right", "left"))
     )
   )
+  if (isTRUE(editor)) {
+    columns <- add_editor_to_columns(columns, data)
+  }
+
+  if (isTRUE(filter)) {
+    columns <- add_filter_to_columns(columns)
+  }
+
+  return(columns)
+}
+
+fix_colnames <- function(data) {
+  colnames(data) <- sub("\\.", "_", colnames(data))
+  return(data)
 }
 
 set_auto_id <- function(data) {
@@ -25,18 +39,19 @@ set_auto_id <- function(data) {
   return(data)
 }
 
-# TODO: Add possibility to select specific columns
-add_editor_to_columns <- function(columns, data = NULL) {
-  if (is.null(data)) {
-    for (index in 1:length(columns)) {
-      columns[[index]]$editor <- "input"
-    }
-    return(columns)
-  }
-
+# TODO: Add possibility to add editor to specific columns only
+add_editor_to_columns <- function(columns, data) {
   dtype_is_numeric <- sapply(data, is.numeric)
   for (index in 1:length(columns)) {
     columns[[index]]$editor <- as.vector(ifelse(dtype_is_numeric[index], "number", "input"))
+  }
+
+  return(columns)
+}
+
+add_filter_to_columns <- function(columns) {
+  for (index in 1:length(columns)) {
+    columns[[index]]$headerFilter <- TRUE # detects column type automatically
   }
 
   return(columns)
