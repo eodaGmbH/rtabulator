@@ -10,7 +10,8 @@ ui <- fluidPage(
   actionButton("delete", "Delete selected rows"),
   actionButton("add", "Add row"),
   actionButton("undo", "Undo"),
-  actionButton("redo", "Redo")
+  actionButton("redo", "Redo"),
+  actionButton("submit", "Submit data to R")
 )
 
 options <- tabulator_options(
@@ -60,6 +61,16 @@ server <- function(input, output) {
     print(input$redo)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
       redo()
+  })
+
+  observeEvent(input$submit, {
+    print(input$submit)
+    tabulatorContext(TABULATOR_OUTPUT_ID) |>
+      trigger_get_data()
+  })
+
+  observeEvent(input$table_data, {
+    print(input$table_data)
   })
 }
 
