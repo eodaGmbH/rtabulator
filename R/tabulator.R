@@ -19,6 +19,7 @@ tabulator <- function(data, options = tabulator_options(),
     if (rtabulator_auto_columns && is.null(options$columns)) {
       options$columns <- create_columns(data, editor = editable)
     }
+
     data <- set_auto_id(data)
   }
 

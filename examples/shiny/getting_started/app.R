@@ -45,11 +45,17 @@ server <- function(input, output) {
       delete_selected_rows()
   })
 
-  observeEvent(input$add, {
+  # observeEvent(input$add, {
+  #  print(input$add)
+  #  tabulatorContext(TABULATOR_OUTPUT_ID) |>
+  #    add_row()
+  # })
+
+  observe({
     print(input$add)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
       add_row()
-  })
+  }) |> bindEvent(input$add)
 
   observeEvent(input$undo, {
     print(input$undo)
