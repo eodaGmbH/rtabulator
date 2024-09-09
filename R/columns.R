@@ -79,7 +79,7 @@ set_tick_cross_formatter <- function(widget, column) {
 modify_col_def <- function(widget, column, col_update) {
   for (index in 1:length(widget$x$options$columns)) {
     if (widget$x$options$columns[[index]]$field == column) {
-      widget$x$options$columns[[index]] <- modifyList(
+      widget$x$options$columns[[index]] <- utils::modifyList(
         widget$x$options$columns[[index]], col_update
       )
     }
