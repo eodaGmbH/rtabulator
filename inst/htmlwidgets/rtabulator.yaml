@@ -1,7 +1,7 @@
 # (uncomment to add a dependency)
-# dependencies:
-#  - name:
-#    version:
-#    src:
-#    script:
-#    stylesheet:
+dependencies:
+  - name: tabulator
+    version: 6.2.5
+    src: htmlwidgets/libs/tabulator
+    script: tabulator.min.js
+    stylesheet: tabulator.min.css
