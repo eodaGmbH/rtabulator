@@ -9,6 +9,8 @@ tabulator(
   options = tabulator_options(),
   rtabulator_auto_columns = TRUE,
   editable = FALSE,
+  theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3",
+    "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
   width = NULL,
   height = NULL,
   elementId = NULL,
