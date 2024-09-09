@@ -6,8 +6,9 @@
 \usage{
 tabulator(
   data,
-  options = NULL,
+  options = tabulator_options(),
   rtabulator_auto_columns = TRUE,
+  editable = FALSE,
   width = NULL,
   height = NULL,
   elementId = NULL,
