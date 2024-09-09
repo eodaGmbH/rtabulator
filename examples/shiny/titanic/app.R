@@ -10,7 +10,8 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$titanic <- renderTabulator({
-    tabulator(titanic_tibble, editable = TRUE)
+    tabulator(titanic_tibble, editable = TRUE) |>
+      set_progress_formatter("Fare")
   })
 }
 

@@ -56,3 +56,26 @@ add_filter_to_columns <- function(columns) {
 
   return(columns)
 }
+
+# Formatters
+set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "center") {
+
+}
+
+set_progress_formatter <- function(widget, column, hoz_align = "left") {
+  # TODO: Add generic func for other formatters
+  for (index in 1:length(widget$x$options$columns)) {
+    if (widget$x$options$columns[[index]]$field == column) {
+      col_update <- list(formatter = "progress", hozAlign = hoz_align)
+      widget$x$options$columns[[index]] <- modifyList(
+        widget$x$options$columns[[index]], col_update
+      )
+    }
+  }
+
+  return(widget)
+}
+
+set_tick_cross_formatter <- function(widget, column) {
+
+}
