@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabulator.R
 \name{tabulator}
 \alias{tabulator}
-\title{<Add Title>}
+\title{Create a Tabulator Widget}
 \usage{
 tabulator(
   data,
@@ -17,6 +17,23 @@ tabulator(
   ...
 )
 }
+\arguments{
+\item{data}{(data.frame): description}
+
+\item{options}{(list): description}
+
+\item{rtabulator_auto_columns}{(bool): description}
+
+\item{theme}{(character): description}
+
+\item{width}{description}
+
+\item{height}{description}
+
+\item{elementId}{description}
+
+\item{...}{Named arguments that are appended to options.}
+}
 \description{
-<Add Description>
+Create a Tabulator Widget
 }

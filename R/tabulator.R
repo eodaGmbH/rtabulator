@@ -1,9 +1,14 @@
-#' <Add Title>
+#' Create a Tabulator Widget
 #'
-#' <Add Description>
-#'
+#' @param data (data.frame): description
+#' @param options (list): description
+#' @param rtabulator_auto_columns (bool): description
+#' @param theme (character): description
+#' @param width description
+#' @param height description
+#' @param elementId description
+#' @param ... Named arguments that are appended to options.
 #' @import htmlwidgets
-#'
 #' @export
 tabulator <- function(
     data,

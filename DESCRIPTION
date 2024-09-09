@@ -18,4 +18,5 @@ Imports:
     glue,
     htmlwidgets,
     purrr,
+    readr,
     shiny
