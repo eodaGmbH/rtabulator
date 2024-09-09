@@ -59,7 +59,8 @@ add_filter_to_columns <- function(columns) {
 
 # Formatters
 set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "center") {
-
+  col_update <- list(formatter = "star", formatterParams =list(stars = number_of_stars), hozAlign=hoz_align)
+  modify_col_def(widget, column, col_update)
 }
 
 set_progress_formatter <- function(widget, column, hoz_align = "left") {
