@@ -68,7 +68,8 @@ set_progress_formatter <- function(widget, column, hoz_align = "left") {
 }
 
 set_tick_cross_formatter <- function(widget, column) {
-
+  col_update <- list(formatter = "tickCross")
+  modify_col_def(widget, column, col_update)
 }
 
 modify_col_def <- function(widget, column, col_update) {

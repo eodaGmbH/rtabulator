@@ -11,7 +11,8 @@ ui <- fluidPage(
 server <- function(input, output) {
   output$titanic <- renderTabulator({
     tabulator(titanic_tibble, editable = TRUE) |>
-      set_progress_formatter("Fare")
+      set_progress_formatter("Fare") |>
+      set_tick_cross_formatter("Survived")
   })
 }
 
