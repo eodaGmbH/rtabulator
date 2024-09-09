@@ -63,10 +63,17 @@ set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "cen
 }
 
 set_progress_formatter <- function(widget, column, hoz_align = "left") {
-  # TODO: Add generic func for other formatters
+  col_update <- list(formatter = "progress", hozAlign = hoz_align)
+  modify_col_def(widget, column, col_update)
+}
+
+set_tick_cross_formatter <- function(widget, column) {
+
+}
+
+modify_col_def <- function(widget, column, col_update) {
   for (index in 1:length(widget$x$options$columns)) {
     if (widget$x$options$columns[[index]]$field == column) {
-      col_update <- list(formatter = "progress", hozAlign = hoz_align)
       widget$x$options$columns[[index]] <- modifyList(
         widget$x$options$columns[[index]], col_update
       )
@@ -74,8 +81,4 @@ set_progress_formatter <- function(widget, column, hoz_align = "left") {
   }
 
   return(widget)
-}
-
-set_tick_cross_formatter <- function(widget, column) {
-
 }
