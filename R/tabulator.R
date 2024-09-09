@@ -8,7 +8,7 @@
 tabulator <- function(data, options = tabulator_options(),
                       rtabulator_auto_columns = TRUE,
                       editable = FALSE,
-                      width = NULL, height = NULL, elementId = NULL, ...) {
+                      width = NULL, height = NULL, elementId = NULL, theme = NULL, ...) {
   if (is.null(options)) options <- list()
 
   options <- utils::modifyList(options, list(...))
@@ -23,9 +23,12 @@ tabulator <- function(data, options = tabulator_options(),
     data <- set_auto_id(data)
   }
 
+  stylesheet_text <- ifelse(is.null(theme), NA, read_tabulator_theme(theme))
+
   x <- list(
     data = data,
-    options = keys_to_camel_case(compact(options))
+    options = keys_to_camel_case(compact(options)),
+    stylesheetText = stylesheet_text
   )
 
 
