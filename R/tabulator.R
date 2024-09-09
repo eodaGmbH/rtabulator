@@ -5,10 +5,16 @@
 #' @import htmlwidgets
 #'
 #' @export
-tabulator <- function(data, options = tabulator_options(),
-                      rtabulator_auto_columns = TRUE,
-                      editable = FALSE,
-                      width = NULL, height = NULL, elementId = NULL, theme = NULL, ...) {
+tabulator <- function(
+    data,
+    options = tabulator_options(),
+    rtabulator_auto_columns = TRUE,
+    editable = FALSE,
+    theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3", "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
+    width = NULL,
+    height = NULL,
+    elementId = NULL,
+    ...) {
   if (is.null(options)) options <- list()
 
   options <- utils::modifyList(options, list(...))
@@ -23,7 +29,8 @@ tabulator <- function(data, options = tabulator_options(),
     data <- set_auto_id(data)
   }
 
-  stylesheet_text <- ifelse(is.null(theme), NA, read_tabulator_theme(theme))
+  theme <- match.arg(theme)
+  stylesheet_text <- ifelse(theme == "default", NA, read_tabulator_theme(theme))
 
   x <- list(
     data = data,
