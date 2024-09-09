@@ -81,9 +81,11 @@
     function renderValue(payload) {
       console.log(payload);
       if (payload.stylesheetText) {
-        document.head.insertAdjacentHTML("beforeend", `<style>${payload.stylesheetText}</style>`)
+        document.head.insertAdjacentHTML(
+          "beforeend",
+          `<style>${payload.stylesheetText}</style>`
+        );
       }
-
       if (payload.options === null) {
         payload.options = {};
       }
