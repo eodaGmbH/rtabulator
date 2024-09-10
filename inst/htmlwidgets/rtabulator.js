@@ -1,5 +1,5 @@
 (() => {
-  // srcjs/events.js
+  // src/events.js
   function addEventListeners(table, el) {
     table.on("rowClick", function(e, row) {
       const inputName = `${el.id}_row_clicked`;
@@ -25,7 +25,7 @@
     });
   }
 
-  // srcjs/widget.js
+  // src/widget.js
   function run_calls(el, table, calls) {
     calls.forEach(([method_name, options]) => {
       if (method_name === "getData") {
@@ -39,6 +39,14 @@
         rows.forEach((row) => {
           console.log(row.getIndex());
           table.deleteRow(row.getIndex());
+        });
+        return;
+      }
+      if (method_name === "getSpreadsheetData") {
+        const inputName = `${el.id}_spreadsheet_data`;
+        console.log("custom call", inputName);
+        Shiny.setInputValue(inputName, table.getSheetData(), {
+          priority: "event"
         });
         return;
       }
@@ -75,7 +83,7 @@
     }
   };
 
-  // srcjs/index-r.js
+  // src/index-r.js
   function tabulatorFactory(widgetElement, width, height) {
     let table = null;
     function renderValue(payload) {

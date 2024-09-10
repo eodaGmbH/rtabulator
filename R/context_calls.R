@@ -48,3 +48,10 @@ undo <- function(ctx) {
 redo <- function(ctx) {
   invoke_method(ctx, "redo")
 }
+
+#' Submit data to R
+#' @inheritParams trigger_download
+#' @export
+trigger_get_spreadsheet_data <- function(ctx) {
+  invoke_method(ctx, "getSpreadsheetData")
+}
