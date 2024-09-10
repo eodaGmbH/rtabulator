@@ -18,21 +18,22 @@ tabulator(
 )
 }
 \arguments{
-\item{data}{(data.frame): description}
+\item{data}{(data.frame or list): In spreadsheet mode data needs to be a list or \code{NULL}
+for an empty spreadsheet.}
 
-\item{options}{(list): description}
+\item{options}{(list): Setup options. See \code{\link{tabulator_options}}.}
 
-\item{rtabulator_auto_columns}{(bool): description}
+\item{editable}{(bool): Whether the table is editable.}
 
-\item{theme}{(character): description}
+\item{theme}{(character): Theme to apply to the table.}
 
-\item{width}{description}
+\item{width}{Width of the widget.}
 
-\item{height}{description}
+\item{height}{Height of the widget.}
 
 \item{elementId}{description}
 
-\item{...}{Named arguments that are appended to options.}
+\item{...}{Named arguments that are appended to the \code{options} parameter.}
 }
 \description{
 Create a Tabulator Widget

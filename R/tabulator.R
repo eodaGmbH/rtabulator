@@ -1,13 +1,14 @@
 #' Create a Tabulator Widget
 #'
-#' @param data (data.frame): description
-#' @param options (list): description
-#' @param rtabulator_auto_columns (bool): description
-#' @param theme (character): description
-#' @param width description
-#' @param height description
+#' @param data (data.frame or list): In spreadsheet mode data needs to be a list or \code{NULL}
+#'  for an empty spreadsheet.
+#' @param options (list): Setup options. See \code{\link{tabulator_options}}.
+#' @param editable (bool): Whether the table is editable.
+#' @param theme (character): Theme to apply to the table.
+#' @param width Width of the widget.
+#' @param height Height of the widget.
 #' @param elementId description
-#' @param ... Named arguments that are appended to options.
+#' @param ... Named arguments that are appended to the \code{options} parameter.
 #' @import htmlwidgets
 #' @export
 tabulator <- function(
@@ -27,7 +28,7 @@ tabulator <- function(
     # ...
   } else {
     data <- fix_colnames(data)
-    if (rtabulator_auto_columns && is.null(options$columns)) {
+    if (getOption("rtabulator.auto_columns", TRUE) && is.null(options$columns)) {
       options$columns <- create_columns(data, editor = editable)
     }
 
