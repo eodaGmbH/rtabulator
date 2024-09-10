@@ -1,6 +1,6 @@
 #' Create a Tabulator Widget
 #'
-#' @param data (data.frame or list): In spreadsheet mode data needs to be a list or \code{NULL}
+#' @param data (data.frame, character or list): In spreadsheet mode data needs to be a list or \code{NULL}
 #'  for an empty spreadsheet.
 #' @param options (list): Setup options. See \code{\link{tabulator_options}}.
 #' @param editable (bool): Whether the table is editable.
@@ -22,6 +22,10 @@ tabulator <- function(
     element_id = NULL,
     ...) {
   if (is.null(options)) options <- list()
+
+  if (class(data) == "character") {
+    data <- readr::read_csv(data, show_col_types = FALSE)
+  }
 
   options <- utils::modifyList(options, list(...))
   if (isTRUE(options$spreadsheet)) {
