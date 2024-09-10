@@ -29,6 +29,8 @@ tabulator_options(
   spreadsheet_rows = NULL,
   spreadsheet_columns = NULL,
   spreadsheet_column_definition = list(editor = "input"),
+  spreadsheet_sheets = NULL,
+  spreadsheet_sheet_tabs = NULL,
   ...
 )
 }
