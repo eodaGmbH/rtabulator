@@ -8,9 +8,9 @@ options <- tabulator_options(
     list(
       title = "Second",
       data = list(c(4, 5, 6))
-      )
-    ),
-  spreadsheet_sheet_tabs=TRUE
+    )
+  ),
+  spreadsheet_sheet_tabs = TRUE
 )
 
 tabulator(data = NULL, options, theme = "midnight")
