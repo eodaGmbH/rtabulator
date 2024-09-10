@@ -27,7 +27,6 @@ server <- function(input, output) {
   observe({
     print(input$spreadsheet_spreadsheet_data)
   }) |> bindEvent(input$spreadsheet_spreadsheet_data)
-
 }
 
 shinyApp(ui = ui, server = server)
