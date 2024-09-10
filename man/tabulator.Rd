@@ -13,7 +13,7 @@ tabulator(
     "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
   width = NULL,
   height = NULL,
-  elementId = NULL,
+  element_id = NULL,
   ...
 )
 }
@@ -31,7 +31,7 @@ for an empty spreadsheet.}
 
 \item{height}{Height of the widget.}
 
-\item{elementId}{description}
+\item{element_id}{description}
 
 \item{...}{Named arguments that are appended to the \code{options} parameter.}
 }

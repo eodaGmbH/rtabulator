@@ -7,7 +7,7 @@
 #' @param theme (character): Theme to apply to the table.
 #' @param width Width of the widget.
 #' @param height Height of the widget.
-#' @param elementId description
+#' @param element_id description
 #' @param ... Named arguments that are appended to the \code{options} parameter.
 #' @import htmlwidgets
 #' @export
@@ -19,7 +19,7 @@ tabulator <- function(
     theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3", "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
     width = NULL,
     height = NULL,
-    elementId = NULL,
+    element_id = NULL,
     ...) {
   if (is.null(options)) options <- list()
 
@@ -52,7 +52,7 @@ tabulator <- function(
     width = width,
     height = height,
     package = "rtabulator",
-    elementId = elementId
+    elementId = element_id
   )
 }
 
