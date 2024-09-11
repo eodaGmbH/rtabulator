@@ -7,7 +7,7 @@
 trigger_get_spreadsheet_data(ctx)
 }
 \arguments{
-\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context}
+\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 }
 \description{
 Submit data to R

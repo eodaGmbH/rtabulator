@@ -4,6 +4,8 @@
 #'  for an empty spreadsheet.
 #' @param options (list): Setup options. See \code{\link{tabulator_options}}.
 #' @param editable (bool): Whether the table is editable.
+#' @param sheetjs (bool): Whether to add sheetjs (\url{https://sheetjs.com/}) dependency,
+#'  which is needed for xlsx downloads.
 #' @param theme (character): Theme to apply to the table.
 #' @param width Width of the widget.
 #' @param height Height of the widget.
@@ -14,8 +16,8 @@
 tabulator <- function(
     data,
     options = tabulator_options(),
-    rtabulator_auto_columns = TRUE,
     editable = FALSE,
+    sheetjs = FALSE,
     theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3", "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
     width = NULL,
     height = NULL,
@@ -48,6 +50,11 @@ tabulator <- function(
     stylesheetText = stylesheet_text
   )
 
+  dependencies <- list()
+
+  if (sheetjs) {
+    dependencies <- c(dependencies, list(sheetjs_dependency))
+  }
 
   # create widget
   htmlwidgets::createWidget(
@@ -56,6 +63,7 @@ tabulator <- function(
     width = width,
     height = height,
     package = "rtabulator",
+    dependencies = dependencies,
     elementId = element_id
   )
 }
