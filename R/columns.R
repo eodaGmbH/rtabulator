@@ -159,15 +159,24 @@ set_formatter_image <- function(
   modify_col_def(widget, column, col_update)
 }
 
-# Link
+#' Link Formatter
+#' @inheritParams set_formatter_html
+#' @param label_field (character): Column to be used as label for the link.
+#' @param url_prefix (character): Prefix to add to the URL value.
+#' @param url (\link[htmltools]{JS} function): A JS function that return the URL value.
+#'  The cell value is passed to the function as its first argument.
+#' @param target (character): Target attribute of the anchor tag.
+#' @example examples/formatters/formatter_link.R
 #' @export
 set_formatter_link <- function(
-    widget, column,
+    widget,
+    column,
     label_field = NULL,
     url_prefix = NULL,
     url = NULL,
     target = "_blank",
     hoz_align = "left") {
+  # Body
   col_update <- list(
     formatter = "link",
     formatterParams = compact(list(
