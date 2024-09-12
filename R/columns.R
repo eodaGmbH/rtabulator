@@ -153,13 +153,21 @@ set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "cen
 
 set_progress_formatter <- function(
     widget, column,
-    min = 0,
-    max = 10,
+    min = NULL,
+    max = NULL,
     color = c("green", "orange", "red"),
     legend = FALSE,
-    legend_color = "#000000",
-    legend_align = "center",
+    legendColor = "#000000",
+    legendAlign = "center",
     hoz_align = "left") {
+
+
+  if (is.null(min)){
+    min <- min(widget$x$data[column])
+  }
+  if (is.null(max)){
+    max <- max(widget$x$data[column])
+  }
   col_update <- list(
     formatter = "progress",
     formatterParams = list(
@@ -167,8 +175,8 @@ set_progress_formatter <- function(
       max = max,
       color = color,
       legend = legend,
-      legendColor = legend_color,
-      legendAlign = legend_align
+      legendColor = legendColor,
+      legendAlign = legendAlign
     ),
     hozAlign = hoz_align
   )
