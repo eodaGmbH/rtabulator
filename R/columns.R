@@ -128,7 +128,6 @@ set_formatter_link <- function(
     url = NULL,
     target = "_blank",
     hoz_align = "left") {
-
   col_update <- list(
     formatter = "link",
     formatterParams = compact(list(
@@ -165,12 +164,10 @@ set_formatter_progress <- function(
     legend_color = "#000000",
     legend_align = "center",
     hoz_align = "left") {
-
-
-  if (is.null(min)){
+  if (is.null(min)) {
     min <- min(widget$x$data[column])
   }
-  if (is.null(max)){
+  if (is.null(max)) {
     max <- max(widget$x$data[column])
   }
   col_update <- list(
@@ -205,4 +202,3 @@ modify_col_def <- function(widget, column, col_update) {
 
   return(widget)
 }
-
