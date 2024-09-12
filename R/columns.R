@@ -201,6 +201,38 @@ set_formatter_tick_cross <- function(widget, column) {
   modify_col_def(widget, column, col_update)
 }
 
+#' @export
+set_formatter_toggle_switch <- function(
+    widget,
+    column,
+    size = 20,
+    on_value = "on",
+    off_value = "off",
+    on_truthy = FALSE,
+    on_color = "green",
+    off_color = "red",
+    clickable = TRUE) {
+  # Body
+  col_update <- list(
+    formatter = "toggle",
+    formatterParams = list(
+      size = size,
+      onValue = on_value,
+      offValue = off_value,
+      onTruthy = on_truthy,
+      onColor = on_color,
+      offColor = off_color,
+      clickable = clickable
+    )
+  )
+  modify_col_def(widget, column, col_update)
+}
+
+#' @export
+set_formatter_datetime <- function(widget, column) {
+
+}
+
 modify_col_def <- function(widget, column, col_update) {
   for (index in 1:length(widget$x$options$columns)) {
     if (widget$x$options$columns[[index]]$field == column) {
