@@ -300,9 +300,32 @@ set_formatter_toggle_switch <- function(
   modify_col_def(widget, column, col_update)
 }
 
+#' Datetime formatter
+#' @inheritParams set_formatter_html
+#' @param input_format (character): The datetime input format.
+#' @param output_format (character): The datetime output format.
+#' @param timezone (character): The timezone of the datetime.
+#' @example examples/formatters/formatter_datetime.R
 #' @export
-set_formatter_datetime <- function(widget, column) {
-
+set_formatter_datetime <- function(
+    widget,
+    column,
+    input_format = "yyyy-MM-dd hh:ss:mm",
+    output_format = "yy/MM/dd",
+    invalid_placeholder = "(invalid datetime)",
+    timezone = NA
+    ) {
+  # Body
+  col_update <- list(
+    formatter = "datetime",
+    formatterParams = list(
+      inputFormat = input_format,
+      outputFormat = output_format,
+      invalidPlaceholder = invalid_placeholder,
+      timezone = timezone
+    )
+  )
+  modify_col_def(widget, column, col_update)
 }
 
 #' Color Formatter
