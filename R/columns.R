@@ -156,7 +156,7 @@ set_progress_formatter <- function(
     min = NULL,
     max = NULL,
     color = c("green", "orange", "red"),
-    legend = FALSE,
+    legend = "",
     legendColor = "#000000",
     legendAlign = "center",
     hoz_align = "left") {
