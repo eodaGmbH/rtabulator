@@ -1,10 +1,9 @@
 #' Download table data
-#' @param ctx (\code{\link{tabulatorContext}}): tabulator context
-#' @param type (character): csv or json
+#' @param ctx (\code{\link{tabulatorContext}}): tabulator context object
+#' @param type (character): csv, json or xlsx (needs sheetjs: \code{tabulator(..., sheetjs = TRUE)})
 #' @param file_name (character): file name
 #' @export
-# TODO: Add support for xlsx
-trigger_download <- function(ctx, type = c("csv", "json"), file_name) {
+trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name) {
   invoke_method(ctx, "download", match.arg(type), file_name)
 }
 
@@ -47,4 +46,11 @@ undo <- function(ctx) {
 #' @export
 redo <- function(ctx) {
   invoke_method(ctx, "redo")
+}
+
+#' Submit data to R
+#' @inheritParams trigger_download
+#' @export
+trigger_get_spreadsheet_data <- function(ctx) {
+  invoke_method(ctx, "getSpreadsheetData")
 }

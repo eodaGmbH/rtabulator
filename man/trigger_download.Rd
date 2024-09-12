@@ -4,12 +4,12 @@
 \alias{trigger_download}
 \title{Download table data}
 \usage{
-trigger_download(ctx, type = c("csv", "json"), file_name)
+trigger_download(ctx, type = c("csv", "json", "xlsx"), file_name)
 }
 \arguments{
-\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context}
+\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 
-\item{type}{(character): csv or json}
+\item{type}{(character): csv, json or xlsx (needs sheetjs: \code{tabulator(..., sheetjs = TRUE)})}
 
 \item{file_name}{(character): file name}
 }

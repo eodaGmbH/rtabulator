@@ -1,9 +1,11 @@
 #' Create a Tabulator Widget
 #'
-#' @param data (data.frame or list): In spreadsheet mode data needs to be a list or \code{NULL}
+#' @param data (data.frame, character or list): In spreadsheet mode data needs to be a list or \code{NULL}
 #'  for an empty spreadsheet.
 #' @param options (list): Setup options. See \code{\link{tabulator_options}}.
 #' @param editable (bool): Whether the table is editable.
+#' @param sheetjs (bool): Whether to add sheetjs (\url{https://sheetjs.com/}) dependency,
+#'  which is needed for xlsx downloads.
 #' @param theme (character): Theme to apply to the table.
 #' @param width Width of the widget.
 #' @param height Height of the widget.
@@ -14,8 +16,8 @@
 tabulator <- function(
     data,
     options = tabulator_options(),
-    rtabulator_auto_columns = TRUE,
     editable = FALSE,
+    sheetjs = FALSE,
     theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3", "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
     width = NULL,
     height = NULL,
@@ -23,9 +25,16 @@ tabulator <- function(
     ...) {
   if (is.null(options)) options <- list()
 
+  if (is.character(data)) {
+    data <- readr::read_csv(data, show_col_types = FALSE)
+  }
+
+  # TODO: Use Pipe, but then we need to set required R Version to > 4.1
   options <- utils::modifyList(options, list(...))
+  options <- keys_to_camel_case(compact(options))
   if (isTRUE(options$spreadsheet)) {
     # ...
+    options <- utils::modifyList(default_spreadsheet_options, options)
   } else {
     data <- fix_colnames(data)
     if (getOption("rtabulator.auto_columns", TRUE) && is.null(options$columns)) {
@@ -44,6 +53,12 @@ tabulator <- function(
     stylesheetText = stylesheet_text
   )
 
+  # TODO: Make it optional when datetime formatter is called
+  dependencies <- list(luxon_dependency)
+
+  if (sheetjs) {
+    dependencies <- c(dependencies, list(sheetjs_dependency))
+  }
 
   # create widget
   htmlwidgets::createWidget(
@@ -52,6 +67,7 @@ tabulator <- function(
     width = width,
     height = height,
     package = "rtabulator",
+    dependencies = dependencies,
     elementId = element_id
   )
 }

@@ -7,8 +7,8 @@
 tabulator(
   data,
   options = tabulator_options(),
-  rtabulator_auto_columns = TRUE,
   editable = FALSE,
+  sheetjs = FALSE,
   theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3",
     "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
   width = NULL,
@@ -18,12 +18,15 @@ tabulator(
 )
 }
 \arguments{
-\item{data}{(data.frame or list): In spreadsheet mode data needs to be a list or \code{NULL}
+\item{data}{(data.frame, character or list): In spreadsheet mode data needs to be a list or \code{NULL}
 for an empty spreadsheet.}
 
 \item{options}{(list): Setup options. See \code{\link{tabulator_options}}.}
 
 \item{editable}{(bool): Whether the table is editable.}
+
+\item{sheetjs}{(bool): Whether to add sheetjs (\url{https://sheetjs.com/}) dependency,
+which is needed for xlsx downloads.}
 
 \item{theme}{(character): Theme to apply to the table.}
 

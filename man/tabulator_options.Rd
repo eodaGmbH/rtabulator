@@ -2,11 +2,10 @@
 % Please edit documentation in R/tabulator_options.R
 \name{tabulator_options}
 \alias{tabulator_options}
-\title{Table Options
-https://tabulator.info/docs/6.2/options}
+\title{Table Options}
 \usage{
 tabulator_options(
-  height = NULL,
+  height = "311px",
   history = FALSE,
   columns = NULL,
   layout = c("fitColumns", "fitData", "fitDataFill", "fitDataStretch", "fitDataTable"),
@@ -29,10 +28,39 @@ tabulator_options(
   spreadsheet_rows = NULL,
   spreadsheet_columns = NULL,
   spreadsheet_column_definition = list(editor = "input"),
+  spreadsheet_sheets = NULL,
+  spreadsheet_sheet_tabs = NULL,
   ...
 )
 }
+\arguments{
+\item{height}{(character) The height of the table in px.}
+
+\item{history}{(bool): description}
+
+\item{layout}{(character): ...}
+
+\item{responsive_layout}{(bool): description}
+
+\item{movable_columns}{(bool): description}
+
+\item{header_visible}{(bool): description}
+
+\item{row_height}{description}
+
+\item{add_row_pos}{(character): description}
+
+\item{movable_rows}{(bool): description}
+
+\item{resizable_rows}{(bool): description}
+
+\item{frozen_rows}{description}
+
+\item{colummns}{(list): description}
+}
 \description{
 Table Options
-https://tabulator.info/docs/6.2/options
+}
+\seealso{
+\url{https://tabulator.info/docs/6.2/options}
 }

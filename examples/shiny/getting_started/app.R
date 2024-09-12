@@ -45,12 +45,6 @@ server <- function(input, output) {
       delete_selected_rows()
   })
 
-  # observeEvent(input$add, {
-  #  print(input$add)
-  #  tabulatorContext(TABULATOR_OUTPUT_ID) |>
-  #    add_row()
-  # })
-
   observe({
     print(input$add)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
@@ -76,7 +70,8 @@ server <- function(input, output) {
   })
 
   observeEvent(input$table_data, {
-    print(input$table_data)
+    # print(input$table_data)
+    print(list_to_data_frame(input$table_data$data))
   })
 }
 

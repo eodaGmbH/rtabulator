@@ -7,7 +7,7 @@
 redo(ctx)
 }
 \arguments{
-\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context}
+\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 }
 \description{
 Redo changes
