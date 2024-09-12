@@ -7,12 +7,12 @@
 set_formatter_money(
   widget,
   column,
-  decimal = ",",
-  thousand = ".",
+  decimal = c(",", "."),
+  thousand = c(".", ","),
   symbol = "£",
   symbol_after = "p",
-  negative_sign = T,
-  precision = F,
+  negative_sign = "-",
+  precision = FALSE,
   hoz_align = "left"
 )
 }
@@ -21,8 +21,38 @@ set_formatter_money(
 
 \item{column}{(character): The column the formatter is applied to.}
 
+\item{decimal}{(character): Symbol to represent the decimal point.}
+
+\item{thousand}{(character, bool): Symbol to represent the thousands separator.
+Set to \code{FALSE} to disable the separator.}
+
+\item{symbol}{(character): The currency symbol.}
+
+\item{symbol_after}{(bool): Whether to put the symbol after the number.}
+
+\item{negative_sign}{(character, bool): The sign to show in front of the number.
+Set to \code{TRUE} causes negative numbers to be enclosed in brackets (123.45),
+which is the standard style for negative numbers in accounting.}
+
+\item{precision}{(integer, bool): The number of decimals to display.
+Set to \code{FALSE} to display all decimals that are provided.}
+
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
 Money Formatter
+}
+\examples{
+data <- data.frame(
+   Account_Number= c(
+      123456,
+      345667,
+      234567,
+      234566
+     ),
+  Account_Balance = c(100, -50, 200.30, -21.5)
+)
+
+tabulator(data, width = 300) |>
+  set_formatter_money("Account_Balance", symbol_after = FALSE)
 }

@@ -90,17 +90,34 @@ set_formatter_textarea <- function(widget, column, hoz_align = "left") {
 
 #' Money Formatter
 #' @inheritParams set_formatter_html
+#' @param decimal (character): Symbol to represent the decimal point.
+#' @param thousand (character, bool): Symbol to represent the thousands separator.
+#'  Set to \code{FALSE} to disable the separator.
+#' @param symbol (character): The currency symbol.
+#' @param symbol_after (bool): Whether to put the symbol after the number.
+#' @param negative_sign (character, bool): The sign to show in front of the number.
+#'  Set to \code{TRUE} causes negative numbers to be enclosed in brackets (123.45),
+#'  which is the standard style for negative numbers in accounting.
+#' @param precision (integer, bool): The number of decimals to display.
+#'  Set to \code{FALSE} to display all decimals that are provided.
+#' @example examples/formatters/formatter_money.R
 #' @export
-# TODO: Add example
-set_formatter_money <- function(widget, column, decimal = ",", thousand = ".",
-                                symbol = "£", symbol_after = "p",
-                                negative_sign = T, precision = F,
-                                hoz_align = "left") {
+set_formatter_money <- function(
+    widget,
+    column,
+    decimal = c(",", "."),
+    thousand = c(".", ","),
+    symbol = "£",
+    symbol_after = "p",
+    negative_sign = "-",
+    precision = FALSE,
+    hoz_align = "left") {
+  # Body
   col_update <- list(
     formatter = "money",
     formatterParams = list(
-      decimal = decimal,
-      thousand = thousand,
+      decimal = match.arg(decimal),
+      thousand = match.arg(thousand),
       symbol = symbol,
       symbolAfter = symbol_after,
       negativeSign = negative_sign,
@@ -111,7 +128,7 @@ set_formatter_money <- function(widget, column, decimal = ",", thousand = ".",
   modify_col_def(widget, column, col_update)
 }
 
-# Image
+#' Image Formatter
 #' @export
 set_formatter_image <- function(
     widget,
