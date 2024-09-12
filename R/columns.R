@@ -61,6 +61,7 @@ add_filter_to_columns <- function(columns) {
 
 # Plain Text
 #' @export
+# TODO: Add example
 set_formatter_plaintext <- function(widget, column, number_of_stars, hoz_align = "left") {
   col_update <- list(formatter = "plaintext", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
@@ -68,6 +69,7 @@ set_formatter_plaintext <- function(widget, column, number_of_stars, hoz_align =
 
 # Text Area
 #' @export
+# TODO: Add example
 set_formatter_textarea <- function(widget, column, hoz_align = "left") {
   col_update <- list(formatter = "textarea", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
@@ -75,6 +77,7 @@ set_formatter_textarea <- function(widget, column, hoz_align = "left") {
 
 # HTML
 #' @export
+# TODO: Add example
 set_formatter_html <- function(widget, column, hoz_align = "left") {
   col_update <- list(formatter = "html", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
@@ -82,6 +85,7 @@ set_formatter_html <- function(widget, column, hoz_align = "left") {
 
 # Money
 #' @export
+# TODO: Add example
 set_formatter_money <- function(widget, column, decimal = ",", thousand = ".",
                                 symbol = "£", symbol_after = "p",
                                 negative_sign = T, precision = F,
@@ -103,9 +107,14 @@ set_formatter_money <- function(widget, column, decimal = ",", thousand = ".",
 
 # Image
 #' @export
-set_formatter_image <- function(widget, column, height = "50px", width = "50px",
-                                url_prefix = "",
-                                url_suffix = "", hoz_align = "center") {
+set_formatter_image <- function(
+    widget,
+    column,
+    height = "50px",
+    width = "50px",
+    url_prefix = "",
+    url_suffix = "",
+    hoz_align = "center") {
   col_update <- list(
     formatter = "image",
     formatterParams = list(
@@ -154,7 +163,6 @@ set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "cen
 
 # Progress
 #' @export
-
 set_formatter_progress <- function(
     widget, column,
     min = NULL,
@@ -167,9 +175,11 @@ set_formatter_progress <- function(
   if (is.null(min)) {
     min <- min(widget$x$data[column])
   }
+
   if (is.null(max)) {
     max <- max(widget$x$data[column])
   }
+
   col_update <- list(
     formatter = "progress",
     formatterParams = list(
