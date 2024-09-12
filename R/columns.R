@@ -57,16 +57,109 @@ add_filter_to_columns <- function(columns) {
   return(columns)
 }
 
-# Formatters
+# Formatters ####
+
+# Plain Text
 #' @export
-set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "center") {
-  col_update <- list(formatter = "star", formatterParams = list(stars = number_of_stars), hozAlign = hoz_align)
+set_plaintext_formatter <- function(widget, column, number_of_stars, hoz_align = "left") {
+  col_update <- list(formatter = "plaintext", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
 }
 
+# Text Area
 #' @export
-set_progress_formatter <- function(widget, column, hoz_align = "left") {
-  col_update <- list(formatter = "progress", hozAlign = hoz_align)
+set_textarea_formatter <- function(widget, column, hoz_align = "left") {
+  col_update <- list(formatter = "textarea", hozAlign = hoz_align)
+  modify_col_def(widget, column, col_update)
+}
+
+# HTML
+#' @export
+set_html_formatter <- function(widget, column, hoz_align = "left") {
+  col_update <- list(formatter = "html", hozAlign = hoz_align)
+  modify_col_def(widget, column, col_update)
+}
+
+# Money
+#' @export
+set_money_formatter <- function(widget, column, decimal = ",", thousand = ".",
+                                symbol = "£", symbolAfter = "p",
+                                negativeSign = T, precision = F,
+                                hoz_align = "left") {
+  col_update <- list(
+    formatter = "money",
+    formatterParams = list(
+      decimal = decimal,
+      thousand = thousand,
+      symbol = symbol,
+      symbolAfter = symbolAfter,
+      negativeSign = negativeSign,
+      precision = precision
+    ),
+    hozAlign = hoz_align
+  )
+  modify_col_def(widget, column, col_update)
+}
+
+# Image
+#' @export
+set_image_formatter <- function(widget, column, height = "50px", width = "50px",
+                                urlPrefix = "http://website.com/images/",
+                                urlSuffix = ".png", hoz_align = "center") {
+  col_update <- list(
+    formatter = "image",
+    formatterParams = list(
+      height = height,
+      width = width,
+      urlPrefix = urlPrefix,
+      urlSuffix = urlSuffix
+    ),
+    hozAlign = hoz_align
+  )
+  modify_col_def(widget, column, col_update)
+}
+
+# Link
+#' @export
+
+set_link_formatter <- function(widget, column, labelField = "", urlPrefix = "",
+                               target = "_blank", hoz_align = "left") {
+  col_update <- list(
+    formatter = "link",
+    formatterParams = list(
+      labelField = labelField,
+      urlPrefix = urlPrefix,
+      target = target
+    )
+  )
+
+  modify_col_def(widget, column, col_update)
+}
+
+# Star
+#' @export
+set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "center") {
+  col_update <- list(
+    formatter = "star",
+    formatterParams = list(stars = number_of_stars),
+    hozAlign = hoz_align
+  )
+  modify_col_def(widget, column, col_update)
+}
+
+
+# Progress
+#' @export
+set_progress_formatter <- function(widget, column, min = 0, max = 10, color = c("green", "orange", "red"),
+                                   legendColor = "#000000", legendAlign = "center", hoz_align = "left") {
+  col_update <- list(
+    formatter = "progress",
+    formatterParams = list(
+      min = min, max = max, color = color,
+      legendColor = legendColor, legendAlign = legendAlign
+    ),
+    hozAlign = hoz_align
+  )
   modify_col_def(widget, column, col_update)
 }
 
@@ -75,6 +168,7 @@ set_tick_cross_formatter <- function(widget, column) {
   col_update <- list(formatter = "tickCross")
   modify_col_def(widget, column, col_update)
 }
+
 
 modify_col_def <- function(widget, column, col_update) {
   for (index in 1:length(widget$x$options$columns)) {
