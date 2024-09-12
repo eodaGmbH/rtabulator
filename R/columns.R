@@ -70,7 +70,8 @@ set_formatter_html <- function(widget, column, hoz_align = c("left", "center", "
   modify_col_def(widget, column, col_update)
 }
 
-# Plain Text
+#' Plain Text Formatter
+#' @inheritParams set_formatter_html
 #' @export
 # TODO: Add example
 set_formatter_plaintext <- function(widget, column, hoz_align = "left") {
@@ -78,15 +79,17 @@ set_formatter_plaintext <- function(widget, column, hoz_align = "left") {
   modify_col_def(widget, column, col_update)
 }
 
-# Text Area
+#' Text Area Formatter
+#' @inheritParams set_formatter_html
+#' @example examples/formatters/formatter_textarea.R
 #' @export
-# TODO: Add example
 set_formatter_textarea <- function(widget, column, hoz_align = "left") {
   col_update <- list(formatter = "textarea", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
 }
 
-# Money
+#' Money Formatter
+#' @inheritParams set_formatter_html
 #' @export
 # TODO: Add example
 set_formatter_money <- function(widget, column, decimal = ",", thousand = ".",
