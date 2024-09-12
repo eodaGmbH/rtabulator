@@ -121,18 +121,22 @@ set_image_formatter <- function(widget, column, height = "50px", width = "50px",
 
 # Link
 #' @export
-
-set_link_formatter <- function(widget, column, labelField = "", urlPrefix = "",
-                               target = "_blank", hoz_align = "left") {
+set_link_formatter <- function(
+    widget, column,
+    label_field = NULL,
+    url_prefix = NULL,
+    url = NULL,
+    target = "_blank",
+    hoz_align = "left") {
   col_update <- list(
     formatter = "link",
-    formatterParams = list(
-      labelField = labelField,
-      urlPrefix = urlPrefix,
+    formatterParams = compact(list(
+      labelField = label_field,
+      urlPrefix = url_prefix,
+      url = url,
       target = target
-    )
+    ))
   )
-
   modify_col_def(widget, column, col_update)
 }
 
@@ -179,7 +183,6 @@ set_tick_cross_formatter <- function(widget, column) {
   col_update <- list(formatter = "tickCross")
   modify_col_def(widget, column, col_update)
 }
-
 
 modify_col_def <- function(widget, column, col_update) {
   for (index in 1:length(widget$x$options$columns)) {
