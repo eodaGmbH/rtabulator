@@ -1,3 +1,3 @@
 #!/bin/sh
-curl -O https://raw.githubusercontent.com/eodaGmbH/tabulator-bindings/main/r-bindings/rtabulator.js
-
+branch=${1:-dev}
+curl -O https://raw.githubusercontent.com/eodaGmbH/tabulator-bindings/${branch}/r-bindings/rtabulator.js

@@ -2,19 +2,42 @@
 % Please edit documentation in R/tabulator.R
 \name{tabulator}
 \alias{tabulator}
-\title{<Add Title>}
+\title{Create a Tabulator Widget}
 \usage{
 tabulator(
   data,
   options = tabulator_options(),
-  rtabulator_auto_columns = TRUE,
   editable = FALSE,
+  sheetjs = FALSE,
+  theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3",
+    "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
   width = NULL,
   height = NULL,
-  elementId = NULL,
+  element_id = NULL,
   ...
 )
 }
+\arguments{
+\item{data}{(data.frame, character or list): In spreadsheet mode data needs to be a list or \code{NULL}
+for an empty spreadsheet.}
+
+\item{options}{(list): Setup options. See \code{\link{tabulator_options}}.}
+
+\item{editable}{(bool): Whether the table is editable.}
+
+\item{sheetjs}{(bool): Whether to add sheetjs (\url{https://sheetjs.com/}) dependency,
+which is needed for xlsx downloads.}
+
+\item{theme}{(character): Theme to apply to the table.}
+
+\item{width}{Width of the widget.}
+
+\item{height}{Height of the widget.}
+
+\item{element_id}{description}
+
+\item{...}{Named arguments that are appended to the \code{options} parameter.}
+}
 \description{
-<Add Description>
+Create a Tabulator Widget
 }

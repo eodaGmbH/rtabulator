@@ -14,6 +14,10 @@ invoke_method <- function(widget, method_name, ...) {
   invisible(widget)
 }
 
+#' Create a Tabulator Context
+#' @param output_id (character): A tabulator output id.
+#' @param session shiny session object
+#' @export
 tabulatorContext <- function(output_id, session = shiny::getDefaultReactiveDomain()) {
   ctx <- list(
     id = output_id,

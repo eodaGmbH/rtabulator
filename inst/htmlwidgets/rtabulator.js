@@ -1,5 +1,5 @@
 (() => {
-  // srcjs/events.js
+  // src/events.js
   function addEventListeners(table, el) {
     table.on("rowClick", function(e, row) {
       const inputName = `${el.id}_row_clicked`;
@@ -25,12 +25,17 @@
     });
   }
 
-  // srcjs/widget.js
+  // src/widget.js
   function run_calls(el, table, calls) {
     calls.forEach(([method_name, options]) => {
       if (method_name === "getData") {
-        console.log("custom call");
-        Shiny.onInputChange(`${el.id}_data`, table.getData());
+        const inputName = `${el.id}_data`;
+        console.log("custom call", inputName);
+        Shiny.setInputValue(
+          inputName,
+          { data: table.getData() },
+          { priority: "event" }
+        );
         return;
       }
       if (method_name === "deleteSelectedRows") {
@@ -40,6 +45,16 @@
           console.log(row.getIndex());
           table.deleteRow(row.getIndex());
         });
+        return;
+      }
+      if (method_name === "getSpreadsheetData") {
+        const inputName = `${el.id}_spreadsheet_data`;
+        console.log("custom call", inputName);
+        Shiny.setInputValue(
+          inputName,
+          { data: table.getSheetData() },
+          { priority: "event" }
+        );
         return;
       }
       console.log(method_name, options);
@@ -75,11 +90,17 @@
     }
   };
 
-  // srcjs/index-r.js
+  // src/index-r.js
   function tabulatorFactory(widgetElement, width, height) {
     let table = null;
     function renderValue(payload) {
       console.log(payload);
+      if (payload.stylesheetText) {
+        document.head.insertAdjacentHTML(
+          "beforeend",
+          `<style>${payload.stylesheetText}</style>`
+        );
+      }
       if (payload.options === null) {
         payload.options = {};
       }

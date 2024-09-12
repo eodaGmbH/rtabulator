@@ -10,3 +10,9 @@ keys_to_camel_case <- function(x) {
 compact <- function(x) {
   x[!sapply(x, is.null)]
 }
+
+#' @export
+list_to_data_frame <- function(x) {
+  # jsonlite::toJSON(x, auto_unbox = TRUE) |> jsonlite::fromJSON()
+  return(do.call(rbind.data.frame, x))
+}
