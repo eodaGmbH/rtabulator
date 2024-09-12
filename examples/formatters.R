@@ -24,7 +24,9 @@ tabulator(sample_data) |>
 image_url <- "https://picsum.photos/"
 
 image_data <- data.frame(
-  image = c(88, 98)
+  image = c(88, 98),
+  label = c("A pic", "Another pic")
 )
 
-tabulator(image_data) |> set_image_formatter("image", urlPrefix = image_url, urlSuffix = "", hoz_align = "left")
+tabulator(image_data) |>
+  set_image_formatter("image", urlPrefix = image_url, urlSuffix = "", hoz_align = "left")
