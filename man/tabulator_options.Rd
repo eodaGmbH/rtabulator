@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabulator_options.R
 \name{tabulator_options}
 \alias{tabulator_options}
-\title{Table Options}
+\title{Tabulator Setup Options}
 \usage{
 tabulator_options(
   height = "311px",
@@ -27,7 +27,7 @@ tabulator_options(
   spreadsheet = FALSE,
   spreadsheet_rows = NULL,
   spreadsheet_columns = NULL,
-  spreadsheet_column_definition = list(editor = "input"),
+  spreadsheet_column_definition = NULL,
   spreadsheet_sheets = NULL,
   spreadsheet_sheet_tabs = NULL,
   ...
@@ -59,7 +59,7 @@ tabulator_options(
 \item{colummns}{(list): description}
 }
 \description{
-Table Options
+Tabulator Setup Options
 }
 \seealso{
 \url{https://tabulator.info/docs/6.2/options}

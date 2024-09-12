@@ -10,9 +10,9 @@ ui <- fluidPage(
 server <- function(input, output) {
   output$titanic <- renderTabulator({
     tabulator(data_url, editable = TRUE) |>
-      set_progress_formatter("Fare") |>
-      set_tick_cross_formatter("Survived") |>
-      set_star_formatter("Pclass", number_of_stars = 3)
+      set_formatter_progress("Fare") |>
+      set_formatter_tick_cross("Survived") |>
+      set_formatter_star("Pclass", number_of_stars = 3)
   })
 }
 
