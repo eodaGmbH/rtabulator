@@ -103,16 +103,21 @@ set_money_formatter <- function(widget, column, decimal = ",", thousand = ".",
 
 # Image
 #' @export
-set_image_formatter <- function(widget, column, height = "50px", width = "50px",
-                                urlPrefix = "http://website.com/images/",
-                                urlSuffix = ".png", hoz_align = "center") {
+set_image_formatter <- function(
+    widget,
+    column,
+    height = "50px",
+    width = "50px",
+    url_prefix = "http://website.com/images/",
+    url_suffix = ".png",
+    hoz_align = "center") {
   col_update <- list(
     formatter = "image",
     formatterParams = list(
       height = height,
       width = width,
-      urlPrefix = urlPrefix,
-      urlSuffix = urlSuffix
+      urlPrefix = url_prefix,
+      urlSuffix = url_suffix
     ),
     hozAlign = hoz_align
   )
