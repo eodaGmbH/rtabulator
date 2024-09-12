@@ -150,13 +150,24 @@ set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "cen
 
 # Progress
 #' @export
-set_progress_formatter <- function(widget, column, min = 0, max = 10, color = c("green", "orange", "red"),
-                                   legendColor = "#000000", legendAlign = "center", hoz_align = "left") {
+set_progress_formatter <- function(
+    widget, column,
+    min = 0,
+    max = 10,
+    color = c("green", "orange", "red"),
+    legend = FALSE,
+    legend_color = "#000000",
+    legend_align = "center",
+    hoz_align = "left") {
   col_update <- list(
     formatter = "progress",
     formatterParams = list(
-      min = min, max = max, color = color,
-      legendColor = legendColor, legendAlign = legendAlign
+      min = min,
+      max = max,
+      color = color,
+      legend = legend,
+      legendColor = legend_color,
+      legendAlign = legend_align
     ),
     hozAlign = hoz_align
   )
