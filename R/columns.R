@@ -305,6 +305,42 @@ set_formatter_datetime <- function(widget, column) {
 
 }
 
+#' Color Formatter
+#' @inheritParams set_formatter_html
+#' @example examples/formatters/formatter_color.R
+#' @export
+set_formatter_color <- function(widget, column) {
+  col_update <- list(formatter = "color")
+  modify_col_def(widget, column, col_update)
+}
+
+#' Traffic Light Formatter
+#' @inheritParams set_formatter_html
+#' @export
+set_formatter_traffic_light <- function(
+    widget,
+    column,
+    min = NA,
+    max = NA,
+    color = c("green", "orange", "red"),
+    hoz_align = "center") {
+  # Body
+  if (is.na(min)) min = min(widget$x$data[column])
+
+  if (is.na(max)) max = max(widget$x$data[column])
+
+  col_update <- list(
+    formatter = "traffic",
+    formatterParams = list(
+      min = min,
+      max = max,
+      color = color
+    ),
+    hozAlign = hoz_align
+  )
+  modify_col_def(widget, column, col_update)
+}
+
 modify_col_def <- function(widget, column, col_update) {
   for (index in 1:length(widget$x$options$columns)) {
     if (widget$x$options$columns[[index]]$field == column) {
