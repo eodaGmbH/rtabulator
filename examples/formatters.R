@@ -20,3 +20,11 @@ tabulator(sample_data) |>
   set_link_formatter("link", label_field = "label") |>
   set_link_formatter("link2", url_prefix = "https://") |>
   set_link_formatter("link3", url = JS("function(cell) {return(`https://eoda.de/${cell.getValue()}`);}"), label_field = "label")
+
+image_url <- "https://picsum.photos/"
+
+image_data <- data.frame(
+  image = c(88, 98)
+)
+
+tabulator(image_data) |> set_image_formatter("image", urlPrefix = image_url, urlSuffix = "", hoz_align = "left")
