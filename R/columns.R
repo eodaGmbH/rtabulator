@@ -129,23 +129,31 @@ set_formatter_money <- function(
 }
 
 #' Image Formatter
+#' @inheritParams set_formatter_html
+#' @param height (character): A CSS value for the height of the image.
+#' @param width: (character): A CSS value for the width of the image.
+#' @param url_prefix (character): String to add to the start of the cell value
+#'  when generating the image src url.
+#' @param url_suffix (character): String to add to the end of the cell value
+#'  when generating the image src url.
+#' @example examples/formatters/formatter_image.R
 #' @export
 set_formatter_image <- function(
     widget,
     column,
     height = "50px",
     width = "50px",
-    url_prefix = "",
-    url_suffix = "",
+    url_prefix = NULL,
+    url_suffix = NULL,
     hoz_align = "center") {
   col_update <- list(
     formatter = "image",
-    formatterParams = list(
+    formatterParams = compact(list(
       height = height,
       width = width,
       urlPrefix = url_prefix,
       urlSuffix = url_suffix
-    ),
+    )),
     hozAlign = hoz_align
   )
   modify_col_def(widget, column, col_update)

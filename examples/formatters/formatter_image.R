@@ -1,9 +1,17 @@
-image_url <- "https://picsum.photos/"
+image_url <- "https://picsum.photos/id/"
+image_size <- 100
 
 image_data <- data.frame(
-  image = c(88, 98),
-  label = c("A pic", "Another pic")
+  image = c(88, 98, 102, 201),
+  label = c("Pic No. 88", "Pic No. 98", "Pic No. 102", "Pic No 201")
 )
 
-tabulator(image_data) |>
-  set_formatter_image("image", url_prefix = image_url, hoz_align = "left")
+tabulator(image_data, tabulator_options(height = "400px")) |>
+  set_formatter_image(
+    "image",
+    height = image_size,
+    width = image_size,
+    url_prefix = image_url,
+    url_suffix = glue::glue("/{image_size}"),
+    hoz_align = "left"
+  )
