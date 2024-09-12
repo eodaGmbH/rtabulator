@@ -254,6 +254,9 @@ set_formatter_progress <- function(
   modify_col_def(widget, column, col_update)
 }
 
+#' Tick Cross Formatter
+#' @inheritParams set_formatter_html
+#' @example examples/formatters/formatter_tick_cross.R
 #' @export
 set_formatter_tick_cross <- function(widget, column) {
   col_update <- list(formatter = "tickCross")
