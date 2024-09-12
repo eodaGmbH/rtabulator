@@ -208,9 +208,9 @@ set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "cen
 #' Progress Formatter
 #' @inheritParams set_formatter_html
 #' @param min (numeric): The minimum value for progress bar.
-#'  If set to \code{NULL} the minimum value of the column is used.
+#'  If set to \code{NA} the minimum value of the column is used.
 #' @param max (numeric): The maximum value for progress bar.
-#'  If set to \code{NULL} the maximum value of the column is used.
+#'  If set to \code{NA} the maximum value of the column is used.
 #' @param max description
 #' @param color (character): Either a single color or a vector of colors
 #' @param legend (character, \code{TRUE}, JavaScript function): If set to \code{TRUE} the value of the cell is displayed.
@@ -224,18 +224,18 @@ set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "cen
 set_formatter_progress <- function(
     widget,
     column,
-    min = NULL,
-    max = NULL,
+    min = NA,
+    max = NA,
     color = c("yellow", "orange", "red"),
     legend = NA,
     legend_color = "#000000",
     legend_align = c("center", "left", "right", "justify"),
     hoz_align = "left") {
-  if (is.null(min)) {
+  if (is.na(min)) {
     min <- min(widget$x$data[column])
   }
 
-  if (is.null(max)) {
+  if (is.na(max)) {
     max <- max(widget$x$data[column])
   }
 

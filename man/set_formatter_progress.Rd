@@ -7,8 +7,8 @@
 set_formatter_progress(
   widget,
   column,
-  min = NULL,
-  max = NULL,
+  min = NA,
+  max = NA,
   color = c("yellow", "orange", "red"),
   legend = NA,
   legend_color = "#000000",
@@ -22,7 +22,7 @@ set_formatter_progress(
 \item{column}{(character): The column the formatter is applied to.}
 
 \item{min}{(numeric): The minimum value for progress bar.
-If set to \code{NULL} the minimum value of the column is used.}
+If set to \code{NA} the minimum value of the column is used.}
 
 \item{max}{description}
 
