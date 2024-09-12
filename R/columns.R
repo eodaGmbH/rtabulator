@@ -61,30 +61,30 @@ add_filter_to_columns <- function(columns) {
 
 # Plain Text
 #' @export
-set_plaintext_formatter <- function(widget, column, number_of_stars, hoz_align = "left") {
+set_formatter_plaintext <- function(widget, column, number_of_stars, hoz_align = "left") {
   col_update <- list(formatter = "plaintext", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
 }
 
 # Text Area
 #' @export
-set_textarea_formatter <- function(widget, column, hoz_align = "left") {
+set_formatter_textarea <- function(widget, column, hoz_align = "left") {
   col_update <- list(formatter = "textarea", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
 }
 
 # HTML
 #' @export
-set_html_formatter <- function(widget, column, hoz_align = "left") {
+set_formatter_html <- function(widget, column, hoz_align = "left") {
   col_update <- list(formatter = "html", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
 }
 
 # Money
 #' @export
-set_money_formatter <- function(widget, column, decimal = ",", thousand = ".",
-                                symbol = "£", symbolAfter = "p",
-                                negativeSign = T, precision = F,
+set_formatter_money <- function(widget, column, decimal = ",", thousand = ".",
+                                symbol = "£", symbol_after = "p",
+                                negative_sign = T, precision = F,
                                 hoz_align = "left") {
   col_update <- list(
     formatter = "money",
@@ -92,8 +92,8 @@ set_money_formatter <- function(widget, column, decimal = ",", thousand = ".",
       decimal = decimal,
       thousand = thousand,
       symbol = symbol,
-      symbolAfter = symbolAfter,
-      negativeSign = negativeSign,
+      symbolAfter = symbol_after,
+      negativeSign = negative_sign,
       precision = precision
     ),
     hozAlign = hoz_align
@@ -103,16 +103,16 @@ set_money_formatter <- function(widget, column, decimal = ",", thousand = ".",
 
 # Image
 #' @export
-set_image_formatter <- function(widget, column, height = "50px", width = "50px",
-                                urlPrefix = "http://website.com/images/",
-                                urlSuffix = ".png", hoz_align = "center") {
+set_formatter_image <- function(widget, column, height = "50px", width = "50px",
+                                url_prefix = "",
+                                url_suffix = "", hoz_align = "center") {
   col_update <- list(
     formatter = "image",
     formatterParams = list(
       height = height,
       width = width,
-      urlPrefix = urlPrefix,
-      urlSuffix = urlSuffix
+      urlPrefix = url_prefix,
+      urlSuffix = url_suffix
     ),
     hozAlign = hoz_align
   )
@@ -121,13 +121,14 @@ set_image_formatter <- function(widget, column, height = "50px", width = "50px",
 
 # Link
 #' @export
-set_link_formatter <- function(
+set_formatter_link <- function(
     widget, column,
     label_field = NULL,
     url_prefix = NULL,
     url = NULL,
     target = "_blank",
     hoz_align = "left") {
+
   col_update <- list(
     formatter = "link",
     formatterParams = compact(list(
@@ -142,7 +143,7 @@ set_link_formatter <- function(
 
 # Star
 #' @export
-set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "center") {
+set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "center") {
   col_update <- list(
     formatter = "star",
     formatterParams = list(stars = number_of_stars),
@@ -155,14 +156,14 @@ set_star_formatter <- function(widget, column, number_of_stars, hoz_align = "cen
 # Progress
 #' @export
 
-set_progress_formatter <- function(
+set_formatter_progress <- function(
     widget, column,
     min = NULL,
     max = NULL,
     color = c("green", "orange", "red"),
     legend = "",
-    legendColor = "#000000",
-    legendAlign = "center",
+    legend_color = "#000000",
+    legend_align = "center",
     hoz_align = "left") {
 
 
@@ -179,8 +180,8 @@ set_progress_formatter <- function(
       max = max,
       color = color,
       legend = legend,
-      legendColor = legendColor,
-      legendAlign = legendAlign
+      legendColor = legend_color,
+      legendAlign = legend_align
     ),
     hozAlign = hoz_align
   )
@@ -188,7 +189,7 @@ set_progress_formatter <- function(
 }
 
 #' @export
-set_tick_cross_formatter <- function(widget, column) {
+set_formatter_tick_cross <- function(widget, column) {
   col_update <- list(formatter = "tickCross")
   modify_col_def(widget, column, col_update)
 }
@@ -204,3 +205,4 @@ modify_col_def <- function(widget, column, col_update) {
 
   return(widget)
 }
+
