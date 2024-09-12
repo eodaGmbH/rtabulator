@@ -30,7 +30,7 @@ If set to \code{NA} the minimum value of the column is used.}
 
 \item{legend}{(character, \code{TRUE}, JavaScript function): If set to \code{TRUE} the value of the cell is displayed.
 Set to \code{NA} to display no value at all.
-Use \link[htmltools]{JS} to pass a JS function as legend.
+Use \link[htmlwidgets]{JS} to pass a JS function as legend.
 The cell value is passed to the function as its first argument.}
 
 \item{legend_color}{(character): The text color of the legend.}

@@ -22,6 +22,8 @@ set_formatter_datetime(
 
 \item{output_format}{(character): The datetime output format.}
 
+\item{invalid_placeholder}{(character): The value to be displayed if an invalid datetime is provided.}
+
 \item{timezone}{(character): The timezone of the datetime.}
 }
 \description{

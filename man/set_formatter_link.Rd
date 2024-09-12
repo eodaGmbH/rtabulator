@@ -25,7 +25,7 @@ set_formatter_link(
 
 \item{url}{(JS function): A JS function that return the URL value.
 The cell is passed to the function as its first argument.
-Use \link[htmltools]{JS} to pass JS code.}
+Use \link[htmlwidgets]{JS} to pass JS code.}
 
 \item{target}{(character): Target attribute of the anchor tag.}
 

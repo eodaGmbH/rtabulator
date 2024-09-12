@@ -107,7 +107,7 @@ set_formatter_money <- function(
     column,
     decimal = c(",", "."),
     thousand = c(".", ","),
-    symbol = "£",
+    symbol = "EUR",
     symbol_after = "p",
     negative_sign = "-",
     precision = FALSE,
@@ -131,7 +131,7 @@ set_formatter_money <- function(
 #' Image Formatter
 #' @inheritParams set_formatter_html
 #' @param height (character): A CSS value for the height of the image.
-#' @param width: (character): A CSS value for the width of the image.
+#' @param width (character): A CSS value for the width of the image.
 #' @param url_prefix (character): String to add to the start of the cell value
 #'  when generating the image src url.
 #' @param url_suffix (character): String to add to the end of the cell value
@@ -165,7 +165,7 @@ set_formatter_image <- function(
 #' @param url_prefix (character): Prefix to add to the URL value.
 #' @param url (JS function): A JS function that return the URL value.
 #'  The cell is passed to the function as its first argument.
-#'  Use \link[htmltools]{JS} to pass JS code.
+#'  Use \link[htmlwidgets]{JS} to pass JS code.
 #' @param target (character): Target attribute of the anchor tag.
 #' @example examples/formatters/formatter_link.R
 #' @export
@@ -215,7 +215,7 @@ set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "cen
 #' @param color (character): Either a single color or a vector of colors
 #' @param legend (character, \code{TRUE}, JavaScript function): If set to \code{TRUE} the value of the cell is displayed.
 #'  Set to \code{NA} to display no value at all.
-#'  Use \link[htmltools]{JS} to pass a JS function as legend.
+#'  Use \link[htmlwidgets]{JS} to pass a JS function as legend.
 #'  The cell value is passed to the function as its first argument.
 #' @param legend_color (character): The text color of the legend.
 #' @param legend_align (character): The text alignment of the legend.
@@ -271,7 +271,7 @@ set_formatter_tick_cross <- function(widget, column) {
 #' @param on_truthy (bool): TODO: ???
 #' @param on_color (character): The color of the switch if it is on.
 #' @param off_color (character): The color of the switch if it is off.
-#' @param clickable: (bool): Enable switch functionality to toggle the cell value on click.
+#' @param clickable (bool): Enable switch functionality to toggle the cell value on click.
 #' @example examples/formatters/formatter_toggle_switch.R
 #' @export
 set_formatter_toggle_switch <- function(
@@ -304,6 +304,7 @@ set_formatter_toggle_switch <- function(
 #' @inheritParams set_formatter_html
 #' @param input_format (character): The datetime input format.
 #' @param output_format (character): The datetime output format.
+#' @param invalid_placeholder (character): The value to be displayed if an invalid datetime is provided.
 #' @param timezone (character): The timezone of the datetime.
 #' @example examples/formatters/formatter_datetime.R
 #' @export
@@ -338,7 +339,7 @@ set_formatter_color <- function(widget, column) {
 }
 
 #' Traffic Light Formatter
-#' @inheritParams set_formatter_html
+#' @inheritParams set_formatter_progress
 #' @export
 set_formatter_traffic_light <- function(
     widget,

@@ -11,6 +11,8 @@ compact <- function(x) {
   x[!sapply(x, is.null)]
 }
 
+#' Parse List to Data Frame
+#' @param x (list): A list of named lists.
 #' @export
 list_to_data_frame <- function(x) {
   # jsonlite::toJSON(x, auto_unbox = TRUE) |> jsonlite::fromJSON()

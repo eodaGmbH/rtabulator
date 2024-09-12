@@ -18,6 +18,13 @@ set_formatter_traffic_light(
 
 \item{column}{(character): The column the formatter is applied to.}
 
+\item{min}{(numeric): The minimum value for progress bar.
+If set to \code{NA} the minimum value of the column is used.}
+
+\item{max}{description}
+
+\item{color}{(character): Either a single color or a vector of colors}
+
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{

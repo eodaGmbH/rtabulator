@@ -9,7 +9,7 @@ set_formatter_money(
   column,
   decimal = c(",", "."),
   thousand = c(".", ","),
-  symbol = "£",
+  symbol = "EUR",
   symbol_after = "p",
   negative_sign = "-",
   precision = FALSE,

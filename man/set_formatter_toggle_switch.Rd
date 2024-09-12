@@ -33,7 +33,7 @@ set_formatter_toggle_switch(
 
 \item{off_color}{(character): The color of the switch if it is off.}
 
-\item{clickable:}{(bool): Enable switch functionality to toggle the cell value on click.}
+\item{clickable}{(bool): Enable switch functionality to toggle the cell value on click.}
 }
 \description{
 Toggle Switch Formatter

@@ -22,7 +22,7 @@ tabulator_options(
   edit_trigger_event = "dblclick",
   selectable_rows = "highlight",
   pagination = FALSE,
-  paginations_size = 10,
+  pagination_size = 10,
   pagination_add_row = "page",
   spreadsheet = FALSE,
   spreadsheet_rows = NULL,
@@ -36,27 +36,57 @@ tabulator_options(
 \arguments{
 \item{height}{(character) The height of the table in px.}
 
-\item{history}{(bool): description}
+\item{history}{(bool): Enable user interaction history functionality.}
 
-\item{layout}{(character): ...}
+\item{columns}{(list): Column definitions.
+If set to \code{NULL} definitions are auto generated from table data.}
 
-\item{responsive_layout}{(bool): description}
+\item{layout}{(character): Layout mode of the table columns.}
 
-\item{movable_columns}{(bool): description}
+\item{responsive_layout}{(bool): Automatically hide and show columns to fit
+the width of the Tabulator element.}
 
-\item{header_visible}{(bool): description}
+\item{movable_columns}{(bool): Allow users to move and reorder rows.}
 
-\item{row_height}{description}
+\item{header_visible}{(bool): Whether header is visible.}
 
-\item{add_row_pos}{(character): description}
+\item{row_height}{(numeric): A fixed height of the rows.}
 
-\item{movable_rows}{(bool): description}
+\item{add_row_pos}{(character): The table position where new rows are added.}
 
-\item{resizable_rows}{(bool): description}
+\item{movable_rows}{(bool): Allow users to move and reorder rows.}
 
-\item{frozen_rows}{description}
+\item{resizable_rows}{(bool): Allow user to resize rows.}
 
-\item{colummns}{(list): description}
+\item{frozen_rows}{(numeric): Number of frozen rows.}
+
+\item{index}{(character): Field to be used as the unique index for each row.}
+
+\item{group_by}{(character): Field to group rows by.}
+
+\item{edit_trigger_event}{description}
+
+\item{selectable_rows}{description}
+
+\item{pagination}{(bool): description}
+
+\item{pagination_size}{(integer): description}
+
+\item{pagination_add_row}{(character): description}
+
+\item{spreadsheet}{(bool): description}
+
+\item{spreadsheet_rows}{(integer): description}
+
+\item{spreadsheet_columns}{(integer): description}
+
+\item{spreadsheet_column_definition}{description}
+
+\item{spreadsheet_sheets}{(list): description}
+
+\item{spreadsheet_sheet_tabs}{(bool): description}
+
+\item{...}{Further options.}
 }
 \description{
 Tabulator Setup Options

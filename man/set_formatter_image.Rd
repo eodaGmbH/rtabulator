@@ -21,6 +21,8 @@ set_formatter_image(
 
 \item{height}{(character): A CSS value for the height of the image.}
 
+\item{width}{(character): A CSS value for the width of the image.}
+
 \item{url_prefix}{(character): String to add to the start of the cell value
 when generating the image src url.}
 
@@ -28,8 +30,6 @@ when generating the image src url.}
 when generating the image src url.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
-
-\item{width:}{(character): A CSS value for the width of the image.}
 }
 \description{
 Image Formatter
