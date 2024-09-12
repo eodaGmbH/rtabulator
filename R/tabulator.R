@@ -25,13 +25,16 @@ tabulator <- function(
     ...) {
   if (is.null(options)) options <- list()
 
-  if (class(data) == "character") {
+  if (is.character(data)) {
     data <- readr::read_csv(data, show_col_types = FALSE)
   }
 
+  # TODO: Use Pipe, but then we need to set required R Version to > 4.1
   options <- utils::modifyList(options, list(...))
+  options <- keys_to_camel_case(compact(options))
   if (isTRUE(options$spreadsheet)) {
     # ...
+    options <- utils::modifyList(default_spreadsheet_options, options)
   } else {
     data <- fix_colnames(data)
     if (getOption("rtabulator.auto_columns", TRUE) && is.null(options$columns)) {

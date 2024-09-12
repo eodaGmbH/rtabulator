@@ -1,4 +1,4 @@
-#' Table Options
+#' Tabulator Setup Options
 #' @param height (character) The height of the table in px.
 #' @param history (bool): description
 #' @param colummns (list): description
@@ -45,7 +45,7 @@ tabulator_options <- function(
     spreadsheet = FALSE,
     spreadsheet_rows = NULL,
     spreadsheet_columns = NULL,
-    spreadsheet_column_definition = list(editor = "input"),
+    spreadsheet_column_definition = NULL,
     spreadsheet_sheets = NULL,
     spreadsheet_sheet_tabs = NULL,
     ...) {
@@ -54,3 +54,13 @@ tabulator_options <- function(
   params$add_row_pos <- match.arg(add_row_pos)
   return(c(params, list(...)))
 }
+
+default_spreadsheet_options <- list(
+  row_header = list(
+    field = "_id",
+    hozAlign = "center",
+    headerSort = FALSE,
+    frozen = TRUE
+  ),
+  spreadsheet_column_definition = list(editor = "input")
+)
