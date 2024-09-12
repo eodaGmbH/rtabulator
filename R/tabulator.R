@@ -53,7 +53,8 @@ tabulator <- function(
     stylesheetText = stylesheet_text
   )
 
-  dependencies <- list()
+  # TODO: Make it optional when datetime formatter is called
+  dependencies <- list(luxon_dependency)
 
   if (sheetjs) {
     dependencies <- c(dependencies, list(sheetjs_dependency))

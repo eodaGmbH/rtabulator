@@ -5,3 +5,4 @@ dependencies:
     src: htmlwidgets/libs/tabulator
     script: tabulator.min.js
     stylesheet: tabulator.min.css
+    all_files: false
