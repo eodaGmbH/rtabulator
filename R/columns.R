@@ -59,10 +59,21 @@ add_filter_to_columns <- function(columns) {
 
 # Formatters ####
 
+#' HTML Formatter
+#' @param widget (\code{\link{tabulator}}) A tabulator widget.
+#' @param column (character): The column the formatter is applied to.
+#' @param hoz_align (character): The horizontal alignment of the column.
+#' @example examples/formatters/formatter_html.R
+#' @export
+set_formatter_html <- function(widget, column, hoz_align = c("left", "center", "right")) {
+  col_update <- list(formatter = "html", hozAlign = match.arg(hoz_align))
+  modify_col_def(widget, column, col_update)
+}
+
 # Plain Text
 #' @export
 # TODO: Add example
-set_formatter_plaintext <- function(widget, column, number_of_stars, hoz_align = "left") {
+set_formatter_plaintext <- function(widget, column, hoz_align = "left") {
   col_update <- list(formatter = "plaintext", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
 }
@@ -72,14 +83,6 @@ set_formatter_plaintext <- function(widget, column, number_of_stars, hoz_align =
 # TODO: Add example
 set_formatter_textarea <- function(widget, column, hoz_align = "left") {
   col_update <- list(formatter = "textarea", hozAlign = hoz_align)
-  modify_col_def(widget, column, col_update)
-}
-
-# HTML
-#' @export
-# TODO: Add example
-set_formatter_html <- function(widget, column, hoz_align = "left") {
-  col_update <- list(formatter = "html", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
 }
 
@@ -201,6 +204,16 @@ set_formatter_tick_cross <- function(widget, column) {
   modify_col_def(widget, column, col_update)
 }
 
+#' Toggle Switch Formatter
+#' @inheritParams set_formatter_html
+#' @param size (numeric): The size of the switch in pixels.
+#' @param on_value (character): The value of the cell for the switch to be on.
+#' @param off_value (character) The value of the cell for the switch to be off.
+#' @param on_truthy (bool): TODO: ???
+#' @param on_color (character): The color of the switch if it is on.
+#' @param off_color (character): The color of the switch if it is off.
+#' @param clickable: (bool): Enable switch functionality to toggle the cell value on click.
+#' @example examples/formatters/formatter_toggle_switch.R
 #' @export
 set_formatter_toggle_switch <- function(
     widget,
