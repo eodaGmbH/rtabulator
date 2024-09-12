@@ -163,8 +163,9 @@ set_formatter_image <- function(
 #' @inheritParams set_formatter_html
 #' @param label_field (character): Column to be used as label for the link.
 #' @param url_prefix (character): Prefix to add to the URL value.
-#' @param url (\link[htmltools]{JS} function): A JS function that return the URL value.
-#'  The cell value is passed to the function as its first argument.
+#' @param url (JS function): A JS function that return the URL value.
+#'  The cell is passed to the function as its first argument.
+#'  Use \link[htmltools]{JS} to pass JS code.
 #' @param target (character): Target attribute of the anchor tag.
 #' @example examples/formatters/formatter_link.R
 #' @export
@@ -204,16 +205,31 @@ set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "cen
 }
 
 
-# Progress
+#' Progress Formatter
+#' @inheritParams set_formatter_html
+#' @param min (numeric): The minimum value for progress bar.
+#'  If set to \code{NULL} the minimum value of the column is used.
+#' @param max (numeric): The maximum value for progress bar.
+#'  If set to \code{NULL} the maximum value of the column is used.
+#' @param max description
+#' @param color (character): Either a single color or a vector of colors
+#' @param legend (character, \code{TRUE}, JavaScript function): If set to \code{TRUE} the value of the cell is displayed.
+#'  Set to \code{NA} to display no value at all.
+#'  Use \link[htmltools]{JS} to pass a JS function as legend.
+#'  The cell value is passed to the function as its first argument.
+#' @param legend_color (character): The text color of the legend.
+#' @param legend_align (character): The text alignment of the legend.
+#' @example examples/formatters/formatter_progress.R
 #' @export
 set_formatter_progress <- function(
-    widget, column,
+    widget,
+    column,
     min = NULL,
     max = NULL,
-    color = c("green", "orange", "red"),
-    legend = "",
+    color = c("yellow", "orange", "red"),
+    legend = NA,
     legend_color = "#000000",
-    legend_align = "center",
+    legend_align = c("center", "left", "right", "justify"),
     hoz_align = "left") {
   if (is.null(min)) {
     min <- min(widget$x$data[column])
@@ -231,7 +247,7 @@ set_formatter_progress <- function(
       color = color,
       legend = legend,
       legendColor = legend_color,
-      legendAlign = legend_align
+      legendAlign = match.arg(legend_align)
     ),
     hozAlign = hoz_align
   )
