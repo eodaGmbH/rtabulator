@@ -189,7 +189,10 @@ set_formatter_link <- function(
   modify_col_def(widget, column, col_update)
 }
 
-# Star
+#' Star Rating Formatter
+#' @inheritParams set_formatter_html
+#' @param number_of_stars The maximum number of stars to be displayed.
+#' @example examples/formatters/formatter_star.R
 #' @export
 set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "center") {
   col_update <- list(
