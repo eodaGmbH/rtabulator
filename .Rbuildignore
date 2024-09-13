@@ -10,3 +10,4 @@ _NAMESPACE
 ^pkgdown$
 ^\.github$
 images/
+^vignettes/articles$
