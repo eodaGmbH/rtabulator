@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_datetime}
 \alias{set_formatter_datetime}
-\title{Datetime formatter}
+\title{Datetime Formatter}
 \usage{
 set_formatter_datetime(
   widget,
@@ -27,12 +27,12 @@ set_formatter_datetime(
 \item{timezone}{(character): The timezone of the datetime.}
 }
 \description{
-Datetime formatter
+Datetime Formatter
 }
 \examples{
 data <- data.frame(
   Person = c("Franz", "Ferdinand"),
-  Birthday =c(
+  Birthday = c(
     "2024-12-06 22:00:10",
     "2023-06-07 14:12:45"
   )

@@ -15,19 +15,24 @@
 #' @param frozen_rows (numeric): Number of frozen rows.
 #' @param index (character): Field to be used as the unique index for each row.
 #' @param group_by (character): Field to group rows by.
-#' @param edit_trigger_event description
-#' @param selectable_rows description
-#' @param pagination (bool): description
-#' @param pagination_size (integer): description
-#' @param pagination_add_row (character): description
-#' @param spreadsheet (bool): description
-#' @param spreadsheet_rows (integer): description
-#' @param spreadsheet_columns (integer): description
-#' @param spreadsheet_column_definition description
-#' @param spreadsheet_sheets (list): description
-#' @param spreadsheet_sheet_tabs (bool): description
+#' @param edit_trigger_event (character): Event that triggers a cell edit.
+#' @param selectable_rows (character, bool, integer) Set to \code{FALSE} to disble row selection.
+#'  If set to \code{TRUE} you can select as many rows as you want.
+#'  If set to \code{"highlight"} rows are just highlighted but do not change state when clicked.
+#'  An integer value sets the maximum number of rows that can be selected.
+#' @param pagination (bool): Whether to enable pagination.
+#' @param pagination_size (integer): Number of rows on each page.
+#' @param pagination_size_selector (list): Add pagination size selector.
+#' @param pagination_add_row (character): Where to add rows to the table when pagination is enabled.
+#' @param spreadsheet (bool): Whether to enable spreadsheet mode.
+#' @param spreadsheet_rows (integer): Number of spreadsheet rows.
+#' @param spreadsheet_columns (integer): Number of spreadsheet columns.
+#' @param spreadsheet_column_definition Column definition used for all columns in the sheet.
+#' @param spreadsheet_sheets (list): List of sheet definitions.
+#' @param spreadsheet_sheet_tabs (bool): Whether to show sheet tabs in the footer.
 #' @param ... Further options.
 #' @seealso \url{https://tabulator.info/docs/6.2/options}
+#' @example examples/tabulator_setup.R
 #' @export
 tabulator_options <- function(
     # General
@@ -50,13 +55,14 @@ tabulator_options <- function(
     # Row Grouping
     group_by = NULL,
     # Editing
-    edit_trigger_event = "dblclick",
+    edit_trigger_event = c("dblclick", "click", "focus"),
     # Selection
     selectable_rows = "highlight", # 'highlight', bool or integer
     # Pagination
     pagination = FALSE,
     pagination_size = 10,
-    pagination_add_row = "page",
+    pagination_size_selector = FALSE,
+    pagination_add_row = c("page", "table"),
     # Spreadsheet
     spreadsheet = FALSE,
     spreadsheet_rows = NULL,
@@ -68,6 +74,8 @@ tabulator_options <- function(
   params <- as.list(environment())
   params$layout <- match.arg(layout)
   params$add_row_pos <- match.arg(add_row_pos)
+  params$edit_trigger_event <- match.arg(edit_trigger_event)
+  params$pagination_add_row <- match.arg(pagination_add_row)
   return(c(params, list(...)))
 }
 

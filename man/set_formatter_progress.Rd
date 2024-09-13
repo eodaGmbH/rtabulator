@@ -24,7 +24,8 @@ set_formatter_progress(
 \item{min}{(numeric): The minimum value for progress bar.
 If set to \code{NA} the minimum value of the column is used.}
 
-\item{max}{description}
+\item{max}{(numeric): The maximum value for progress bar.
+If set to \code{NA} the maximum value of the column is used.}
 
 \item{color}{(character): Either a single color or a vector of colors}
 
@@ -52,7 +53,7 @@ data <- data.frame(
 
 js_func <- htmlwidgets::JS("(cellValue) => `${cellValue}\%`")
 
-tabulator(data, width = 300) |>
+tabulator(data) |>
   set_formatter_progress("value") |>
   set_formatter_progress("value2", legend = TRUE, legend_align = "left") |>
   set_formatter_progress("value3", legend = js_func, legend_align = "right")

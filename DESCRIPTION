@@ -1,8 +1,8 @@
 Package: rtabulator
 Type: Package
 Title: R Bindings for Tabulator JS
-Version: 0.1.0
-Date: 2024-09-08
+Version: 0.1.1
+Date: 2024-09-13
 Authors@R: c(
   person("Stefan", "Kuethe", email = "crazycapivara@gmail.com", role = c("aut", "cre")),
   person("Nico", "Friess", email = "nico.friess@eoda.de", role = c("aut"))
@@ -10,6 +10,10 @@ Authors@R: c(
 Maintainer: Stefan Kuethe <crazycapivara@gmail.com>
 Description: Provides R bindings for 'Tabulator JS' <https://tabulator.info/>.
   Makes it a breeze to create beautiful interactive tables.
+URL:
+  https://github.com/eodaGmbH/rtabulator
+  https://eodagmbh.github.io/rtabulator/
+BugReports: https://github.com/eodaGmbH/rtabulator/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

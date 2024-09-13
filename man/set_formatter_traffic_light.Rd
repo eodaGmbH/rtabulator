@@ -21,7 +21,8 @@ set_formatter_traffic_light(
 \item{min}{(numeric): The minimum value for progress bar.
 If set to \code{NA} the minimum value of the column is used.}
 
-\item{max}{description}
+\item{max}{(numeric): The maximum value for progress bar.
+If set to \code{NA} the maximum value of the column is used.}
 
 \item{color}{(character): Either a single color or a vector of colors}
 
@@ -29,4 +30,14 @@ If set to \code{NA} the minimum value of the column is used.}
 }
 \description{
 Traffic Light Formatter
+}
+\examples{
+data <- data.frame(
+  label = 1:10,
+  value = 1:10
+)
+
+tabulator(data, width = 200) |>
+  set_formatter_traffic_light("value") |>
+  set_formatter_plaintext("label", hoz_align = "center")
 }

@@ -7,7 +7,7 @@ data <- data.frame(
 
 js_func <- htmlwidgets::JS("(cellValue) => `${cellValue}%`")
 
-tabulator(data, width = 300) |>
+tabulator(data) |>
   set_formatter_progress("value") |>
   set_formatter_progress("value2", legend = TRUE, legend_align = "left") |>
   set_formatter_progress("value3", legend = js_func, legend_align = "right")

@@ -1,4 +1,4 @@
-options <- tabulator_options(
+setup <- tabulator_options(
   spreadsheet = TRUE,
   spreadsheet_sheets = list(
     list(
@@ -13,4 +13,4 @@ options <- tabulator_options(
   spreadsheet_sheet_tabs = TRUE
 )
 
-tabulator(data = NULL, options, theme = "midnight")
+tabulator(data = NULL, setup, theme = "midnight")

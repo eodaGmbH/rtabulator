@@ -34,10 +34,28 @@ which is needed for xlsx downloads.}
 
 \item{height}{Height of the widget.}
 
-\item{element_id}{description}
+\item{element_id}{The unique ID of the widget.}
 
 \item{...}{Named arguments that are appended to the \code{options} parameter.}
 }
 \description{
-Create a Tabulator Widget
+Dots in column names are replaced by underscores.
+}
+\examples{
+setup <- tabulator_options(
+  spreadsheet = TRUE,
+  spreadsheet_sheets = list(
+    list(
+      title = "First",
+      data = list(c(1, 2, 3))
+    ),
+    list(
+      title = "Second",
+      data = list(c(4, 5, 6))
+    )
+  ),
+  spreadsheet_sheet_tabs = TRUE
+)
+
+tabulator(data = NULL, setup, theme = "midnight")
 }

@@ -22,7 +22,7 @@ data <- data.frame(
   txt = c(
     "This\nis\nsome\ntext\nwith\nmultiple\nline\nbreaks",
     "- R\n- Python\n- Julia"
-    )
+  )
 )
 
 tabulator(data, width = 200) |>

@@ -2,3 +2,39 @@ url: ~
 template:
   bootstrap: 5
 
+reference:
+  - title: Tabulator Widget
+    desc: >
+      Functions to create and setup a Tabulator widget
+    contents:
+      - tabulator
+      - tabulator_options
+      - set_column_editor
+      - set_header_filter
+      - set_multi_column_header
+
+  - title: Column Formatters
+    desc: >
+      Functions to set column formatters
+    contents:
+      - starts_with("set_formatter")
+
+  - title: Shiny Integration
+    contents:
+      - rtabulator-shiny
+      - tabulatorContext
+      - add_row
+      - delete_selected_rows
+      - trigger_download
+      - trigger_get_data
+      - trigger_get_spreadsheet_data
+      - undo
+      - redo
+
+  - title: Utils
+    desc: >
+      Utitily functions
+    contents:
+      - list_to_data_frame
+      - create_columns
+
