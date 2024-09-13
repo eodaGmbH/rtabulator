@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rtabulator</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +19,7 @@
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/eodaGmbH/rtabulator/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -31,9 +32,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="tabulator-widget">Tabulator Widget<a class="anchor" aria-label="anchor" href="#tabulator-widget"></a></h2>
 
-
+      <div class="section-desc"><p>Functions to create and setup a Tabulator widget</p></div>
 
 
     </div><div class="section level2">
@@ -43,41 +44,46 @@
 
       <dl><dt>
 
-          <code><a href="add_row.html">add_row()</a></code>
+          <code><a href="tabulator.html">tabulator()</a></code>
 
         </dt>
-        <dd>Add a row to the table</dd>
+        <dd>Create a Tabulator Widget</dd>
       </dl><dl><dt>
 
-          <code><a href="create_columns.html">create_columns()</a></code>
+          <code><a href="tabulator_options.html">tabulator_options()</a></code>
 
         </dt>
-        <dd>Create columns definition from data</dd>
+        <dd>Tabulator Setup Options</dd>
       </dl><dl><dt>
 
-          <code><a href="delete_selected_rows.html">delete_selected_rows()</a></code>
+          <code><a href="set_column_editor.html">set_column_editor()</a></code>
 
         </dt>
-        <dd>Delete selected rows from the table</dd>
+        <dd>Make columns editable</dd>
       </dl><dl><dt>
 
-          <code><a href="list_to_data_frame.html">list_to_data_frame()</a></code>
+          <code><a href="set_header_filter.html">set_header_filter()</a></code>
 
         </dt>
-        <dd>Parse List to Data Frame</dd>
+        <dd>Add header filter</dd>
       </dl><dl><dt>
 
-          <code><a href="redo.html">redo()</a></code>
+          <code><a href="set_multi_column_header.html">set_multi_column_header()</a></code>
 
         </dt>
-        <dd>Redo changes</dd>
-      </dl><dl><dt>
+        <dd>Multi Column Header</dd>
+      </dl></div><div class="section level2">
+      <h2 id="column-formatters">Column Formatters<a class="anchor" aria-label="anchor" href="#column-formatters"></a></h2>
 
-          <code><a href="rtabulator-shiny.html">tabulatorOutput()</a></code> <code><a href="rtabulator-shiny.html">renderTabulator()</a></code>
+      <div class="section-desc"><p>Functions to set column formatters</p></div>
 
-        </dt>
-        <dd>Shiny bindings for rtabulator</dd>
-      </dl><dl><dt>
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
 
           <code><a href="set_formatter_color.html">set_formatter_color()</a></code>
 
@@ -88,7 +94,7 @@
           <code><a href="set_formatter_datetime.html">set_formatter_datetime()</a></code>
 
         </dt>
-        <dd>Datetime formatter</dd>
+        <dd>Datetime Formatter</dd>
       </dl><dl><dt>
 
           <code><a href="set_formatter_html.html">set_formatter_html()</a></code>
@@ -155,24 +161,41 @@
 
         </dt>
         <dd>Traffic Light Formatter</dd>
-      </dl><dl><dt>
+      </dl></div><div class="section level2">
+      <h2 id="shiny-integration">Shiny Integration<a class="anchor" aria-label="anchor" href="#shiny-integration"></a></h2>
 
-          <code><a href="tabulator.html">tabulator()</a></code>
+
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="rtabulator-shiny.html">tabulatorOutput()</a></code> <code><a href="rtabulator-shiny.html">renderTabulator()</a></code>
 
         </dt>
-        <dd>Create a Tabulator Widget</dd>
+        <dd>Shiny bindings for rtabulator</dd>
       </dl><dl><dt>
 
           <code><a href="tabulatorContext.html">tabulatorContext()</a></code>
 
         </dt>
-        <dd>Create a Tabulator Context</dd>
+        <dd>Create a Tabulator Context Object A <code>tabulatorContext</code> object makes it possible to update your widget in a Shiny app.</dd>
       </dl><dl><dt>
 
-          <code><a href="tabulator_options.html">tabulator_options()</a></code>
+          <code><a href="add_row.html">add_row()</a></code>
 
         </dt>
-        <dd>Tabulator Setup Options</dd>
+        <dd>Add a row to the table</dd>
+      </dl><dl><dt>
+
+          <code><a href="delete_selected_rows.html">delete_selected_rows()</a></code>
+
+        </dt>
+        <dd>Delete selected rows from the table</dd>
       </dl><dl><dt>
 
           <code><a href="trigger_download.html">trigger_download()</a></code>
@@ -197,8 +220,38 @@
 
         </dt>
         <dd>Undo changes</dd>
+      </dl><dl><dt>
+
+          <code><a href="redo.html">redo()</a></code>
+
+        </dt>
+        <dd>Redo changes</dd>
+      </dl></div><div class="section level2">
+      <h2 id="utils">Utils<a class="anchor" aria-label="anchor" href="#utils"></a></h2>
+
+      <div class="section-desc"><p>Utitily functions</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="list_to_data_frame.html">list_to_data_frame()</a></code>
+
+        </dt>
+        <dd>Parse List to Data Frame</dd>
+      </dl><dl><dt>
+
+          <code><a href="create_columns.html">create_columns()</a></code>
+
+        </dt>
+        <dd>Create column definitions from data</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

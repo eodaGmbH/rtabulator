@@ -12,6 +12,7 @@
 <url><loc>/reference/list_to_data_frame.html</loc></url>
 <url><loc>/reference/redo.html</loc></url>
 <url><loc>/reference/rtabulator-shiny.html</loc></url>
+<url><loc>/reference/set_column_editor.html</loc></url>
 <url><loc>/reference/set_formatter_color.html</loc></url>
 <url><loc>/reference/set_formatter_datetime.html</loc></url>
 <url><loc>/reference/set_formatter_html.html</loc></url>
@@ -25,6 +26,8 @@
 <url><loc>/reference/set_formatter_tick_cross.html</loc></url>
 <url><loc>/reference/set_formatter_toggle_switch.html</loc></url>
 <url><loc>/reference/set_formatter_traffic_light.html</loc></url>
+<url><loc>/reference/set_header_filter.html</loc></url>
+<url><loc>/reference/set_multi_column_header.html</loc></url>
 <url><loc>/reference/tabulator.html</loc></url>
 <url><loc>/reference/tabulatorContext.html</loc></url>
 <url><loc>/reference/tabulator_options.html</loc></url>
