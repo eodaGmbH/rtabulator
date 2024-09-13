@@ -10,7 +10,7 @@
 #' @param theme (character): Theme to apply to the table.
 #' @param width Width of the widget.
 #' @param height Height of the widget.
-#' @param element_id description
+#' @param element_id The unique ID of the widget.
 #' @param ... Named arguments that are appended to the \code{options} parameter.
 #' @import htmlwidgets
 #' @export
@@ -36,7 +36,7 @@ tabulator <- function(
   if (isTRUE(options$spreadsheet)) {
     # ...
     options <- utils::modifyList(default_spreadsheet_options, options)
-  } else {
+  } else if (is.data.frame(data)) {
     data <- fix_colnames(data)
     if (getOption("rtabulator.auto_columns", TRUE) && is.null(options$columns)) {
       options$columns <- create_columns(data, editor = editable)

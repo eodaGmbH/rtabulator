@@ -19,11 +19,12 @@ tabulator_options(
   frozen_rows = NULL,
   index = "id",
   group_by = NULL,
-  edit_trigger_event = "dblclick",
+  edit_trigger_event = c("dblclick", "click", "focus"),
   selectable_rows = "highlight",
   pagination = FALSE,
   pagination_size = 10,
-  pagination_add_row = "page",
+  pagination_size_selector = FALSE,
+  pagination_add_row = c("page", "table"),
   spreadsheet = FALSE,
   spreadsheet_rows = NULL,
   spreadsheet_columns = NULL,
@@ -64,27 +65,32 @@ the width of the Tabulator element.}
 
 \item{group_by}{(character): Field to group rows by.}
 
-\item{edit_trigger_event}{description}
+\item{edit_trigger_event}{(character): Event that triggers a cell edit.}
 
-\item{selectable_rows}{description}
+\item{selectable_rows}{(character, bool, integer) Set to \code{FALSE} to disble row selection.
+If set to \code{TRUE} you can select as many rows as you want.
+If set to \code{"highlight"} rows are just highlighted but do not change state when clicked.
+An integer value sets the maximum number of rows that can be selected.}
 
-\item{pagination}{(bool): description}
+\item{pagination}{(bool): Whether to enable pagination.}
 
-\item{pagination_size}{(integer): description}
+\item{pagination_size}{(integer): Number of rows on each page.}
 
-\item{pagination_add_row}{(character): description}
+\item{pagination_size_selector}{(list): Add pagination size selector.}
 
-\item{spreadsheet}{(bool): description}
+\item{pagination_add_row}{(character): Where to add rows to the table when pagination is enabled.}
 
-\item{spreadsheet_rows}{(integer): description}
+\item{spreadsheet}{(bool): Whether to enable spreadsheet mode.}
 
-\item{spreadsheet_columns}{(integer): description}
+\item{spreadsheet_rows}{(integer): Number of spreadsheet rows.}
 
-\item{spreadsheet_column_definition}{description}
+\item{spreadsheet_columns}{(integer): Number of spreadsheet columns.}
 
-\item{spreadsheet_sheets}{(list): description}
+\item{spreadsheet_column_definition}{Column definition used for all columns in the sheet.}
 
-\item{spreadsheet_sheet_tabs}{(bool): description}
+\item{spreadsheet_sheets}{(list): List of sheet definitions.}
+
+\item{spreadsheet_sheet_tabs}{(bool): Whether to show sheet tabs in the footer.}
 
 \item{...}{Further options.}
 }

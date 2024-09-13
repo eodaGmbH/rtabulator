@@ -211,7 +211,6 @@ set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "cen
 #'  If set to \code{NA} the minimum value of the column is used.
 #' @param max (numeric): The maximum value for progress bar.
 #'  If set to \code{NA} the maximum value of the column is used.
-#' @param max description
 #' @param color (character): Either a single color or a vector of colors
 #' @param legend (character, \code{TRUE}, JavaScript function): If set to \code{TRUE} the value of the cell is displayed.
 #'  Set to \code{NA} to display no value at all.

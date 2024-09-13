@@ -34,7 +34,7 @@ which is needed for xlsx downloads.}
 
 \item{height}{Height of the widget.}
 
-\item{element_id}{description}
+\item{element_id}{The unique ID of the widget.}
 
 \item{...}{Named arguments that are appended to the \code{options} parameter.}
 }

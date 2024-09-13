@@ -24,7 +24,8 @@ set_formatter_progress(
 \item{min}{(numeric): The minimum value for progress bar.
 If set to \code{NA} the minimum value of the column is used.}
 
-\item{max}{description}
+\item{max}{(numeric): The maximum value for progress bar.
+If set to \code{NA} the maximum value of the column is used.}
 
 \item{color}{(character): Either a single color or a vector of colors}
 
