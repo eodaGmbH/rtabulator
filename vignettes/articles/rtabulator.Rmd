@@ -1,0 +1,76 @@
+---
+title: "rtabulator"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+rtabulator provides R bindings for [Tabulator JS](https://tabulator.info/).
+
+The goal of rtabulator is to make it easy to create elegant and interactive tables in markdown documents and [Shiny](https://shiny.posit.co/) applications. Furthermore, it support creating spreadsheets with multiple sheets.
+
+```{r setup}
+library(rtabulator)
+```
+
+## Basic Usage
+
+To render a table just pass a data frame to the `tabulator` function:
+
+```{r}
+tabulator(airquality)
+```
+
+In this case, the column definitions are automatically created for you. The horizontal alignment for
+character columns is set to _left_  while numeric columns are aligned _right_.
+
+## Setup Options
+
+With `tabulator_options` you can customize your table (or spreadsheet):
+
+```{r}
+setup <- tabulator_options(
+  pagination = TRUE,
+  pagination_size = 10,
+  pagination_size_selector = c(10, 20, 50)
+)
+
+tabulator(USArrests, setup)
+```
+
+## Column Formatters
+
+To customize your columns the easiest way is to use the `set_formatter_*` functions: 
+
+```{r}
+tabulator(airquality) |>
+  set_formatter_progress("Temp", legend = TRUE, legend_align = "left") |>
+  set_formatter_traffic_light("Ozone")
+```
+
+## Multi Column headers
+
+You can create multi column headers with `set_multi_column_header`:
+
+```{r}
+headers <- list(
+  Sepal = c("Sepal_Width", "Sepal_Length"),
+  Petal = c("Petal_Width", "Petal_Length")
+)
+
+tabulator(iris) |>
+  set_multi_column_header(headers)
+```
+
+## Spreadsheets
+
+To create an empty spreadsheet just pass an empty list as `data` parameter and `spreadsheet = TRUE`
+to the `tabulator` function:
+
+```{r}
+tabulator(data = list(), spreadsheet = TRUE)
+```
