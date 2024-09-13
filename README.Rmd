@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # rtabulator
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/eodaGmbH/rtabulator/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/eodaGmbH/rtabulator/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of rtabulator is to make it a breeze creating beautiful and reactive tables using
