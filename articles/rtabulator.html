@@ -64,14 +64,14 @@
 <p>rtabulator provides R bindings for <a href="https://tabulator.info/" class="external-link">Tabulator JS</a>.</p>
 <p>The goal of rtabulator is to make it easy to create elegant and
 interactive tables in markdown documents and <a href="https://shiny.posit.co/" class="external-link">Shiny</a> applications. Furthermore, it
-support creating spreadsheets with multiple sheets.</p>
+supports creating spreadsheets with multiple sheets.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/eodaGmbH/rtabulator" class="external-link">rtabulator</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h2>
-<p>To render a table just pass a data frame to the
-<code>tabulator</code> function:</p>
+<p>To render a table just pass a data frame to
+<code><a href="../reference/tabulator.html">tabulator()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/tabulator.html">tabulator</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span></code></pre></div>
 <div class="rtabulator html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
@@ -82,8 +82,8 @@ you. The horizontal alignment for character columns is set to
 <div class="section level2">
 <h2 id="setup-options">Setup Options<a class="anchor" aria-label="anchor" href="#setup-options"></a>
 </h2>
-<p>With <code>tabulator_options</code> you can customize your table (or
-spreadsheet):</p>
+<p>With <code><a href="../reference/tabulator_options.html">tabulator_options()</a></code> you can customize your table
+(or spreadsheet):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">setup</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tabulator_options.html">tabulator_options</a></span><span class="op">(</span></span>
 <span>  pagination <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -98,8 +98,9 @@ spreadsheet):</p>
 <div class="section level2">
 <h2 id="column-formatters">Column Formatters<a class="anchor" aria-label="anchor" href="#column-formatters"></a>
 </h2>
-<p>To customize your columns the easiest way is to use the
-<code>set_formatter_*</code> functions:</p>
+<p>To customize your columns, the easiest way is to use the
+<code>set_formatter_*</code> functions like
+<code><a href="../reference/set_formatter_progress.html">set_formatter_progress()</a></code> and others:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/tabulator.html">tabulator</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/set_formatter_progress.html">set_formatter_progress</a></span><span class="op">(</span><span class="st">"Temp"</span>, legend <span class="op">=</span> <span class="cn">TRUE</span>, legend_align <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -111,7 +112,7 @@ spreadsheet):</p>
 <h2 id="multi-column-headers">Multi Column headers<a class="anchor" aria-label="anchor" href="#multi-column-headers"></a>
 </h2>
 <p>You can create multi column headers with
-<code>set_multi_column_header</code>:</p>
+<code><a href="../reference/set_multi_column_header.html">set_multi_column_header()</a></code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">headers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>  Sepal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sepal_Width"</span>, <span class="st">"Sepal_Length"</span><span class="op">)</span>,</span>
@@ -127,12 +128,42 @@ spreadsheet):</p>
 <h2 id="spreadsheets">Spreadsheets<a class="anchor" aria-label="anchor" href="#spreadsheets"></a>
 </h2>
 <p>To create an empty spreadsheet just pass an empty list as
-<code>data</code> parameter and <code>spreadsheet = TRUE</code> to the
-<code>tabulator</code> function:</p>
+<code>data</code> parameter and <code>spreadsheet = TRUE</code> to
+<code><a href="../reference/tabulator.html">tabulator()</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/tabulator.html">tabulator</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>, spreadsheet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="rtabulator html-widget html-fill-item" id="htmlwidget-1fb4450895fe099f74a1" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-1fb4450895fe099f74a1">{"x":{"data":[],"options":{"rowHeader":{"field":"_id","hozAlign":"center","headerSort":false,"frozen":true},"spreadsheetColumnDefinition":{"editor":"input"},"height":"311px","history":false,"layout":"fitColumns","responsiveLayout":false,"movableColumns":false,"headerVisible":true,"addRowPos":"bottom","movableRows":false,"resizableRows":false,"index":"id","editTriggerEvent":"dblclick","selectableRows":"highlight","pagination":false,"paginationSize":10,"paginationSizeSelector":false,"paginationAddRow":"page","spreadsheet":true},"stylesheetText":null},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1fb4450895fe099f74a1">{"x":{"data":[],"options":{"rowHeader":{"field":"_id","hozAlign":"center","headerSort":false,"frozen":true},"spreadsheetColumnDefinition":{"editor":"input"},"height":"311px","history":false,"layout":"fitColumns","responsiveLayout":false,"movableColumns":false,"headerVisible":true,"addRowPos":"bottom","movableRows":false,"resizableRows":false,"index":"id","editTriggerEvent":"dblclick","selectableRows":"highlight","pagination":false,"paginationSize":10,"paginationSizeSelector":false,"paginationAddRow":"page","spreadsheet":true},"stylesheetText":null},"evals":[],"jsHooks":[]}</script><p>The data format for spreadsheets is a list of lists or vectors where
+each entry represents a row in the spreadsheet:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">spreadsheet_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>To use multiple sheets pass a list of sheets created
+with<code><a href="../reference/spreadsheet_def.html">spreadsheet_def()</a></code>. In this case, data is passed with
+the <code>data</code> parameter of the sheet definitions:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sheets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/spreadsheet_def.html">spreadsheet_def</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Lee"</span>, data <span class="op">=</span> <span class="va">spreadsheet_data</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/spreadsheet_def.html">spreadsheet_def</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Morgan"</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># Empty spreadsheet</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">setup</span> <span class="op">=</span> <span class="fu"><a href="../reference/tabulator_options.html">tabulator_options</a></span><span class="op">(</span></span>
+<span>  spreadsheet <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  spreadsheet_sheets <span class="op">=</span> <span class="va">sheets</span>,</span>
+<span>  spreadsheet_sheet_tabs <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  edit_trigger_event <span class="op">=</span> <span class="st">"click"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/tabulator.html">tabulator</a></span><span class="op">(</span><span class="cn">NULL</span>, <span class="va">setup</span><span class="op">)</span></span></code></pre></div>
+<div class="rtabulator html-widget html-fill-item" id="htmlwidget-10b3b7155e8045a1b2ad" style="width:700px;height:432.632880098888px;"></div>
+<script type="application/json" data-for="htmlwidget-10b3b7155e8045a1b2ad">{"x":{"data":null,"options":{"rowHeader":{"field":"_id","hozAlign":"center","headerSort":false,"frozen":true},"spreadsheetColumnDefinition":{"editor":"input"},"height":"311px","history":false,"layout":"fitColumns","responsiveLayout":false,"movableColumns":false,"headerVisible":true,"addRowPos":"bottom","movableRows":false,"resizableRows":false,"index":"id","editTriggerEvent":"click","selectableRows":"highlight","pagination":false,"paginationSize":10,"paginationSizeSelector":false,"paginationAddRow":"page","spreadsheet":true,"spreadsheetSheets":[{"title":"Lee","data":[[1,2,3],[2,3,4]]},{"title":"Morgan","data":[]}],"spreadsheetSheetTabs":true},"stylesheetText":null},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="section level2">
+<h2 id="next-steps">Next Steps<a class="anchor" aria-label="anchor" href="#next-steps"></a>
+</h2>
+<p>Check the <a href="../reference/index.html">API Reference</a> for
+details.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
