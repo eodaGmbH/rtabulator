@@ -8,3 +8,4 @@ _NAMESPACE
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^\.github$
