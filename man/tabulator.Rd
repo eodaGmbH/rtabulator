@@ -39,5 +39,5 @@ which is needed for xlsx downloads.}
 \item{...}{Named arguments that are appended to the \code{options} parameter.}
 }
 \description{
-Create a Tabulator Widget
+Dots in column names are replaced by underscores.
 }

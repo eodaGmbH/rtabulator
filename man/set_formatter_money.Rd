@@ -9,7 +9,7 @@ set_formatter_money(
   column,
   decimal = c(",", "."),
   thousand = c(".", ","),
-  symbol = "EUR",
+  symbol = "$",
   symbol_after = "p",
   negative_sign = "-",
   precision = FALSE,
@@ -54,5 +54,10 @@ data <- data.frame(
 )
 
 tabulator(data, width = 300) |>
-  set_formatter_money("Account_Balance", symbol_after = FALSE)
+  set_formatter_money(
+    "Account_Balance",
+    symbol = "\U20AC",
+    symbol_after = FALSE,
+    hoz_align = "right"
+  )
 }

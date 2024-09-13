@@ -107,7 +107,7 @@ set_formatter_money <- function(
     column,
     decimal = c(",", "."),
     thousand = c(".", ","),
-    symbol = "EUR",
+    symbol = "$", # "\U20AC"
     symbol_after = "p",
     negative_sign = "-",
     precision = FALSE,
@@ -300,7 +300,7 @@ set_formatter_toggle_switch <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Datetime formatter
+#' Datetime Formatter
 #' @inheritParams set_formatter_html
 #' @param input_format (character): The datetime input format.
 #' @param output_format (character): The datetime output format.
@@ -364,6 +364,44 @@ set_formatter_traffic_light <- function(
   )
   modify_col_def(widget, column, col_update)
 }
+
+# Other
+
+#' Make columns editable
+#' @inheritParams set_formatter_html
+#' @param columns (character vector): Columns the editor is applied to.
+#' @param type (character): Either \code{input} or \code{number}.
+#' @example examples/formatters/column_editor.R
+#' @export
+set_column_editor <- function(widget, columns, type = c("input", "number")) {
+  col_update <- list(editor = match.arg(type))
+  for (column in columns) {
+    widget <- modify_col_def(widget, column, col_update)
+  }
+
+  return(widget)
+}
+
+#' Add header filter
+#' @inheritParams set_column_editor
+#' @param columns (character vector): Columns the editor is applied to.
+#'  If set to \code{NULL}, the editor is applied to all columns.
+#' @example examples/misc/header_filter.R
+#' @export
+set_header_filter <- function(widget, columns = NULL) {
+  if (is.null(columns)) {
+    columns <- colnames(widget$x$data)
+  }
+
+  col_update <- list(headerFilter = TRUE)
+  for (column in columns) {
+    widget <- modify_col_def(widget, column, col_update)
+  }
+
+  return(widget)
+}
+
+# Generics
 
 modify_col_def <- function(widget, column, col_update) {
   for (index in 1:length(widget$x$options$columns)) {

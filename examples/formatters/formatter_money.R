@@ -9,4 +9,9 @@ data <- data.frame(
 )
 
 tabulator(data, width = 300) |>
-  set_formatter_money("Account_Balance", symbol = "\U20AC", symbol_after = FALSE, hoz_align = "right")
+  set_formatter_money(
+    "Account_Balance",
+    symbol = "\U20AC",
+    symbol_after = FALSE,
+    hoz_align = "right"
+  )

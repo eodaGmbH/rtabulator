@@ -1,5 +1,6 @@
 #' Create a Tabulator Widget
 #'
+#' Dots in column names are replaced by underscores.
 #' @param data (data.frame, character or list): In spreadsheet mode data needs to be a list or \code{NULL}
 #'  for an empty spreadsheet.
 #' @param options (list): Setup options. See \code{\link{tabulator_options}}.
