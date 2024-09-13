@@ -1,4 +1,4 @@
-#' Create columns definition from data
+#' Create column definitions from data
 #' @param data (data.frame) data
 #' @param editor (bool): Whether to make columns editable.
 #' @param filter (bool): Whether to add a header filter to the columns.
@@ -313,8 +313,7 @@ set_formatter_datetime <- function(
     input_format = "yyyy-MM-dd hh:ss:mm",
     output_format = "yy/MM/dd",
     invalid_placeholder = "(invalid datetime)",
-    timezone = NA
-    ) {
+    timezone = NA) {
   # Body
   col_update <- list(
     formatter = "datetime",
@@ -339,6 +338,7 @@ set_formatter_color <- function(widget, column) {
 
 #' Traffic Light Formatter
 #' @inheritParams set_formatter_progress
+#' @example examples/formatters/formatter_traffic_light.R
 #' @export
 set_formatter_traffic_light <- function(
     widget,
@@ -348,9 +348,9 @@ set_formatter_traffic_light <- function(
     color = c("green", "orange", "red"),
     hoz_align = "center") {
   # Body
-  if (is.na(min)) min = min(widget$x$data[column])
+  if (is.na(min)) min <- min(widget$x$data[column])
 
-  if (is.na(max)) max = max(widget$x$data[column])
+  if (is.na(max)) max <- max(widget$x$data[column])
 
   col_update <- list(
     formatter = "traffic",

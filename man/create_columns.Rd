@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{create_columns}
 \alias{create_columns}
-\title{Create columns definition from data}
+\title{Create column definitions from data}
 \usage{
 create_columns(data, editor = FALSE, filter = FALSE)
 }
@@ -14,5 +14,5 @@ create_columns(data, editor = FALSE, filter = FALSE)
 \item{filter}{(bool): Whether to add a header filter to the columns.}
 }
 \description{
-Create columns definition from data
+Create column definitions from data
 }

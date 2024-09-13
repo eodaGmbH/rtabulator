@@ -14,7 +14,8 @@ invoke_method <- function(widget, method_name, ...) {
   invisible(widget)
 }
 
-#' Create a Tabulator Context
+#' Create a Tabulator Context Object
+#' A \code{tabulatorContext} object makes it possible to update your widget in a Shiny app.
 #' @param output_id (character): A tabulator output id.
 #' @param session shiny session object
 #' @export

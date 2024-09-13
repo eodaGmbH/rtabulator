@@ -32,6 +32,7 @@
 #' @param spreadsheet_sheet_tabs (bool): Whether to show sheet tabs in the footer.
 #' @param ... Further options.
 #' @seealso \url{https://tabulator.info/docs/6.2/options}
+#' @example examples/tabulator_setup.R
 #' @export
 tabulator_options <- function(
     # General

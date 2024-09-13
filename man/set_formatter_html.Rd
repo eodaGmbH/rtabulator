@@ -30,6 +30,6 @@ data <- data.frame(
   )
 )
 
-tabulator(data, width=200) |>
+tabulator(data, width = 400) |>
   set_formatter_html("text_style")
 }
