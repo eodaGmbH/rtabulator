@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 
 rtabulator provides R bindings for [Tabulator JS](https://tabulator.info/).
 
-The goal of rtabulator is to make it easy to create elegant and interactive tables in markdown documents and [Shiny](https://shiny.posit.co/) applications. Furthermore, it support creating spreadsheets with multiple sheets.
+The goal of rtabulator is to make it easy to create elegant and interactive tables in markdown documents and [Shiny](https://shiny.posit.co/) applications. Furthermore, it supports creating spreadsheets with multiple sheets.
 
 ```{r setup}
 library(rtabulator)
@@ -19,7 +19,7 @@ library(rtabulator)
 
 ## Basic Usage
 
-To render a table just pass a data frame to the `tabulator` function:
+To render a table just pass a data frame to `tabulator()`:
 
 ```{r}
 tabulator(airquality)
@@ -30,7 +30,7 @@ character columns is set to _left_  while numeric columns are aligned _right_.
 
 ## Setup Options
 
-With `tabulator_options` you can customize your table (or spreadsheet):
+With `tabulator_options()` you can customize your table (or spreadsheet):
 
 ```{r}
 setup <- tabulator_options(
@@ -44,7 +44,7 @@ tabulator(USArrests, setup)
 
 ## Column Formatters
 
-To customize your columns the easiest way is to use the `set_formatter_*` functions: 
+To customize your columns, the easiest way is to use the `set_formatter_*` functions like `set_formatter_progress()` and others: 
 
 ```{r}
 tabulator(airquality) |>
@@ -54,7 +54,7 @@ tabulator(airquality) |>
 
 ## Multi Column headers
 
-You can create multi column headers with `set_multi_column_header`:
+You can create multi column headers with `set_multi_column_header()`:
 
 ```{r}
 headers <- list(
@@ -68,9 +68,37 @@ tabulator(iris) |>
 
 ## Spreadsheets
 
-To create an empty spreadsheet just pass an empty list as `data` parameter and `spreadsheet = TRUE`
-to the `tabulator` function:
+To create an empty spreadsheet just pass an empty list as `data` parameter and `spreadsheet = TRUE` to `tabulator()`:
 
 ```{r}
 tabulator(data = list(), spreadsheet = TRUE)
 ```
+
+The data format for spreadsheets is a list of lists or vectors where each entry represents a row in the spreadsheet:
+
+```{r}
+spreadsheet_data <- list(
+  c(1, 2, 3),
+  c(2, 3, 4)
+)
+```
+
+To use multiple sheets pass a list of sheets created with`spreadsheet_def()`. In this case, data is passed with the `data` parameter of the sheet definitions:
+
+```{r}
+sheets <- list(
+  spreadsheet_def(title = "Lee", data = spreadsheet_data),
+  spreadsheet_def(title = "Morgan", data = list()) # Empty spreadsheet
+)
+setup = tabulator_options(
+  spreadsheet = TRUE,
+  spreadsheet_sheets = sheets,
+  spreadsheet_sheet_tabs = TRUE,
+  edit_trigger_event = "click"
+)
+
+tabulator(NULL, setup)
+```
+## Next Steps
+
+Check the [API Reference](../reference/index.html) for details.

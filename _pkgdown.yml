@@ -35,6 +35,7 @@ reference:
     desc: >
       Utitily functions
     contents:
+      - spreadsheet_def
       - list_to_data_frame
       - create_columns
 

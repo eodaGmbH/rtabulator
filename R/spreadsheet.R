@@ -1,3 +1,13 @@
+#' Create a spreadsheet definition
+#' @param title (character): The name of the spreadsheet.
+#' @param key (character): Optional unique key of the spreadsheet.
+#' @param data (list) The initial data of the spreadsheet.
+#'  Set to \code{NULL} to create an empty spreadsheet.
+#' @export
+spreadsheet_def <- function(title, key = NULL, data = NULL) {
+  return(compact(as.list(environment())))
+}
+
 ## #' @export
 # TODO: Is this useful?
 set_spreadsheet_mode <- function(
