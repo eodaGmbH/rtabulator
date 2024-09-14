@@ -193,9 +193,14 @@ set_formatter_link <- function(
 #' Star Rating Formatter
 #' @inheritParams set_formatter_html
 #' @param number_of_stars The maximum number of stars to be displayed.
+#'  If set to \code{NA}, the maximum value of the column is used.
 #' @example examples/formatters/formatter_star.R
 #' @export
-set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "center") {
+set_formatter_star <- function(widget, column, number_of_stars = NA, hoz_align = "center") {
+  if (is.na(number_of_stars)) {
+    number_of_stars <- max(widget$x$data[column])
+  }
+
   col_update <- list(
     formatter = "star",
     formatterParams = list(stars = number_of_stars),
