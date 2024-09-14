@@ -61,6 +61,7 @@ tabulator <- function(
 
   # TODO: Make it optional when datetime formatter is called
   dependencies <- list(luxon_dependency)
+  # dependencies <- list()
   if (theme != "default") {
     dependencies <- c(dependencies, list(get_theme_dependeny(theme)))
   }
