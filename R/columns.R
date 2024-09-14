@@ -407,22 +407,23 @@ set_header_filter <- function(widget, columns = NULL) {
 
 #' Add a calculation to a column
 #' @inheritParams set_formatter_html
-#' @param func (character): The calculation function to be applied.
+#' @param column (character): The column the \code{func} is applied to.
+#' @param func (character): The calculation function to be applied
+#'  to the values of the \code{column}.
+#' @example examples/data_url.R
 #' @export
-set_top_calc <- function(
+set_calculation <- function(
     widget,
     column,
     func = c("avg", "max", "min", "sum", "count", "unique"),
-    precision = 2) {
-  col_update <- list(topCalc = match.arg(func), topCalcParams = list(precision = precision))
+    precision = 2,
+    pos = c("top", "bottom")) {
+  # Body
+  pos <- match.arg(pos)
+  col_update <- list(match.arg(func), list(precision = precision))
+  names(col_update) <- c(paste0(pos, "Calc"), paste0(pos, "CalcParams"))
   modify_col_def(widget, column, col_update)
 }
-
-# #' @export
-set_bottom_calc <- function(widget, column) {
-
-}
-
 
 # Generics
 
