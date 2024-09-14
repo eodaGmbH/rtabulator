@@ -435,6 +435,15 @@ set_header_filter2 <- function(
   modify_col_def(widget, column, col_update)
 }
 
+
+#' Add a tooltip to a column
+#' @inheritParams set_formatter_html
+#' @example examples/misc/tooltip.R
+#' @export
+set_tooltip <- function(widget, column) {
+  modify_col_def(widget, column, list(tooltip = TRUE))
+}
+
 #' Add a calculation to a column
 #' @inheritParams set_formatter_html
 #' @param column (character): The column the \code{func} is applied to.
