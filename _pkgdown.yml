@@ -23,6 +23,10 @@ reference:
     contents:
       - set_calculation
 
+  - title: Misc
+    contents:
+      - set_tooltip
+
   - title: Shiny Integration
     contents:
       - rtabulator-shiny
