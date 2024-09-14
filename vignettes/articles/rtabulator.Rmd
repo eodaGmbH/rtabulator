@@ -44,7 +44,7 @@ tabulator(USArrests, setup)
 
 ## Column Formatters
 
-To customize your columns the easiest way is to use the `set_formatter_*` functions: 
+To customize your columns the easiest way is to use the `set_formatter_*()` functions: 
 
 ```{r}
 tabulator(airquality) |>

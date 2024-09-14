@@ -50,7 +50,8 @@ tabulator <- function(
   }
 
   theme <- match.arg(theme)
-  stylesheet_text <- ifelse(theme == "default", NA, read_tabulator_theme(theme))
+  # stylesheet_text <- ifelse(theme == "default", NA, read_tabulator_theme(theme))
+  stylesheet_text <- NA
 
   x <- list(
     data = data,
@@ -60,6 +61,9 @@ tabulator <- function(
 
   # TODO: Make it optional when datetime formatter is called
   dependencies <- list(luxon_dependency)
+  if (theme != "default") {
+    dependencies <- c(dependencies, list(get_theme_dependeny(theme)))
+  }
 
   if (sheetjs) {
     dependencies <- c(dependencies, list(sheetjs_dependency))

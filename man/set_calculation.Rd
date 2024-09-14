@@ -19,6 +19,11 @@ set_calculation(
 
 \item{func}{(character): The calculation function to be applied
 to the values of the \code{column}.}
+
+\item{precision}{(integer)  The number of decimals to display.
+Set to \code{FALSE} to display all decimals.}
+
+\item{pos}{(character): Position at which calculated values are displayed.}
 }
 \description{
 Add a calculation to a column
@@ -29,8 +34,7 @@ data_url <- "https://raw.githubusercontent.com/eodaGmbH/rtabulator/main/data-raw
 tabulator(
   data_url,
   col_select = c("PassengerId", "Name", "Pclass", "Fare", "Survived"),
-  pagination = T,
-  column_calcs = "both"
+  pagination = TRUE
 ) |>
   set_formatter_star("Pclass") |>
   set_formatter_tick_cross("Survived") |>

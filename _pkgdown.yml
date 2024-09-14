@@ -19,6 +19,10 @@ reference:
     contents:
       - starts_with("set_formatter")
 
+  - title: Calculations
+    contents:
+      - set_calculation
+
   - title: Shiny Integration
     contents:
       - rtabulator-shiny

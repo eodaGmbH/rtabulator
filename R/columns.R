@@ -410,6 +410,9 @@ set_header_filter <- function(widget, columns = NULL) {
 #' @param column (character): The column the \code{func} is applied to.
 #' @param func (character): The calculation function to be applied
 #'  to the values of the \code{column}.
+#' @param precision (integer)  The number of decimals to display.
+#'  Set to \code{FALSE} to display all decimals.
+#' @param pos (character): Position at which calculated values are displayed.
 #' @example examples/data_url.R
 #' @export
 set_calculation <- function(

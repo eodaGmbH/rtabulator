@@ -3,8 +3,7 @@ data_url <- "https://raw.githubusercontent.com/eodaGmbH/rtabulator/main/data-raw
 tabulator(
   data_url,
   col_select = c("PassengerId", "Name", "Pclass", "Fare", "Survived"),
-  pagination = T,
-  column_calcs = "both"
+  pagination = TRUE
 ) |>
   set_formatter_star("Pclass") |>
   set_formatter_tick_cross("Survived") |>
