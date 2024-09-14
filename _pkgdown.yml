@@ -26,6 +26,7 @@ reference:
   - title: Misc
     contents:
       - set_tooltip
+      - set_column_defaults
 
   - title: Shiny Integration
     contents:

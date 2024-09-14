@@ -444,6 +444,26 @@ set_tooltip <- function(widget, column) {
   modify_col_def(widget, column, list(tooltip = TRUE))
 }
 
+#' @export
+set_column_defaults <- function(
+    widget,
+    editor = FALSE,
+    header_filter = FALSE,
+    header_sort = TRUE,
+    tooltip = TRUE,
+    width = NULL,
+    ...) {
+  widget$x$options$columnDefaults <- compact(list(
+    editor = editor,
+    headerFilter = header_filter,
+    headerSort = header_sort,
+    tooltip = tooltip,
+    width = width,
+    ...
+  ))
+  return(widget)
+}
+
 #' Add a calculation to a column
 #' @inheritParams set_formatter_html
 #' @param column (character): The column the \code{func} is applied to.
