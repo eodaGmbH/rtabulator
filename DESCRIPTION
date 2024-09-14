@@ -9,7 +9,8 @@ Authors@R: c(
   )
 Maintainer: Stefan Kuethe <crazycapivara@gmail.com>
 Description: Provides R bindings for 'Tabulator JS' <https://tabulator.info/>.
-  Makes it a breeze to create beautiful interactive tables.
+  Makes it a breeze to create highly customizable interactive tables in markdown documents
+  and Shiny applications.
 URL:
   https://github.com/eodaGmbH/rtabulator
   https://eodagmbh.github.io/rtabulator/
