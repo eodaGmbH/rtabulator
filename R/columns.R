@@ -392,6 +392,7 @@ set_column_editor <- function(widget, columns, type = c("input", "number")) {
 #'  If set to \code{NULL}, the editor is applied to all columns.
 #' @example examples/misc/header_filter.R
 #' @export
+# TODO: Rename to set_default_header_filter
 set_header_filter <- function(widget, columns = NULL) {
   if (is.null(columns)) {
     columns <- colnames(widget$x$data)
@@ -399,10 +400,39 @@ set_header_filter <- function(widget, columns = NULL) {
 
   col_update <- list(headerFilter = TRUE)
   for (column in columns) {
+    # TODO: Use new set_header_filter func here
     widget <- modify_col_def(widget, column, col_update)
   }
 
   return(widget)
+}
+
+set_header_filter2 <- function(
+    widget,
+    column,
+    type = c("input", "number", "list", "tickCross"),
+    func = c("like"),
+    values_lookup = TRUE,
+    clearable = TRUE,
+    placeholder = NULL) {
+  # Body
+  if (is.null(type)) {
+    type <- ifelse(is.numeric(widget$x$data[, column]), "number", "input")
+  } else {
+    type <- match.arg(type)
+  }
+
+  header_filter_params <- compact(list(
+    clearable = clearable,
+    valuesLookup = values_lookup
+  ))
+  col_update <- list(
+    headerFilter = type,
+    headerFilterPlaceholder = placeholder,
+    headerFilterFunc = func,
+    headerFilterParams = header_filter_params
+  )
+  modify_col_def(widget, column, col_update)
 }
 
 #' Add a calculation to a column

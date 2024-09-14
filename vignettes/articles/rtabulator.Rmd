@@ -89,7 +89,7 @@ sheets <- list(
   spreadsheet_def(title = "Lee", data = spreadsheet_data),
   spreadsheet_def(title = "Morgan", data = list()) # Empty spreadsheet
 )
-setup = tabulator_options(
+setup <- tabulator_options(
   spreadsheet = TRUE,
   spreadsheet_sheets = sheets,
   spreadsheet_sheet_tabs = TRUE,
