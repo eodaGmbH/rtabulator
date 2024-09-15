@@ -27,6 +27,7 @@ reference:
   - title: Misc
     contents:
       - set_tooltip
+      - for_each_col
 
   - title: Shiny Integration
     contents:
