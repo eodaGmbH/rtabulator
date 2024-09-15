@@ -393,12 +393,12 @@ set_formatter_traffic_light <- function(
 
 # Other
 
-#' Make columns editable
-#' @inheritParams set_formatter_html
-#' @param columns (character vector): Columns the editor is applied to.
-#' @param type (character): Either \code{input} or \code{number}.
-#' @example examples/formatters/column_editor.R
-#' @export
+# TODO: Deprecated
+# #' Make columns editable
+# #' @inheritParams set_formatter_html
+# #' @param columns (character vector): Columns the editor is applied to.
+# #' @param type (character): Either \code{input} or \code{number}.
+# #' @example examples/formatters/column_editor.R
 set_column_editor <- function(widget, columns, type = c("input", "number")) {
   col_update <- list(editor = match.arg(type))
   for (column in columns) {
@@ -406,6 +406,33 @@ set_column_editor <- function(widget, columns, type = c("input", "number")) {
   }
 
   return(widget)
+}
+
+#' Set editor
+#' @inheritParams set_formatter_html
+#' @param editor (character): The editor type.
+#' @param validator (character vector): One or more validators to validate user input.
+#' @param ... Optional editor parameters depending on the selected editor.
+#' @seealso
+#'  \url{https://tabulator.info/docs/6.2/edit} for available editors
+#'  \url{https://tabulator.info/docs/6.2/validate} for available validators.
+#' @example examples/editors.R
+#' @export
+set_editor <- function(
+    widget,
+    column,
+    editor = c("input", "textarea", "number", "range",
+               "tickCross", "star", "progress", "date", "time", "datetime", "list"),
+    validator = NULL,
+    ...) {
+  # Body
+  col_update <- list(editor = match.arg(editor), validator = validator)
+  editor_params <- list(...)
+  if (length(editor_params) > 0) {
+    col_update$editorParams <- keys_to_camel_case(compact(editor_params))
+  }
+
+  modify_col_def(widget, column, col_update)
 }
 
 #' Add header filter to column

@@ -115,6 +115,37 @@ If further functions update the column definitions, `set_multi_column_header()` 
 
 ***
 
+## Editors
+
+Set `editable = TRUE` to make all columns of the table editable. In this case, the editor for numeric columns is set to `number` and all others to `input`.
+
+```{r}
+setup <- tabulator_options(edit_trigger_event = "click")
+
+tabulator(iris, setup, editable = TRUE)
+```
+
+To customize editor settings and validate user input use `set_editor()`:
+
+```{r}
+tabulator(iris[, c(2, 5)], setup) |>
+  set_editor(
+    column = "Species",
+    editor = "list",
+    values_lookup = "active",
+    clearable = TRUE,
+    autocomplete = TRUE
+  ) |>
+  set_editor(
+    column = "Sepal_Width",
+    editor = "number",
+    min = 0,
+    max = 10,
+    step = 0.1,
+    validator = c("min:0", "max:10")
+  )
+```
+
 ## Spreadsheets
 
 To create an empty spreadsheet just pass an empty list as `data` parameter and `spreadsheet = TRUE` to `tabulator()`:

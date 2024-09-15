@@ -9,7 +9,7 @@ reference:
     contents:
       - tabulator
       - tabulator_options
-      - set_column_editor
+      - set_editor
       - set_header_filter
       - set_multi_column_header
       - set_column_defaults
@@ -48,4 +48,3 @@ reference:
       - spreadsheet_def
       - list_to_data_frame
       - create_columns
-
