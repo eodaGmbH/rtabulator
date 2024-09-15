@@ -12,6 +12,7 @@ reference:
       - set_column_editor
       - set_header_filter
       - set_multi_column_header
+      - set_column_defaults
 
   - title: Column Formatters
     desc: >
@@ -26,7 +27,6 @@ reference:
   - title: Misc
     contents:
       - set_tooltip
-      - set_column_defaults
 
   - title: Shiny Integration
     contents:

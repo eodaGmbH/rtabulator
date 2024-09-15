@@ -3,6 +3,7 @@
 export(add_row)
 export(create_columns)
 export(delete_selected_rows)
+export(for_each_col)
 export(list_to_data_frame)
 export(redo)
 export(renderTabulator)

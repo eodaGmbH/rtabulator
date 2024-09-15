@@ -62,7 +62,8 @@ headers <- list(
 )
 
 tabulator(iris) |>
-  set_multi_column_header(headers)
+  set_multi_column_header(headers) |>
+  set_hea
 ```
 
 ## Spreadsheets

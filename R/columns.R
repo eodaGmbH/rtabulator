@@ -3,6 +3,7 @@
 #' @param editor (bool): Whether to make columns editable.
 #' @param filter (bool): Whether to add a header filter to the columns.
 #' @export
+# TODO: We do not need to export this func anymore
 create_columns <- function(data, editor = FALSE, filter = FALSE) {
   data <- fix_colnames(data)
   dtype_is_numeric <- sapply(data, is.numeric)
@@ -40,6 +41,7 @@ set_auto_id <- function(data) {
 }
 
 # TODO: Add possibility to add editor to specific columns only
+# TODO: Check if func is obsolete
 add_editor_to_columns <- function(columns, data) {
   dtype_is_numeric <- sapply(data, is.numeric)
   for (index in 1:length(columns)) {
@@ -49,12 +51,33 @@ add_editor_to_columns <- function(columns, data) {
   return(columns)
 }
 
+# TODO: Check if func is obsolete
 add_filter_to_columns <- function(columns) {
   for (index in 1:length(columns)) {
-    columns[[index]]$headerFilter <- TRUE # detects column type automatically
+    columns[[index]]$headerFilter <- TRUE # detects column type automatically if editor type is set
   }
 
   return(columns)
+}
+
+#' Apply a column setter function to multiple columns
+#' @inheritParams set_formatter_html
+#' @param columns (character vector): The columns the column setter function (\code{.f}) is applied to.
+#'  If set to \code{NULL} it is applied to all columns.
+#' @param .f (function): The column setter function that updates the column settings.
+#' @param ... Arguments that are passed to \code{.f}.
+#' @example examples/for_each_col.R
+#' @export
+for_each_col <- function(widget, columns = NULL, .f, ...) {
+  if (is.null(columns)) columns <- colnames(widget$x$data)
+
+  args <- list(...)
+
+  for (column in columns) {
+    widget <- do.call(.f, c(list(widget = widget, column = column), args))
+  }
+
+  return(widget)
 }
 
 # Formatters ####
@@ -208,7 +231,6 @@ set_formatter_star <- function(widget, column, number_of_stars = NA, hoz_align =
   )
   modify_col_def(widget, column, col_update)
 }
-
 
 #' Progress Formatter
 #' @inheritParams set_formatter_html
@@ -386,32 +408,20 @@ set_column_editor <- function(widget, columns, type = c("input", "number")) {
   return(widget)
 }
 
-#' Add header filter
-#' @inheritParams set_column_editor
-#' @param columns (character vector): Columns the editor is applied to.
-#'  If set to \code{NULL}, the editor is applied to all columns.
+#' Add header filter to column
+#' @inheritParams set_formatter_html
+#' @param type (character): The type of the filter.
+#' @param values_lookup (bool): Whether to use unique column values for the list filter.
+#' @param func (character): The filter function.
+#' @param clearable (bool): Whether to display a cross to clear the filter.
+#' @param placeholder (character): Text that is displayed when no filter is set.
 #' @example examples/misc/header_filter.R
 #' @export
-# TODO: Rename to set_default_header_filter
-set_header_filter <- function(widget, columns = NULL) {
-  if (is.null(columns)) {
-    columns <- colnames(widget$x$data)
-  }
-
-  col_update <- list(headerFilter = TRUE)
-  for (column in columns) {
-    # TODO: Use new set_header_filter func here
-    widget <- modify_col_def(widget, column, col_update)
-  }
-
-  return(widget)
-}
-
-set_header_filter2 <- function(
+set_header_filter <- function(
     widget,
     column,
     type = c("input", "number", "list", "tickCross"),
-    func = c("like"),
+    func = c("like", "=", ">", ">=", "<", "<="),
     values_lookup = TRUE,
     clearable = TRUE,
     placeholder = NULL) {
@@ -435,8 +445,7 @@ set_header_filter2 <- function(
   modify_col_def(widget, column, col_update)
 }
 
-
-#' Add a tooltip to a column
+#' Add tooltip to column
 #' @inheritParams set_formatter_html
 #' @example examples/misc/tooltip.R
 #' @export
@@ -444,6 +453,19 @@ set_tooltip <- function(widget, column) {
   modify_col_def(widget, column, list(tooltip = TRUE))
 }
 
+
+#' Set column defaults
+#' @inheritParams set_formatter_html
+#' @param editor (character, bool): One of \code{"input"} or \code{"number"}.
+#'  If set to \code{FALSE} cells are not editable.
+#' @param header_filter (character, bool): One of \code{"input"} or \code{"number"}.
+#'  Set to \code{FALSE} to disable header filters.
+#' @param header_sort (bool): Whether to enable header sorting.
+#' @param tooltip (bool): Whether to show tooltips displaying the cell value.
+#' @param width (integer): Fixed width of columns.
+#' @param ... Additional settings.
+#' @seealso \url{https://tabulator.info/docs/6.2/columns#defaults}
+#' @example examples/column_defaults.R
 #' @export
 set_column_defaults <- function(
     widget,
