@@ -1,0 +1,38 @@
+---
+title: "Themes"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rtabulator)
+```
+
+rtabulator comes with the built-in themes of [Tabulator JS](https://tabulator.info/docs/6.2/theme).
+
+## Standard Themes
+
+* midnight
+* modern
+* simple
+* site
+
+## Framework Themes
+
+* bootstrap3
+* bootstrap4
+* bootstrap5
+* bulma
+* materialize
+* semanticui
+
+Themes are selected by specifying the `theme` parameter when calling `tabulator()`:
+
+```{r}
+tabulator(iris, theme = "midnight")
+```

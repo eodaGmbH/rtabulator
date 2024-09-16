@@ -226,4 +226,6 @@ tabulator(NULL, setup)
 ```
 ## Next Steps
 
-Check the [API Reference](../reference/index.html) for details.
+* [API Reference](../reference/index.html)
+* [Shiny Integration](../articles/shiny.html)
+* [Themes](../articles/themes.html)
