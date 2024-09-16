@@ -25,15 +25,26 @@
     });
   }
 
+  // src/utils.js
+  function convertToDataFrame(data) {
+    res = {};
+    if (data.length === 0) {
+      return res;
+    }
+    keys = Object.keys(data[0]);
+    keys.forEach((key) => res[key] = data.map((item) => item[key]));
+    return res;
+  }
+
   // src/widget.js
   function run_calls(el, table, calls) {
     calls.forEach(([method_name, options]) => {
       if (method_name === "getData") {
-        const inputName = `${el.id}_data`;
+        const inputName = `${el.id}_get_data`;
         console.log("custom call", inputName);
         Shiny.setInputValue(
           inputName,
-          { data: table.getData() },
+          { data: convertToDataFrame(table.getData()) },
           { priority: "event" }
         );
         return;

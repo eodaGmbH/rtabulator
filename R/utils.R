@@ -18,3 +18,9 @@ list_to_data_frame <- function(x) {
   # jsonlite::toJSON(x, auto_unbox = TRUE) |> jsonlite::fromJSON()
   return(do.call(rbind.data.frame, x))
 }
+
+tabulator_data_as_data_frame <- function(data) {
+  return(as.data.frame(purrr::map(data, ~ unlist(.x))))
+}
+
+# as.data.frame(purrr::map(input$data, ~ unlist(.x)))
