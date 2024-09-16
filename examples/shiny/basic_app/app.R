@@ -1,24 +1,6 @@
----
-title: "Shiny integration"
----
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
-```{r setup}
 library(shiny)
 library(rtabulator)
-```
 
-## Basic application
-
-Use `tabulatorOutput()` in the UI and `renderTabulator()` in the server part of your Shiny application:
-
-```{r, eval=FALSE}
 ui <- fluidPage(
   titlePanel("Titanic Data Set"),
   tabulatorOutput("titanic")
@@ -35,4 +17,3 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
-```
