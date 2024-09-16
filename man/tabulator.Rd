@@ -11,6 +11,7 @@ tabulator(
   sheetjs = FALSE,
   theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3",
     "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
+  col_select = NULL,
   width = NULL,
   height = NULL,
   element_id = NULL,
@@ -29,6 +30,9 @@ for an empty spreadsheet.}
 which is needed for xlsx downloads.}
 
 \item{theme}{(character): Theme to apply to the table.}
+
+\item{col_select}{(character vector) Columns to select.
+Passed to \code{\link[readr]{read_csv}} if \code{data} is a file name.}
 
 \item{width}{Width of the widget.}
 

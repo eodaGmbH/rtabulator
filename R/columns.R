@@ -3,6 +3,7 @@
 #' @param editor (bool): Whether to make columns editable.
 #' @param filter (bool): Whether to add a header filter to the columns.
 #' @export
+# TODO: We do not need to export this func anymore
 create_columns <- function(data, editor = FALSE, filter = FALSE) {
   data <- fix_colnames(data)
   dtype_is_numeric <- sapply(data, is.numeric)
@@ -40,6 +41,7 @@ set_auto_id <- function(data) {
 }
 
 # TODO: Add possibility to add editor to specific columns only
+# TODO: Check if func is obsolete
 add_editor_to_columns <- function(columns, data) {
   dtype_is_numeric <- sapply(data, is.numeric)
   for (index in 1:length(columns)) {
@@ -49,12 +51,33 @@ add_editor_to_columns <- function(columns, data) {
   return(columns)
 }
 
+# TODO: Check if func is obsolete
 add_filter_to_columns <- function(columns) {
   for (index in 1:length(columns)) {
-    columns[[index]]$headerFilter <- TRUE # detects column type automatically
+    columns[[index]]$headerFilter <- TRUE # detects column type automatically if editor type is set
   }
 
   return(columns)
+}
+
+#' Apply a column setter function to multiple columns
+#' @inheritParams set_formatter_html
+#' @param columns (character vector): The columns the column setter function (\code{.f}) is applied to.
+#'  If set to \code{NULL} it is applied to all columns.
+#' @param .f (function): The column setter function that updates the column settings.
+#' @param ... Arguments that are passed to \code{.f}.
+#' @example examples/for_each_col.R
+#' @export
+for_each_col <- function(widget, columns = NULL, .f, ...) {
+  if (is.null(columns)) columns <- colnames(widget$x$data)
+
+  args <- list(...)
+
+  for (column in columns) {
+    widget <- do.call(.f, c(list(widget = widget, column = column), args))
+  }
+
+  return(widget)
 }
 
 # Formatters ####
@@ -193,9 +216,14 @@ set_formatter_link <- function(
 #' Star Rating Formatter
 #' @inheritParams set_formatter_html
 #' @param number_of_stars The maximum number of stars to be displayed.
+#'  If set to \code{NA}, the maximum value of the column is used.
 #' @example examples/formatters/formatter_star.R
 #' @export
-set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "center") {
+set_formatter_star <- function(widget, column, number_of_stars = NA, hoz_align = "center") {
+  if (is.na(number_of_stars)) {
+    number_of_stars <- max(widget$x$data[column])
+  }
+
   col_update <- list(
     formatter = "star",
     formatterParams = list(stars = number_of_stars),
@@ -203,7 +231,6 @@ set_formatter_star <- function(widget, column, number_of_stars, hoz_align = "cen
   )
   modify_col_def(widget, column, col_update)
 }
-
 
 #' Progress Formatter
 #' @inheritParams set_formatter_html
@@ -366,12 +393,12 @@ set_formatter_traffic_light <- function(
 
 # Other
 
-#' Make columns editable
-#' @inheritParams set_formatter_html
-#' @param columns (character vector): Columns the editor is applied to.
-#' @param type (character): Either \code{input} or \code{number}.
-#' @example examples/formatters/column_editor.R
-#' @export
+# TODO: Deprecated
+# #' Make columns editable
+# #' @inheritParams set_formatter_html
+# #' @param columns (character vector): Columns the editor is applied to.
+# #' @param type (character): Either \code{input} or \code{number}.
+# #' @example examples/formatters/column_editor.R
 set_column_editor <- function(widget, columns, type = c("input", "number")) {
   col_update <- list(editor = match.arg(type))
   for (column in columns) {
@@ -381,23 +408,134 @@ set_column_editor <- function(widget, columns, type = c("input", "number")) {
   return(widget)
 }
 
-#' Add header filter
-#' @inheritParams set_column_editor
-#' @param columns (character vector): Columns the editor is applied to.
-#'  If set to \code{NULL}, the editor is applied to all columns.
+#' Set editor
+#' @inheritParams set_formatter_html
+#' @param editor (character): The editor type.
+#' @param validator (character vector): One or more validators to validate user input.
+#' @param ... Optional editor parameters depending on the selected editor.
+#' @seealso
+#'  \url{https://tabulator.info/docs/6.2/edit} for available editors
+#'  \url{https://tabulator.info/docs/6.2/validate} for available validators.
+#' @example examples/editors.R
+#' @export
+set_editor <- function(
+    widget,
+    column,
+    editor = c(
+      "input", "textarea", "number", "range",
+      "tickCross", "star", "progress", "date", "time", "datetime", "list"
+    ),
+    validator = NULL,
+    ...) {
+  # Body
+  col_update <- list(editor = match.arg(editor), validator = validator)
+  editor_params <- list(...)
+  if (length(editor_params) > 0) {
+    col_update$editorParams <- keys_to_camel_case(compact(editor_params))
+  }
+
+  modify_col_def(widget, column, col_update)
+}
+
+#' Add header filter to column
+#' @inheritParams set_formatter_html
+#' @param type (character): The type of the filter.
+#' @param values_lookup (bool): Whether to use unique column values for the list filter.
+#' @param func (character): The filter function.
+#' @param clearable (bool): Whether to display a cross to clear the filter.
+#' @param placeholder (character): Text that is displayed when no filter is set.
 #' @example examples/misc/header_filter.R
 #' @export
-set_header_filter <- function(widget, columns = NULL) {
-  if (is.null(columns)) {
-    columns <- colnames(widget$x$data)
+set_header_filter <- function(
+    widget,
+    column,
+    type = c("input", "number", "list", "tickCross"),
+    func = c("like", "=", ">", ">=", "<", "<="),
+    values_lookup = TRUE,
+    clearable = TRUE,
+    placeholder = NULL) {
+  # Body
+  if (is.null(type)) {
+    type <- ifelse(is.numeric(widget$x$data[, column]), "number", "input")
+  } else {
+    type <- match.arg(type)
   }
 
-  col_update <- list(headerFilter = TRUE)
-  for (column in columns) {
-    widget <- modify_col_def(widget, column, col_update)
-  }
+  header_filter_params <- compact(list(
+    clearable = clearable,
+    valuesLookup = values_lookup
+  ))
+  col_update <- list(
+    headerFilter = type,
+    headerFilterPlaceholder = placeholder,
+    headerFilterFunc = func,
+    headerFilterParams = header_filter_params
+  )
+  modify_col_def(widget, column, col_update)
+}
 
+#' Add tooltip to column
+#' @inheritParams set_formatter_html
+#' @example examples/misc/tooltip.R
+#' @export
+set_tooltip <- function(widget, column) {
+  modify_col_def(widget, column, list(tooltip = TRUE))
+}
+
+
+#' Set column defaults
+#' @inheritParams set_formatter_html
+#' @param editor (character, bool): One of \code{"input"} or \code{"number"}.
+#'  If set to \code{FALSE} cells are not editable.
+#' @param header_filter (character, bool): One of \code{"input"} or \code{"number"}.
+#'  Set to \code{FALSE} to disable header filters.
+#' @param header_sort (bool): Whether to enable header sorting.
+#' @param tooltip (bool): Whether to show tooltips displaying the cell value.
+#' @param width (integer): Fixed width of columns.
+#' @param ... Additional settings.
+#' @seealso \url{https://tabulator.info/docs/6.2/columns#defaults}
+#' @example examples/column_defaults.R
+#' @export
+set_column_defaults <- function(
+    widget,
+    editor = FALSE,
+    header_filter = FALSE,
+    header_sort = TRUE,
+    tooltip = TRUE,
+    width = NULL,
+    ...) {
+  widget$x$options$columnDefaults <- compact(list(
+    editor = editor,
+    headerFilter = header_filter,
+    headerSort = header_sort,
+    tooltip = tooltip,
+    width = width,
+    ...
+  ))
   return(widget)
+}
+
+#' Add a calculation to a column
+#' @inheritParams set_formatter_html
+#' @param column (character): The column the \code{func} is applied to.
+#' @param func (character): The calculation function to be applied
+#'  to the values of the \code{column}.
+#' @param precision (integer)  The number of decimals to display.
+#'  Set to \code{FALSE} to display all decimals.
+#' @param pos (character): Position at which calculated values are displayed.
+#' @example examples/data_url.R
+#' @export
+set_calculation <- function(
+    widget,
+    column,
+    func = c("avg", "max", "min", "sum", "count", "unique"),
+    precision = 2,
+    pos = c("top", "bottom")) {
+  # Body
+  pos <- match.arg(pos)
+  col_update <- list(match.arg(func), list(precision = precision))
+  names(col_update) <- c(paste0(pos, "Calc"), paste0(pos, "CalcParams"))
+  modify_col_def(widget, column, col_update)
 }
 
 # Generics

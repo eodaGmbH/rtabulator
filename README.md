@@ -6,22 +6,31 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/eodaGmbH/rtabulator/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/eodaGmbH/rtabulator/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rtabulator)](https://CRAN.R-project.org/package=rtabulator)
+[![Tabulator](https://img.shields.io/badge/Tabulator-v6.2.5-blue.svg)](https://github.com/olifolkerd/tabulator/releases/tag/6.2.5)
 <!-- badges: end -->
 
 The goal of rtabulator is to make it a breeze creating beautiful and
-reactive tables using [Tabulator JS](https://tabulator.info/)
+interactive tables in markdown documents and Shiny application using
+[Tabulator JS](https://tabulator.info/).
 
 ## Features
 
-- Filters
+- Filtering
 - Grouping
-- Multiple column formatters (images, html, progress bar, …)
-- Multiple themes
+- Editing
+- Input validation
+- History with undo and redo actions
+- Pagination
+- Layout
+- Column formatters
+- Column calculations
 - Multi column headers
-- Spreadsheet mode supporting multiple sheets
-- Cell editing supporting validation
-- Downloads (json, csv, xlsx)
-- Interactivity
+- Packaged themes
+- Spreadsheets supporting multiple sheets
+- Download data
+- Freeze data
 
 ## Installation
 

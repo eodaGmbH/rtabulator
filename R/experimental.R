@@ -31,3 +31,18 @@ find_column <- function(widget, column) {
 
   return(column_def)
 }
+
+# Themes ####
+
+get_theme_dependeny <- function(
+    theme = c("midnight", "modern", "simple", "site", "bootstrap3", "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui")) {
+  # Body
+  theme <- match.arg(theme)
+  htmltools::htmlDependency(
+    name = "tabulator-theme",
+    version = "6.2.5",
+    src = system.file("htmlwidgets/libs/tabulator", package = "rtabulator"),
+    stylesheet = glue::glue("tabulator_{theme}.min.css"),
+    all_files = FALSE
+  )
+}

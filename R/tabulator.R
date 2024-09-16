@@ -8,6 +8,8 @@
 #' @param sheetjs (bool): Whether to add sheetjs (\url{https://sheetjs.com/}) dependency,
 #'  which is needed for xlsx downloads.
 #' @param theme (character): Theme to apply to the table.
+#' @param col_select (character vector) Columns to select.
+#'  Passed to \code{\link[readr]{read_csv}} if \code{data} is a file name.
 #' @param width Width of the widget.
 #' @param height Height of the widget.
 #' @param element_id The unique ID of the widget.
@@ -21,6 +23,7 @@ tabulator <- function(
     editable = FALSE,
     sheetjs = FALSE,
     theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3", "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
+    col_select = NULL,
     width = NULL,
     height = NULL,
     element_id = NULL,
@@ -28,7 +31,7 @@ tabulator <- function(
   if (is.null(options)) options <- list()
 
   if (is.character(data)) {
-    data <- readr::read_csv(data, show_col_types = FALSE)
+    data <- readr::read_csv(data, show_col_types = FALSE, col_select = !!col_select)
   }
 
   # TODO: Use Pipe, but then we need to set required R Version to > 4.1
@@ -47,7 +50,8 @@ tabulator <- function(
   }
 
   theme <- match.arg(theme)
-  stylesheet_text <- ifelse(theme == "default", NA, read_tabulator_theme(theme))
+  # stylesheet_text <- ifelse(theme == "default", NA, read_tabulator_theme(theme))
+  stylesheet_text <- NA
 
   x <- list(
     data = data,
@@ -57,6 +61,10 @@ tabulator <- function(
 
   # TODO: Make it optional when datetime formatter is called
   dependencies <- list(luxon_dependency)
+  # dependencies <- list()
+  if (theme != "default") {
+    dependencies <- c(dependencies, list(get_theme_dependeny(theme)))
+  }
 
   if (sheetjs) {
     dependencies <- c(dependencies, list(sheetjs_dependency))

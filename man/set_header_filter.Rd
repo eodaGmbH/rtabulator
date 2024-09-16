@@ -2,18 +2,35 @@
 % Please edit documentation in R/columns.R
 \name{set_header_filter}
 \alias{set_header_filter}
-\title{Add header filter}
+\title{Add header filter to column}
 \usage{
-set_header_filter(widget, columns = NULL)
+set_header_filter(
+  widget,
+  column,
+  type = c("input", "number", "list", "tickCross"),
+  func = c("like", "=", ">", ">=", "<", "<="),
+  values_lookup = TRUE,
+  clearable = TRUE,
+  placeholder = NULL
+)
 }
 \arguments{
 \item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
 
-\item{columns}{(character vector): Columns the editor is applied to.
-If set to \code{NULL}, the editor is applied to all columns.}
+\item{column}{(character): The column the formatter is applied to.}
+
+\item{type}{(character): The type of the filter.}
+
+\item{func}{(character): The filter function.}
+
+\item{values_lookup}{(bool): Whether to use unique column values for the list filter.}
+
+\item{clearable}{(bool): Whether to display a cross to clear the filter.}
+
+\item{placeholder}{(character): Text that is displayed when no filter is set.}
 }
 \description{
-Add header filter
+Add header filter to column
 }
 \examples{
 data <- data.frame(
@@ -23,5 +40,7 @@ data <- data.frame(
 )
 
 tabulator(data) |>
-  set_header_filter()
+  set_header_filter("age", type = NULL, func = "<=", placeholder = "max age") |>
+  set_header_filter("first_name", placeholder = "Fran") |>
+  set_header_filter("last_name", type = "list")
 }

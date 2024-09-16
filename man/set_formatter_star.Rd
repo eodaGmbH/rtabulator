@@ -4,14 +4,15 @@
 \alias{set_formatter_star}
 \title{Star Rating Formatter}
 \usage{
-set_formatter_star(widget, column, number_of_stars, hoz_align = "center")
+set_formatter_star(widget, column, number_of_stars = NA, hoz_align = "center")
 }
 \arguments{
 \item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
 
 \item{column}{(character): The column the formatter is applied to.}
 
-\item{number_of_stars}{The maximum number of stars to be displayed.}
+\item{number_of_stars}{The maximum number of stars to be displayed.
+If set to \code{NA}, the maximum value of the column is used.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }

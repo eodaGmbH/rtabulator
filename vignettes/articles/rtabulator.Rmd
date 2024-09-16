@@ -25,12 +25,34 @@ To render a table just pass a data frame to `tabulator()`:
 tabulator(airquality)
 ```
 
-In this case, the column definitions are automatically created for you. The horizontal alignment for
-character columns is set to _left_  while numeric columns are aligned _right_.
+In this case, the column definitions are automatically created for you. The horizontal alignment for character columns is set to _left_  while numeric columns are aligned _right_.
+
+It is also possible to pass pass a data URL:
+
+```{r}
+data_url <- "https://raw.githubusercontent.com/eodaGmbH/rtabulator/main/data-raw/titanic.csv"
+
+tabulator(
+  data_url,
+  col_select = c("PassengerId", "Name", "Pclass", "Fare", "Survived")
+)
+```
 
 ## Setup Options
 
 With `tabulator_options()` you can customize your table (or spreadsheet):
+
+```{r}
+setup <- tabulator_options(
+  row_height = 50,
+  selectable_rows = FALSE,
+  edit_trigger_event = "click"
+)
+
+tabulator(iris, setup, editable = TRUE)
+```
+
+## Pagination
 
 ```{r}
 setup <- tabulator_options(
@@ -44,12 +66,31 @@ tabulator(USArrests, setup)
 
 ## Column Formatters
 
-To customize your columns, the easiest way is to use the `set_formatter_*` functions like `set_formatter_progress()` and others: 
+To customize your columns, the easiest way is to use the `set_formatter_*()` functions: 
 
 ```{r}
 tabulator(airquality) |>
   set_formatter_progress("Temp", legend = TRUE, legend_align = "left") |>
-  set_formatter_traffic_light("Ozone")
+  set_formatter_traffic_light("Ozone") |>
+  set_tooltip("Ozone")
+```
+
+With `for_each_col()` you can apply a formatter to multiple columns:
+
+```{r}
+numeric_cols <- c("Sepal_Length", "Sepal_Width", "Petal_Length", "Petal_Width")
+
+tabulator(iris) |>
+  for_each_col(
+    numeric_cols,
+    set_formatter_progress,
+    legend = TRUE,
+    legend_align = "left",
+    min = 0,
+    max = 10,
+    color = c("yellow", "orange", "green")
+  ) |>
+  for_each_col(numeric_cols, set_tooltip)
 ```
 
 ## Multi Column headers
@@ -63,7 +104,91 @@ headers <- list(
 )
 
 tabulator(iris) |>
+  set_header_filter("Species", "list", placeholder = "Select Species") |>
   set_multi_column_header(headers)
+```
+
+***
+
+**Note**
+
+If further functions update the column definitions, `set_multi_column_header()` must be the last one. Therefore, in the example above `set_header_filter()` is called before we set the multi column header.
+
+***
+
+## Groupings
+
+```{r}
+setup <- tabulator_options(
+  group_by = c("Pclass"),
+  group_start_open = FALSE,
+  group_toggle_element = "header"
+)
+
+titanic_df <- titanic(c("Pclass", "Sex", "Age", "Survived"))
+
+tabulator(titanic_df, setup) |>
+  set_formatter_traffic_light("Survived", color = c("red", "green"))
+```
+
+Multi level grouping is done by passing a vector as `group_by` parameter:
+
+```{r}
+setup <- tabulator_options(
+  group_by = c("Sex", "Pclass"),
+  group_start_open = c(TRUE, FALSE)
+)
+
+tabulator(titanic_df, setup)
+```
+
+***
+
+**Note**
+
+You can also use `set_option_group_by()` to set the group by options. 
+
+***
+
+## Calculations
+
+With `set_calculation()` you can add calculations to the top or bottom of columns:
+
+```{r}
+tabulator(iris[4:5]) |>
+  set_calculation("Petal_Width", "avg", pos = "top") |>
+  set_calculation("Petal_Width", "max", precision = 1, pos = "bottom")
+```
+
+## Editors
+
+Set `editable = TRUE` to make all columns of the table editable. In this case, the editor for numeric columns is set to `number` and all others to `input`.
+
+```{r}
+setup <- tabulator_options(edit_trigger_event = "click")
+
+tabulator(iris, setup, editable = TRUE)
+```
+
+To customize editor settings and validate user input use `set_editor()`:
+
+```{r}
+tabulator(iris[, c(2, 5)], setup) |>
+  set_editor(
+    column = "Species",
+    editor = "list",
+    values_lookup = "active",
+    clearable = TRUE,
+    autocomplete = TRUE
+  ) |>
+  set_editor(
+    column = "Sepal_Width",
+    editor = "number",
+    min = 0,
+    max = 10,
+    step = 0.1,
+    validator = c("min:0", "max:10")
+  )
 ```
 
 ## Spreadsheets
@@ -90,7 +215,7 @@ sheets <- list(
   spreadsheet_def(title = "Lee", data = spreadsheet_data),
   spreadsheet_def(title = "Morgan", data = list()) # Empty spreadsheet
 )
-setup = tabulator_options(
+setup <- tabulator_options(
   spreadsheet = TRUE,
   spreadsheet_sheets = sheets,
   spreadsheet_sheet_tabs = TRUE,

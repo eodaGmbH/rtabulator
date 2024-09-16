@@ -9,15 +9,28 @@ reference:
     contents:
       - tabulator
       - tabulator_options
-      - set_column_editor
+      - set_option_group_by
+
+  - title: Column Settings
+    desc: >
+      Functions to update the default column settings
+    contents:
+      - set_column_defaults
+      - set_editor
       - set_header_filter
       - set_multi_column_header
+      - set_tooltip
+      - for_each_col
 
   - title: Column Formatters
     desc: >
       Functions to set column formatters
     contents:
       - starts_with("set_formatter")
+
+  - title: Calculations
+    contents:
+      - set_calculation
 
   - title: Shiny Integration
     contents:
@@ -39,3 +52,6 @@ reference:
       - list_to_data_frame
       - create_columns
 
+  - title: Data Sets
+    contents:
+      - titanic

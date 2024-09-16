@@ -19,6 +19,8 @@ tabulator_options(
   frozen_rows = NULL,
   index = "id",
   group_by = NULL,
+  group_start_open = TRUE,
+  group_toggle_element = NULL,
   edit_trigger_event = c("dblclick", "click", "focus"),
   selectable_rows = "highlight",
   pagination = FALSE,
@@ -63,7 +65,14 @@ the width of the Tabulator element.}
 
 \item{index}{(character): Field to be used as the unique index for each row.}
 
-\item{group_by}{(character): Field to group rows by.}
+\item{group_by}{(character vector): Field to group rows by. Pass multiple values
+for multi level grouping.}
+
+\item{group_start_open}{(bool vector): Open state of groups when grouping is enabled.
+The length of the vector depends on the number of levels set with \code{group_by}.}
+
+\item{group_toggle_element}{(character, bool): One of \code{arrow} or \code{header}.
+Set to \code{FALSE} to disable toggling at all.}
 
 \item{edit_trigger_event}{(character): Event that triggers a cell edit.}
 
