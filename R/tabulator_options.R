@@ -14,7 +14,12 @@
 #' @param resizable_rows (bool): Allow user to resize rows.
 #' @param frozen_rows (numeric): Number of frozen rows.
 #' @param index (character): Field to be used as the unique index for each row.
-#' @param group_by (character): Field to group rows by.
+#' @param group_by (character vector): Field to group rows by. Pass multiple values
+#'  for multi level grouping.
+#' @param group_start_open (bool vector): Open state of groups when grouping is enabled.
+#'  The length of the vector depends on the number of levels set with \code{group_by}.
+#' @param group_toggle_element (character, bool): One of \code{arrow} or \code{header}.
+#'  Set to \code{FALSE} to disable toggling at all.
 #' @param edit_trigger_event (character): Event that triggers a cell edit.
 #' @param selectable_rows (character, bool, integer) Set to \code{FALSE} to disble row selection.
 #'  If set to \code{TRUE} you can select as many rows as you want.
@@ -54,6 +59,8 @@ tabulator_options <- function(
     index = "id",
     # Row Grouping
     group_by = NULL,
+    group_start_open = TRUE,
+    group_toggle_element = NULL,
     # Editing
     edit_trigger_event = c("dblclick", "click", "focus"),
     # Selection
@@ -88,3 +95,42 @@ default_spreadsheet_options <- list(
   ),
   spreadsheet_column_definition = list(editor = "input")
 )
+
+# TODO: Helper function to set pagination
+set_option_pagination <- function(
+    widget,
+    pagination = FALSE,
+    pagination_size = 10,
+    pagination_size_selector = FALSE,
+    pagination_add_row = c("page", "table"),
+    ...) {
+  return(widget)
+}
+
+#' Set group by option
+#' @inheritParams set_formatter_html
+#' @inheritParams tabulator_options
+#' @export
+set_option_group_by <- function(
+    widget,
+    group_by,
+    group_start_open = TRUE,
+    group_toggle_element = "header",
+    ...) {
+  # return(widget)
+  options_update <- list(
+    groupBy = group_by,
+    groupStartOpen = group_start_open,
+    groupToggleElement = group_toggle_element,
+    ...
+  )
+  modify_tabulator_options(widget, options_update)
+}
+
+modify_tabulator_options <- function(widget, options) {
+  widget$x$options <- utils::modifyList(
+    widget$x$options,
+    keys_to_camel_case(compact(options))
+  )
+  return(widget)
+}

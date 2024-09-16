@@ -421,8 +421,10 @@ set_column_editor <- function(widget, columns, type = c("input", "number")) {
 set_editor <- function(
     widget,
     column,
-    editor = c("input", "textarea", "number", "range",
-               "tickCross", "star", "progress", "date", "time", "datetime", "list"),
+    editor = c(
+      "input", "textarea", "number", "range",
+      "tickCross", "star", "progress", "date", "time", "datetime", "list"
+    ),
     validator = NULL,
     ...) {
   # Body
