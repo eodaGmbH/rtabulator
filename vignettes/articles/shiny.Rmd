@@ -137,3 +137,9 @@ server <- function(input, output) {
 
 shinyApp(ui = ui, server = server)
 ```
+
+Run this example with:
+
+```{r, eval=FALSE}
+shiny::runGitHub("eodaGmbH/rtabulator", subdir = "examples/shiny/titanic")
+```
