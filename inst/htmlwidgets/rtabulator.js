@@ -1,4 +1,15 @@
 (() => {
+  // src/utils.js
+  function convertToDataFrame(data) {
+    res = {};
+    if (data.length === 0) {
+      return res;
+    }
+    keys = Object.keys(data[0]);
+    keys.forEach((key) => res[key] = data.map((item) => item[key]));
+    return res;
+  }
+
   // src/events.js
   function addEventListeners(table, el) {
     table.on("rowClick", function(e, row) {
@@ -7,10 +18,10 @@
       Shiny.onInputChange(inputName, row.getData());
     });
     table.on("rowClick", (e, row) => {
-      const inputName = `${el.id}_rows_selected`;
+      const inputName = `${el.id}_rows_selected:rtabulator.data`;
       const data = table.getSelectedRows().map((row2) => row2.getData());
       console.log(inputName, data);
-      Shiny.onInputChange(inputName, data);
+      Shiny.onInputChange(inputName, { data: convertToDataFrame(data) });
     });
     table.on("cellEdited", function(cell) {
       const inputName = `${el.id}_row_edited`;
@@ -23,17 +34,6 @@
       console.log(inputName, data);
       Shiny.onInputChange(inputName, data);
     });
-  }
-
-  // src/utils.js
-  function convertToDataFrame(data) {
-    res = {};
-    if (data.length === 0) {
-      return res;
-    }
-    keys = Object.keys(data[0]);
-    keys.forEach((key) => res[key] = data.map((item) => item[key]));
-    return res;
   }
 
   // src/widget.js
