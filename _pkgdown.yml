@@ -41,7 +41,7 @@ reference:
       - delete_selected_rows
       - trigger_download
       - trigger_get_data
-      - trigger_get_spreadsheet_data
+      - trigger_get_sheet_data
       - undo
       - redo
 
