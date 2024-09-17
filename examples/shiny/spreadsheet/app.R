@@ -43,6 +43,7 @@ server <- function(input, output) {
   observe({
     print("get_sheet_data")
     print(input$spreadsheet_get_sheet_data)
+    # browser()
   }) |> bindEvent(input$spreadsheet_get_sheet_data)
 }
 
