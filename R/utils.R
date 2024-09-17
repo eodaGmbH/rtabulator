@@ -28,4 +28,3 @@ as_vec <- function(l) {
 tabulator_data_as_df <- function(data) {
   return(as.data.frame(purrr::map(data, ~ as_vec(.x))))
 }
-

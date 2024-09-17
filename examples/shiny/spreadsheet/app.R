@@ -35,10 +35,10 @@ server <- function(input, output) {
   }) |> bindEvent(input$submit)
 
 
-  #observe({
+  # observe({
   #  print("get_data")
   #  # print(head(input$spreadsheet_get_data) |> tibble::as_tibble())
-  #}) |> bindEvent(input$spreadsheet_get_data)
+  # }) |> bindEvent(input$spreadsheet_get_data)
 
   observe({
     print("get_sheet_data")
