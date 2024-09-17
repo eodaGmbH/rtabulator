@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{list_to_data_frame}
 \alias{list_to_data_frame}
-\title{Parse List to Data Frame}
+\title{Convert a list of names lists to data frame}
 \usage{
 list_to_data_frame(x)
 }
@@ -10,5 +10,5 @@ list_to_data_frame(x)
 \item{x}{(list): A list of named lists.}
 }
 \description{
-Parse List to Data Frame
+Convert a list of names lists to data frame
 }

@@ -96,28 +96,40 @@ default_spreadsheet_options <- list(
   spreadsheet_column_definition = list(editor = "input")
 )
 
-# TODO: Helper function to set pagination
-set_option_pagination <- function(
+#' Set pagination options
+#' @inheritParams set_formatter_html
+#' @inheritParams tabulator_options
+#' @example examples/options/pagination_options.R
+#' @export
+set_options_pagination <- function(
     widget,
-    pagination = FALSE,
+    pagination = TRUE,
     pagination_size = 10,
     pagination_size_selector = FALSE,
     pagination_add_row = c("page", "table"),
     ...) {
-  return(widget)
+  # Body
+  options_update <- list(
+    pagination = pagination,
+    paginationSize = pagination_size,
+    paginationSizeSelector = pagination_size_selector,
+    paginationAddRow = match.arg(pagination_add_row),
+    ...
+  )
+  modify_tabulator_options(widget, options_update)
 }
 
-#' Set group by option
+#' Set group by options
 #' @inheritParams set_formatter_html
 #' @inheritParams tabulator_options
 #' @export
-set_option_group_by <- function(
+set_options_group_by <- function(
     widget,
     group_by,
     group_start_open = TRUE,
     group_toggle_element = "header",
     ...) {
-  # return(widget)
+  # Body
   options_update <- list(
     groupBy = group_by,
     groupStartOpen = group_start_open,

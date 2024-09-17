@@ -11,7 +11,7 @@ compact <- function(x) {
   x[!sapply(x, is.null)]
 }
 
-#' Parse List to Data Frame
+#' Convert a list of names lists to data frame
 #' @param x (list): A list of named lists.
 #' @export
 list_to_data_frame <- function(x) {
@@ -19,8 +19,10 @@ list_to_data_frame <- function(x) {
   return(do.call(rbind.data.frame, x))
 }
 
-tabulator_data_as_data_frame <- function(data) {
+#' Convert input data to data frame
+#' @param data (list): The input data returned in a Shiny app.
+#' @export
+tabulator_data_as_df <- function(data) {
   return(as.data.frame(purrr::map(data, ~ unlist(.x))))
 }
 
-# as.data.frame(purrr::map(input$data, ~ unlist(.x)))

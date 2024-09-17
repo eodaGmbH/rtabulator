@@ -9,7 +9,8 @@ reference:
     contents:
       - tabulator
       - tabulator_options
-      - set_option_group_by
+      - set_options_group_by
+      - set_options_pagination
 
   - title: Column Settings
     desc: >
