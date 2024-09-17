@@ -68,6 +68,12 @@ tabulator(airquality) |>
 tabulator(data = list(), spreadsheet = TRUE)
 ```
 
+## Shiny
+
+``` r
+shiny::runGitHub("eodaGmbH/rtabulator", subdir = "examples/shiny/titanic")
+```
+
 ## Documentation
 
 [rtabulator docs](https://eodagmbh.github.io/rtabulator/)
