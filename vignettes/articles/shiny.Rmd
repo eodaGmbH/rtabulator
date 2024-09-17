@@ -44,6 +44,11 @@ shinyApp(ui = ui, server = server)
 - `trigger_download()`
 - `trigger_get_data()`
 - `trigger_get_sheet_data()`
+- `undo()`
+- `redo()`
+- `add_row()`
+- `delete_row()`
+- `delete_selected_rows()`
 
 **Events**
 
@@ -54,7 +59,7 @@ shinyApp(ui = ui, server = server)
 - `{OUTPUT_ID}_get_data`
 - `{OUTPUT_ID}_get_sheet_data`
 
-Use `tabulatorContext()` to trigger events. 
+Use `tabulatorContext()` in conjunction with the trigger functions: 
 
 ```{r, eval=FALSE}
 library(shiny)
@@ -77,10 +82,16 @@ ui <- fluidPage(
 server <- function(input, output) {
   output$titanic <- renderTabulator({
     tabulator(data, setup, editable = TRUE) |>
+      set_header_filter("Pclass", "list") |>
+      set_header_filter("Survived", "list") |>
+      set_header_filter("Fare", "number", "<=", clearable = TRUE) |>
       set_options_pagination() |>
       set_formatter_money(
         "Fare",
-        symbol = "\U00A3", symbol_after = FALSE, precision = 1, hoz_align = "right"
+        symbol = "\U00A3",
+        symbol_after = FALSE,
+        precision = 1,
+        hoz_align = "right"
       ) |>
       set_tooltip("Fare") |>
       set_formatter_tick_cross("Survived") |>
@@ -93,6 +104,7 @@ server <- function(input, output) {
   })
 
   observeEvent(input$titanic_row_clicked, {
+    print("row_clicked")
     print(input$titanic_row_clicked)
   })
 
@@ -104,6 +116,11 @@ server <- function(input, output) {
   observeEvent(input$titanic_cell_edited, {
     print("cell_edited")
     print(input$titanic_cell_edited)
+  })
+
+  observeEvent(input$titanic_data_filtered, {
+    print("data_filtered")
+    print(head(input$titanic_data_filtered))
   })
 
   observeEvent(input$submit, {

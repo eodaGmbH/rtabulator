@@ -18,6 +18,9 @@ ui <- fluidPage(
 server <- function(input, output) {
   output$titanic <- renderTabulator({
     tabulator(data, setup, editable = TRUE) |>
+      set_header_filter("Pclass", "list") |>
+      set_header_filter("Survived", "list") |>
+      set_header_filter("Fare", "number", "<=", clearable = TRUE) |>
       set_options_pagination() |>
       set_formatter_money(
         "Fare",
@@ -45,6 +48,11 @@ server <- function(input, output) {
   observeEvent(input$titanic_cell_edited, {
     print("cell_edited")
     print(input$titanic_cell_edited)
+  })
+
+  observeEvent(input$titanic_data_filtered, {
+    print("data_filtered")
+    print(head(input$titanic_data_filtered))
   })
 
   observeEvent(input$submit, {

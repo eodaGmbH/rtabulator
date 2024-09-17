@@ -29,10 +29,10 @@
       Shiny.onInputChange(inputName, cell.getData());
     });
     table.on("dataFiltered", function(filters, rows) {
-      const inputName = `${el.id}_data_filtered`;
+      const inputName = `${el.id}_data_filtered:rtabulator.data`;
       const data = rows.map((row) => row.getData());
       console.log(inputName, data);
-      Shiny.onInputChange(inputName, data);
+      Shiny.onInputChange(inputName, { data: convertToDataFrame(data) });
     });
   }
 
