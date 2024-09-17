@@ -1,4 +1,15 @@
 (() => {
+  // src/utils.js
+  function convertToDataFrame(data) {
+    res = {};
+    if (data.length === 0) {
+      return res;
+    }
+    keys = Object.keys(data[0]);
+    keys.forEach((key) => res[key] = data.map((item) => item[key]));
+    return res;
+  }
+
   // src/events.js
   function addEventListeners(table, el) {
     table.on("rowClick", function(e, row) {
@@ -7,21 +18,21 @@
       Shiny.onInputChange(inputName, row.getData());
     });
     table.on("rowClick", (e, row) => {
-      const inputName = `${el.id}_rows_selected`;
+      const inputName = `${el.id}_rows_selected:rtabulator.data`;
       const data = table.getSelectedRows().map((row2) => row2.getData());
       console.log(inputName, data);
-      Shiny.onInputChange(inputName, data);
+      Shiny.onInputChange(inputName, { data: convertToDataFrame(data) });
     });
     table.on("cellEdited", function(cell) {
-      const inputName = `${el.id}_row_edited`;
+      const inputName = `${el.id}_cell_edited`;
       console.log(inputName, cell.getData());
       Shiny.onInputChange(inputName, cell.getData());
     });
     table.on("dataFiltered", function(filters, rows) {
-      const inputName = `${el.id}_data_filtered`;
+      const inputName = `${el.id}_data_filtered:rtabulator.data`;
       const data = rows.map((row) => row.getData());
       console.log(inputName, data);
-      Shiny.onInputChange(inputName, data);
+      Shiny.onInputChange(inputName, { data: convertToDataFrame(data) });
     });
   }
 
@@ -29,11 +40,11 @@
   function run_calls(el, table, calls) {
     calls.forEach(([method_name, options]) => {
       if (method_name === "getData") {
-        const inputName = `${el.id}_data`;
+        const inputName = `${el.id}_get_data:rtabulator.data`;
         console.log("custom call", inputName);
         Shiny.setInputValue(
           inputName,
-          { data: table.getData() },
+          { data: convertToDataFrame(table.getData()) },
           { priority: "event" }
         );
         return;
@@ -47,8 +58,8 @@
         });
         return;
       }
-      if (method_name === "getSpreadsheetData") {
-        const inputName = `${el.id}_spreadsheet_data`;
+      if (method_name === "getSheetData") {
+        const inputName = `${el.id}_get_sheet_data:rtabulator.sheet_data`;
         console.log("custom call", inputName);
         Shiny.setInputValue(
           inputName,

@@ -4,6 +4,8 @@
 <url><loc>/LICENSE.html</loc></url>
 <url><loc>/articles/index.html</loc></url>
 <url><loc>/articles/rtabulator.html</loc></url>
+<url><loc>/articles/shiny.html</loc></url>
+<url><loc>/articles/themes.html</loc></url>
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
@@ -12,7 +14,6 @@
 <url><loc>/reference/delete_selected_rows.html</loc></url>
 <url><loc>/reference/for_each_col.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
-<url><loc>/reference/list_to_data_frame.html</loc></url>
 <url><loc>/reference/redo.html</loc></url>
 <url><loc>/reference/rtabulator-shiny.html</loc></url>
 <url><loc>/reference/set_calculation.html</loc></url>
@@ -33,7 +34,8 @@
 <url><loc>/reference/set_formatter_traffic_light.html</loc></url>
 <url><loc>/reference/set_header_filter.html</loc></url>
 <url><loc>/reference/set_multi_column_header.html</loc></url>
-<url><loc>/reference/set_option_group_by.html</loc></url>
+<url><loc>/reference/set_options_group_by.html</loc></url>
+<url><loc>/reference/set_options_pagination.html</loc></url>
 <url><loc>/reference/set_tooltip.html</loc></url>
 <url><loc>/reference/spreadsheet_def.html</loc></url>
 <url><loc>/reference/tabulator.html</loc></url>
@@ -42,7 +44,7 @@
 <url><loc>/reference/titanic.html</loc></url>
 <url><loc>/reference/trigger_download.html</loc></url>
 <url><loc>/reference/trigger_get_data.html</loc></url>
-<url><loc>/reference/trigger_get_spreadsheet_data.html</loc></url>
+<url><loc>/reference/trigger_get_sheet_data.html</loc></url>
 <url><loc>/reference/undo.html</loc></url>
 </urlset>
 

@@ -3,4 +3,6 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   articles/rtabulator: rtabulator.html
-last_built: 2024-09-16T07:57Z
+  articles/shiny: shiny.html
+  articles/themes: themes.html
+last_built: 2024-09-17T15:47Z
