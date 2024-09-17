@@ -23,8 +23,8 @@ server <- function(input, output) {
   })
 
   observeEvent(input$titanic_get_data, {
-    print(input$titanic_get_data$data)
-    print(head(tabulator_data_as_data_frame(input$titanic_get_data$data)))
+    print(input$titanic_get_data)
+    # print(head(tabulator_data_as_data_frame(input$titanic_get_data$data)))
     # print(list_to_data_frame(input$table_data$data))
   })
 }

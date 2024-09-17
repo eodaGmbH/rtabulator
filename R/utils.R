@@ -6,23 +6,26 @@ keys_to_camel_case <- function(x) {
   stats::setNames(x, to_camel_case(names(x)))
 }
 
-# Remove NULL values from list
+# Drop NULL values from list
 compact <- function(x) {
   x[!sapply(x, is.null)]
 }
 
-#' Convert a list of names lists to data frame
-#' @param x (list): A list of named lists.
-#' @export
+# Convert list of named lists to data frame
 list_to_data_frame <- function(x) {
   # jsonlite::toJSON(x, auto_unbox = TRUE) |> jsonlite::fromJSON()
   return(do.call(rbind.data.frame, x))
 }
 
-#' Convert input data to data frame
-#' @param data (list): The input data returned in a Shiny app.
-#' @export
+# Convert data returned from JavaScript ####
+
+as_NA <- function(...) NA
+
+as_vec <- function(l) {
+  unlist(purrr::modify_if(l, is.null, as_NA))
+}
+
 tabulator_data_as_df <- function(data) {
-  return(as.data.frame(purrr::map(data, ~ unlist(.x))))
+  return(as.data.frame(purrr::map(data, ~ as_vec(.x))))
 }
 
