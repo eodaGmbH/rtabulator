@@ -1,0 +1,51 @@
+---
+title: "Connecting tables"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rtabulator)
+```
+
+With the setup option `movable_rows_connected_tables` you can move rows between two or more tables:
+
+```{r}
+sender_df <- head(iris, 3)
+empty_df <- head(iris, 0)
+
+tab_sender <- tabulator(
+  sender_df,
+  tabulator_options(
+    movable_rows  = TRUE,
+    movable_rows_connected_tables = "#table-receiver",
+    movable_rows_receiver = "add",
+    movable_rows_sender = "delete",
+    placeholder = "All rows moved"
+  ),
+  element_id = "table-sender"
+)
+tab_receiver <- tabulator(
+  empty_df,
+  tabulator_options(
+    placeholder = "Drag rows here"
+  ),
+  element_id = "table-receiver"
+)
+
+tab_sender
+tab_receiver
+```
+
+***
+
+**Note**
+
+In some browsers _moving rows functionality_ does not seem to work at the moment.
+
+***

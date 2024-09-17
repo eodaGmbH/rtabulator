@@ -36,6 +36,11 @@ set_auto_id <- function(data) {
     return(data)
   }
 
+  if (nrow(data) == 0) {
+    data$id <- numeric()
+    return(data)
+  }
+
   data$id <- seq(1:nrow(data))
   return(data)
 }
