@@ -51,6 +51,6 @@ redo <- function(ctx) {
 #' Submit data to R
 #' @inheritParams trigger_download
 #' @export
-trigger_get_spreadsheet_data <- function(ctx) {
-  invoke_method(ctx, "getSpreadsheetData")
+trigger_get_sheet_data <- function(ctx) {
+  invoke_method(ctx, "getSheetData")
 }

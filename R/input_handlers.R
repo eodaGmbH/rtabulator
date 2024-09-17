@@ -13,6 +13,6 @@ input_handler_data <- function(value, ...) {
 # TODO: Not used at the moment
 input_handler_sheet_data <- function(value, ...) {
   data <- value$data
-  # try(jsonlite::fromJSON(jsonlite::toJSON(value, auto_unbox = TRUE)))
+  try(data <- jsonlite::fromJSON(jsonlite::toJSON(value$data, auto_unbox = TRUE)))
   return(data)
 }

@@ -58,8 +58,8 @@
         });
         return;
       }
-      if (method_name === "getSpreadsheetData") {
-        const inputName = `${el.id}_spreadsheet_data`;
+      if (method_name === "getSheetData") {
+        const inputName = `${el.id}_get_sheet_data:rtabulator.sheet_data`;
         console.log("custom call", inputName);
         Shiny.setInputValue(
           inputName,

@@ -31,7 +31,7 @@ server <- function(input, output) {
   observe({
     print(input$submit)
     tabulatorContext(TABULATOR_OUTPUT_ID) |>
-      trigger_get_spreadsheet_data() # |> trigger_get_data()
+      trigger_get_sheet_data() # |> trigger_get_data()
   }) |> bindEvent(input$submit)
 
 
@@ -41,10 +41,9 @@ server <- function(input, output) {
   #}) |> bindEvent(input$spreadsheet_get_data)
 
   observe({
-    print("get_spreadsheet_data")
-    print(input$spreadsheet_spreadsheet_data)
-    browser()
-  }) |> bindEvent(input$spreadsheet_spreadsheet_data)
+    print("get_sheet_data")
+    print(input$spreadsheet_get_sheet_data)
+  }) |> bindEvent(input$spreadsheet_get_sheet_data)
 }
 
 shinyApp(ui = ui, server = server)
