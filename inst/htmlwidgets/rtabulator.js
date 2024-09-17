@@ -24,7 +24,7 @@
       Shiny.onInputChange(inputName, { data: convertToDataFrame(data) });
     });
     table.on("cellEdited", function(cell) {
-      const inputName = `${el.id}_row_edited`;
+      const inputName = `${el.id}_cell_edited`;
       console.log(inputName, cell.getData());
       Shiny.onInputChange(inputName, cell.getData());
     });

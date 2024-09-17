@@ -3,7 +3,11 @@
 #' @param type (character): csv, json or xlsx (needs sheetjs: \code{tabulator(..., sheetjs = TRUE)})
 #' @param file_name (character): file name
 #' @export
-trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name) {
+trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name = NULL) {
+  if (is.null(file_name)) {
+    file_name <- glue::glue("data.{type}")
+  }
+
   invoke_method(ctx, "download", match.arg(type), file_name)
 }
 

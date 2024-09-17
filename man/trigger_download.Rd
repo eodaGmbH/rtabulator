@@ -4,7 +4,7 @@
 \alias{trigger_download}
 \title{Download table data}
 \usage{
-trigger_download(ctx, type = c("csv", "json", "xlsx"), file_name)
+trigger_download(ctx, type = c("csv", "json", "xlsx"), file_name = NULL)
 }
 \arguments{
 \item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
