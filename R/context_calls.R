@@ -3,7 +3,11 @@
 #' @param type (character): csv, json or xlsx (needs sheetjs: \code{tabulator(..., sheetjs = TRUE)})
 #' @param file_name (character): file name
 #' @export
-trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name) {
+trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name = NULL) {
+  if (is.null(file_name)) {
+    file_name <- glue::glue("data.{type}")
+  }
+
   invoke_method(ctx, "download", match.arg(type), file_name)
 }
 
@@ -51,6 +55,6 @@ redo <- function(ctx) {
 #' Submit data to R
 #' @inheritParams trigger_download
 #' @export
-trigger_get_spreadsheet_data <- function(ctx) {
-  invoke_method(ctx, "getSpreadsheetData")
+trigger_get_sheet_data <- function(ctx) {
+  invoke_method(ctx, "getSheetData")
 }

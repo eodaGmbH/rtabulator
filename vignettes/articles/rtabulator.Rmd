@@ -27,7 +27,7 @@ tabulator(airquality)
 
 In this case, the column definitions are automatically created for you. The horizontal alignment for character columns is set to _left_  while numeric columns are aligned _right_.
 
-It is also possible to pass pass a data URL:
+It is also possible to pass a data URL:
 
 ```{r}
 data_url <- "https://raw.githubusercontent.com/eodaGmbH/rtabulator/main/data-raw/titanic.csv"
@@ -64,6 +64,14 @@ setup <- tabulator_options(
 tabulator(USArrests, setup)
 ```
 
+***
+
+**Note**
+
+If you prefer the pipe style, you can also use the helper function `set_options_pagination()`.
+
+***
+
 ## Column Formatters
 
 To customize your columns, the easiest way is to use the `set_formatter_*()` functions: 
@@ -75,7 +83,7 @@ tabulator(airquality) |>
   set_tooltip("Ozone")
 ```
 
-With `for_each_col()` you can apply a formatter to multiple columns:
+With `for_each_col()` you can apply a formatter and any other function that updates the column settings to multiple columns:
 
 ```{r}
 numeric_cols <- c("Sepal_Length", "Sepal_Width", "Petal_Length", "Petal_Width")
@@ -146,7 +154,7 @@ tabulator(titanic_df, setup)
 
 **Note**
 
-You can also use `set_option_group_by()` to set the group by options. 
+You can also use `set_options_group_by()` to set the group by options. 
 
 ***
 
@@ -226,4 +234,6 @@ tabulator(NULL, setup)
 ```
 ## Next Steps
 
-Check the [API Reference](../reference/index.html) for details.
+* [API Reference](../reference/index.html)
+* [Shiny Integration](../articles/shiny.html)
+* [Themes](../articles/themes.html)

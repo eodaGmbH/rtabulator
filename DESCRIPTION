@@ -23,6 +23,7 @@ Imports:
     glue,
     htmltools,
     htmlwidgets,
+    jsonlite,
     purrr,
     readr,
     shiny

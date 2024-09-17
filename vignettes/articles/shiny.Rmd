@@ -1,3 +1,67 @@
+---
+title: "Shiny integration"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(shiny)
+library(rtabulator)
+```
+
+## Basic Usage
+
+Use `tabulatorOutput()` in the UI and `renderTabulator()` in the server part of your Shiny application:
+
+```{r, eval=FALSE}
+ui <- fluidPage(
+  titlePanel("Titanic Data Set"),
+  tabulatorOutput("titanic")
+)
+
+server <- function(input, output) {
+  output$titanic <- renderTabulator({
+    tabulator(titanic()) |>
+      set_formatter_progress("Fare") |>
+      set_tooltip("Fare") |>
+      set_formatter_tick_cross("Survived") |>
+      set_formatter_star("Pclass", number_of_stars = 3)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+## Interactions
+
+**Triggers**
+
+- `trigger_download()`
+- `trigger_get_data()`
+- `trigger_get_sheet_data()`
+- `undo()`
+- `redo()`
+- `add_row()`
+- `delete_row()`
+- `delete_selected_rows()`
+
+**Events**
+
+- `{OUTPUT_ID}_row_clicked`
+- `{OUTPUT_ID}_rows_selected`
+- `{OUTPUT_ID}_data_filtered`
+- `{OUTPUT_ID}_cell_edited`
+- `{OUTPUT_ID}_get_data`
+- `{OUTPUT_ID}_get_sheet_data`
+
+Use `tabulatorContext()` in conjunction with the trigger functions: 
+
+```{r, eval=FALSE}
 library(shiny)
 
 OUTPUT_ID <- "titanic"
@@ -24,7 +88,10 @@ server <- function(input, output) {
       set_options_pagination() |>
       set_formatter_money(
         "Fare",
-        symbol = "\U00A3", symbol_after = FALSE, precision = 1, hoz_align = "right"
+        symbol = "\U00A3",
+        symbol_after = FALSE,
+        precision = 1,
+        hoz_align = "right"
       ) |>
       set_tooltip("Fare") |>
       set_formatter_tick_cross("Survived") |>
@@ -37,6 +104,7 @@ server <- function(input, output) {
   })
 
   observeEvent(input$titanic_row_clicked, {
+    print("row_clicked")
     print(input$titanic_row_clicked)
   })
 
@@ -68,3 +136,4 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
+```
