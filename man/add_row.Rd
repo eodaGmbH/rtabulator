@@ -2,15 +2,15 @@
 % Please edit documentation in R/context_calls.R
 \name{add_row}
 \alias{add_row}
-\title{Add a row to the table}
+\title{Add a row to a table}
 \usage{
 add_row(ctx, row = NULL)
 }
 \arguments{
 \item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 
-\item{row}{(list | NULL) row data or NULL to add an empty row}
+\item{row}{(list | NULL): row data or \code{NULL} to add an empty row}
 }
 \description{
-Add a row to the table
+Add a row to a table
 }

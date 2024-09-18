@@ -1,4 +1,4 @@
-#' Tabulator Setup Options
+#' Create a tabulator options object
 #' @param height (character) The height of the table in px.
 #' @param history (bool): Enable user interaction history functionality.
 #' @param columns (list): Column definitions.
@@ -53,6 +53,11 @@ tabulator_options <- function(
     row_height = NULL,
     add_row_pos = c("bottom", "top"),
     movable_rows = FALSE,
+    # ---
+    # movable_rows_connected_tables = NULL,
+    # movable_rows_receiver = NULL,
+    # movable_rows_sender = NULL,
+    # ---
     resizable_rows = FALSE,
     frozen_rows = NULL,
     # Data

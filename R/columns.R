@@ -87,7 +87,7 @@ for_each_col <- function(widget, columns = NULL, .f, ...) {
 
 # Formatters ####
 
-#' HTML Formatter
+#' Set HTML formatter
 #' @param widget (\code{\link{tabulator}}) A tabulator widget.
 #' @param column (character): The column the formatter is applied to.
 #' @param hoz_align (character): The horizontal alignment of the column.
@@ -98,7 +98,7 @@ set_formatter_html <- function(widget, column, hoz_align = c("left", "center", "
   modify_col_def(widget, column, col_update)
 }
 
-#' Plain Text Formatter
+#' Set plain text formatter
 #' @inheritParams set_formatter_html
 #' @export
 # TODO: Add example
@@ -107,7 +107,7 @@ set_formatter_plaintext <- function(widget, column, hoz_align = "left") {
   modify_col_def(widget, column, col_update)
 }
 
-#' Text Area Formatter
+#' Set textarea formatter
 #' @inheritParams set_formatter_html
 #' @example examples/formatters/formatter_textarea.R
 #' @export
@@ -116,7 +116,7 @@ set_formatter_textarea <- function(widget, column, hoz_align = "left") {
   modify_col_def(widget, column, col_update)
 }
 
-#' Money Formatter
+#' Set money formatter
 #' @inheritParams set_formatter_html
 #' @param decimal (character): Symbol to represent the decimal point.
 #' @param thousand (character, bool): Symbol to represent the thousands separator.
@@ -156,7 +156,7 @@ set_formatter_money <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Image Formatter
+#' Set image formatter
 #' @inheritParams set_formatter_html
 #' @param height (character): A CSS value for the height of the image.
 #' @param width (character): A CSS value for the width of the image.
@@ -187,7 +187,7 @@ set_formatter_image <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Link Formatter
+#' Set link formatter
 #' @inheritParams set_formatter_html
 #' @param label_field (character): Column to be used as label for the link.
 #' @param url_prefix (character): Prefix to add to the URL value.
@@ -218,7 +218,7 @@ set_formatter_link <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Star Rating Formatter
+#' Set star rating formatter
 #' @inheritParams set_formatter_html
 #' @param number_of_stars The maximum number of stars to be displayed.
 #'  If set to \code{NA}, the maximum value of the column is used.
@@ -237,7 +237,7 @@ set_formatter_star <- function(widget, column, number_of_stars = NA, hoz_align =
   modify_col_def(widget, column, col_update)
 }
 
-#' Progress Formatter
+#' Set progress formatter
 #' @inheritParams set_formatter_html
 #' @param min (numeric): The minimum value for progress bar.
 #'  If set to \code{NA} the minimum value of the column is used.
@@ -285,7 +285,7 @@ set_formatter_progress <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Tick Cross Formatter
+#' Set tick cross formatter
 #' @inheritParams set_formatter_html
 #' @example examples/formatters/formatter_tick_cross.R
 #' @export
@@ -294,7 +294,7 @@ set_formatter_tick_cross <- function(widget, column) {
   modify_col_def(widget, column, col_update)
 }
 
-#' Toggle Switch Formatter
+#' Set toggle switch formatter
 #' @inheritParams set_formatter_html
 #' @param size (numeric): The size of the switch in pixels.
 #' @param on_value (character): The value of the cell for the switch to be on.
@@ -331,7 +331,7 @@ set_formatter_toggle_switch <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Datetime Formatter
+#' Set datetime formatter
 #' @inheritParams set_formatter_html
 #' @param input_format (character): The datetime input format.
 #' @param output_format (character): The datetime output format.
@@ -359,7 +359,7 @@ set_formatter_datetime <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Color Formatter
+#' Set color formatter
 #' @inheritParams set_formatter_html
 #' @example examples/formatters/formatter_color.R
 #' @export
@@ -368,7 +368,7 @@ set_formatter_color <- function(widget, column) {
   modify_col_def(widget, column, col_update)
 }
 
-#' Traffic Light Formatter
+#' Set traffic light formatter
 #' @inheritParams set_formatter_progress
 #' @example examples/formatters/formatter_traffic_light.R
 #' @export
@@ -419,8 +419,9 @@ set_column_editor <- function(widget, columns, type = c("input", "number")) {
 #' @param validator (character vector): One or more validators to validate user input.
 #' @param ... Optional editor parameters depending on the selected editor.
 #' @seealso
-#'  \url{https://tabulator.info/docs/6.2/edit} for available editors
-#'  \url{https://tabulator.info/docs/6.2/validate} for available validators.
+#'  * \url{https://tabulator.info/docs/6.2/edit} for available editors
+#'  * \url{https://tabulator.info/docs/6.2/validate} for available validators
+#' @md
 #' @example examples/editors.R
 #' @export
 set_editor <- function(
@@ -442,7 +443,7 @@ set_editor <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Add header filter to column
+#' Set header filter
 #' @inheritParams set_formatter_html
 #' @param type (character): The type of the filter.
 #' @param values_lookup (bool): Whether to use unique column values for the list filter.
@@ -479,7 +480,7 @@ set_header_filter <- function(
   modify_col_def(widget, column, col_update)
 }
 
-#' Add tooltip to column
+#' Set tooltip
 #' @inheritParams set_formatter_html
 #' @example examples/misc/tooltip.R
 #' @export
@@ -520,7 +521,7 @@ set_column_defaults <- function(
   return(widget)
 }
 
-#' Add a calculation to a column
+#' Set calculation
 #' @inheritParams set_formatter_html
 #' @param column (character): The column the \code{func} is applied to.
 #' @param func (character): The calculation function to be applied

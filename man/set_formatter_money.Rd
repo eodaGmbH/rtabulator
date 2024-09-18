@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_money}
 \alias{set_formatter_money}
-\title{Money Formatter}
+\title{Set money formatter}
 \usage{
 set_formatter_money(
   widget,
@@ -40,7 +40,7 @@ Set to \code{FALSE} to display all decimals that are provided.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-Money Formatter
+Set money formatter
 }
 \examples{
 data <- data.frame(

@@ -15,14 +15,14 @@ library(rtabulator)
 
 rtabulator comes with the built-in themes of [Tabulator JS](https://tabulator.info/docs/6.2/theme).
 
-## Standard Themes
+## Standard themes
 
 * midnight
 * modern
 * simple
 * site
 
-## Framework Themes
+## Framework themes
 
 * bootstrap3
 * bootstrap4

@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_html}
 \alias{set_formatter_html}
-\title{HTML Formatter}
+\title{Set HTML formatter}
 \usage{
 set_formatter_html(widget, column, hoz_align = c("left", "center", "right"))
 }
@@ -14,7 +14,7 @@ set_formatter_html(widget, column, hoz_align = c("left", "center", "right"))
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-HTML Formatter
+Set HTML formatter
 }
 \examples{
 data <- data.frame(

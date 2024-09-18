@@ -17,7 +17,7 @@ The goal of rtabulator is to make it easy to create elegant and interactive tabl
 library(rtabulator)
 ```
 
-## Basic Usage
+## Basic usage
 
 To render a table just pass a data frame to `tabulator()`:
 
@@ -38,7 +38,7 @@ tabulator(
 )
 ```
 
-## Setup Options
+## Setup options
 
 With `tabulator_options()` you can customize your table (or spreadsheet):
 
@@ -72,7 +72,7 @@ If you prefer the pipe style, you can also use the helper function `set_options_
 
 ***
 
-## Column Formatters
+## Column formatters
 
 To customize your columns, the easiest way is to use the `set_formatter_*()` functions: 
 
@@ -101,7 +101,7 @@ tabulator(iris) |>
   for_each_col(numeric_cols, set_tooltip)
 ```
 
-## Multi Column headers
+## Multi column headers
 
 You can create multi column headers with `set_multi_column_header()`:
 
@@ -232,8 +232,10 @@ setup <- tabulator_options(
 
 tabulator(NULL, setup)
 ```
-## Next Steps
 
-* [API Reference](../reference/index.html)
-* [Shiny Integration](../articles/shiny.html)
+## How to learn more
+
+* [API reference](../reference/index.html)
+* [Shiny integration](../articles/shiny.html)
 * [Themes](../articles/themes.html)
+* [Connecting tables](../articles/connected-tables.html)

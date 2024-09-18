@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_tooltip}
 \alias{set_tooltip}
-\title{Add tooltip to column}
+\title{Set tooltip}
 \usage{
 set_tooltip(widget, column)
 }
@@ -12,7 +12,7 @@ set_tooltip(widget, column)
 \item{column}{(character): The column the formatter is applied to.}
 }
 \description{
-Add tooltip to column
+Set tooltip
 }
 \examples{
 tabulator(airquality) |>

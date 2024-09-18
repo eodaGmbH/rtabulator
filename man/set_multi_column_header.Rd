@@ -2,17 +2,17 @@
 % Please edit documentation in R/experimental.R
 \name{set_multi_column_header}
 \alias{set_multi_column_header}
-\title{Multi Column Header}
+\title{Set multi column header}
 \usage{
 set_multi_column_header(widget, multi_columns)
 }
 \arguments{
 \item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
 
-\item{multi_columns}{(list): Multi column definitions}
+\item{multi_columns}{(list): Multi column definitions.}
 }
 \description{
-Multi Column Header
+Set multi column header
 }
 \examples{
 multi_columns <- list(

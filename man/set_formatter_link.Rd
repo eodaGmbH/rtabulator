@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_link}
 \alias{set_formatter_link}
-\title{Link Formatter}
+\title{Set link formatter}
 \usage{
 set_formatter_link(
   widget,
@@ -32,7 +32,7 @@ Use \link[htmlwidgets]{JS} to pass JS code.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-Link Formatter
+Set link formatter
 }
 \examples{
 data <- data.frame(

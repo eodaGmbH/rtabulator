@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabulator_options.R
 \name{tabulator_options}
 \alias{tabulator_options}
-\title{Tabulator Setup Options}
+\title{Create a tabulator options object}
 \usage{
 tabulator_options(
   height = "311px",
@@ -104,7 +104,7 @@ An integer value sets the maximum number of rows that can be selected.}
 \item{...}{Further options.}
 }
 \description{
-Tabulator Setup Options
+Create a tabulator options object
 }
 \examples{
 setup <- tabulator_options(

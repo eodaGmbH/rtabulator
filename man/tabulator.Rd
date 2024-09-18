@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabulator.R
 \name{tabulator}
 \alias{tabulator}
-\title{Create a Tabulator Widget}
+\title{Create a tabulator widget}
 \usage{
 tabulator(
   data,
@@ -43,6 +43,9 @@ Passed to \code{\link[readr]{read_csv}} if \code{data} is a file name.}
 \item{...}{Named arguments that are appended to the \code{options} parameter.}
 }
 \description{
+Create a tabulator widget
+}
+\details{
 Dots in column names are replaced by underscores.
 }
 \examples{

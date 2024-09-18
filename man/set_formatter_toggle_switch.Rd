@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_toggle_switch}
 \alias{set_formatter_toggle_switch}
-\title{Toggle Switch Formatter}
+\title{Set toggle switch formatter}
 \usage{
 set_formatter_toggle_switch(
   widget,
@@ -36,7 +36,7 @@ set_formatter_toggle_switch(
 \item{clickable}{(bool): Enable switch functionality to toggle the cell value on click.}
 }
 \description{
-Toggle Switch Formatter
+Set toggle switch formatter
 }
 \examples{
 data <- data.frame(

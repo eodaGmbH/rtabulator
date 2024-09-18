@@ -11,7 +11,7 @@ spreadsheet_def(title, key = NULL, data = NULL)
 
 \item{key}{(character): Optional unique key of the spreadsheet.}
 
-\item{data}{(list) The initial data of the spreadsheet.
+\item{data}{(list): The initial data of the spreadsheet.
 Set to \code{NULL} to create an empty spreadsheet.}
 }
 \description{

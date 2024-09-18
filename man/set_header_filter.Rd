@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_header_filter}
 \alias{set_header_filter}
-\title{Add header filter to column}
+\title{Set header filter}
 \usage{
 set_header_filter(
   widget,
@@ -30,7 +30,7 @@ set_header_filter(
 \item{placeholder}{(character): Text that is displayed when no filter is set.}
 }
 \description{
-Add header filter to column
+Set header filter
 }
 \examples{
 data <- data.frame(
