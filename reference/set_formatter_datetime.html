@@ -52,7 +52,8 @@
 <span>  input_format <span class="op">=</span> <span class="st">"yyyy-MM-dd hh:ss:mm"</span>,</span>
 <span>  output_format <span class="op">=</span> <span class="st">"yy/MM/dd"</span>,</span>
 <span>  invalid_placeholder <span class="op">=</span> <span class="st">"(invalid datetime)"</span>,</span>
-<span>  timezone <span class="op">=</span> <span class="cn">NA</span></span>
+<span>  timezone <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  hoz_align <span class="op">=</span> <span class="st">"left"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -77,13 +78,27 @@
 
 
 <dt id="arg-invalid-placeholder">invalid_placeholder<a class="anchor" aria-label="anchor" href="#arg-invalid-placeholder"></a></dt>
-<dd><p>(character): The value to be displayed if an invalid datetime is provided.</p></dd>
+<dd><p>(character): The value to be displayed
+if an invalid datetime is provided.</p></dd>
 
 
 <dt id="arg-timezone">timezone<a class="anchor" aria-label="anchor" href="#arg-timezone"></a></dt>
 <dd><p>(character): The timezone of the datetime.</p></dd>
 
+
+<dt id="arg-hoz-align">hoz_align<a class="anchor" aria-label="anchor" href="#arg-hoz-align"></a></dt>
+<dd><p>(character): The horizontal alignment of the column.</p></dd>
+
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>tabulator htmlwidget</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>To use this formatter, you need to include the luxon html dependency
+when creating a tabulator widget.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
