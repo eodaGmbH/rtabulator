@@ -11,6 +11,9 @@ set_multi_column_header(widget, multi_columns)
 
 \item{multi_columns}{(list): Multi column definitions.}
 }
+\value{
+tabulator htmlwidget
+}
 \description{
 Set multi column header
 }

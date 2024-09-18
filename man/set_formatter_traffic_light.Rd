@@ -19,14 +19,17 @@ set_formatter_traffic_light(
 \item{column}{(character): The column the formatter is applied to.}
 
 \item{min}{(numeric): The minimum value for progress bar.
-If set to \code{NA} the minimum value of the column is used.}
+If set to \code{NA}, the minimum value of the column is used.}
 
 \item{max}{(numeric): The maximum value for progress bar.
-If set to \code{NA} the maximum value of the column is used.}
+If set to \code{NA}, the maximum value of the column is used.}
 
 \item{color}{(character): Either a single color or a vector of colors}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
+}
+\value{
+tabulator htmlwidget
 }
 \description{
 Set traffic light formatter

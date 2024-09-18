@@ -4,12 +4,17 @@
 \alias{set_formatter_tick_cross}
 \title{Set tick cross formatter}
 \usage{
-set_formatter_tick_cross(widget, column)
+set_formatter_tick_cross(widget, column, hoz_align = "center")
 }
 \arguments{
 \item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
 
 \item{column}{(character): The column the formatter is applied to.}
+
+\item{hoz_align}{(character): The horizontal alignment of the column.}
+}
+\value{
+tabulator htmlwidget
 }
 \description{
 Set tick cross formatter

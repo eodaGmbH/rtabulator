@@ -1,5 +1,5 @@
 .onLoad <- function(libname, pkgname) {
-  # For devtools::load_all() we need to remove to handler if it is already registered
+  # For devtools::load_all() we need to remove handlers if it is already registered
   try(shiny::removeInputHandler("rtabulator.data"), silent = FALSE)
   try(shiny::removeInputHandler("rtabulator.sheet_data"), silent = FALSE)
 

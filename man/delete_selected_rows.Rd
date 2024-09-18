@@ -2,13 +2,16 @@
 % Please edit documentation in R/context_calls.R
 \name{delete_selected_rows}
 \alias{delete_selected_rows}
-\title{Delete selected rows from a table}
+\title{Delete selected rows from table}
 \usage{
 delete_selected_rows(ctx)
 }
 \arguments{
 \item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 }
+\value{
+tabulator context object
+}
 \description{
-Delete selected rows from a table
+Delete selected rows from table
 }

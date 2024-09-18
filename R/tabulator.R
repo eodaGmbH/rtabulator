@@ -17,6 +17,7 @@
 #' @param height Height of the widget.
 #' @param element_id The unique ID of the widget.
 #' @param ... Named arguments that are appended to the \code{options} parameter.
+#' @returns tabulator htmlwidget
 #' @example examples/multiple_spreadsheets.R
 #' @import htmlwidgets
 #' @export

@@ -11,7 +11,11 @@ trigger_download(ctx, type = c("csv", "json", "xlsx"), file_name = NULL)
 
 \item{type}{(character): csv, json or xlsx (needs sheetjs: \code{tabulator(..., sheetjs = TRUE)})}
 
-\item{file_name}{(character): file name}
+\item{file_name}{(character, \code{NULL}): File name.}
+}
+\value{
+tabulator context object
+ If \code{NULL}, it is set to \code{"data.{type}"}.
 }
 \description{
 Download table data

@@ -1,4 +1,4 @@
-# rtabulator 0.1.1.9000
+# rtabulator 0.1.2
 
 * Custom input handlers
 * `set_pagination`

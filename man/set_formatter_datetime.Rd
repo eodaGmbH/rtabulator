@@ -10,7 +10,8 @@ set_formatter_datetime(
   input_format = "yyyy-MM-dd hh:ss:mm",
   output_format = "yy/MM/dd",
   invalid_placeholder = "(invalid datetime)",
-  timezone = NA
+  timezone = NA,
+  hoz_align = "left"
 )
 }
 \arguments{
@@ -22,12 +23,22 @@ set_formatter_datetime(
 
 \item{output_format}{(character): The datetime output format.}
 
-\item{invalid_placeholder}{(character): The value to be displayed if an invalid datetime is provided.}
+\item{invalid_placeholder}{(character): The value to be displayed
+if an invalid datetime is provided.}
 
 \item{timezone}{(character): The timezone of the datetime.}
+
+\item{hoz_align}{(character): The horizontal alignment of the column.}
+}
+\value{
+tabulator htmlwidget
 }
 \description{
 Set datetime formatter
+}
+\details{
+To use this formatter, you need to include the luxon html dependency
+when creating a tabulator widget.
 }
 \examples{
 data <- data.frame(

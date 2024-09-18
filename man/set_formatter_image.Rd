@@ -31,6 +31,9 @@ when generating the image src url.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
+\value{
+tabulator htmlwidget
+}
 \description{
 Set image formatter
 }

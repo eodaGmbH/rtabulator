@@ -13,6 +13,9 @@ set_formatter_textarea(widget, column, hoz_align = "left")
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
+\value{
+tabulator htmlwidget
+}
 \description{
 Set textarea formatter
 }

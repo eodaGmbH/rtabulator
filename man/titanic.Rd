@@ -9,6 +9,9 @@ titanic(col_select = NULL)
 \arguments{
 \item{col_select}{(character vector): Columns to select.}
 }
+\value{
+data frame
+}
 \description{
 Titanic data set
 }
