@@ -9,11 +9,17 @@ add_row(ctx, row = NULL)
 \arguments{
 \item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 
-\item{row}{(list | NULL): row data or \code{NULL} to add an empty row}
+\item{row}{(list): row data or \code{NULL} to add an empty row}
 }
 \value{
 tabulator context object
 }
 \description{
 Add row to table
+}
+\examples{
+\dontrun{
+tabulatorContext("table") |>
+  add_row()
+}
 }

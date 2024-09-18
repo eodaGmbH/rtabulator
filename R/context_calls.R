@@ -1,9 +1,18 @@
 #' Download table data
+#'
+#' @details
+#' If you want to provide xlsx downloads, you need to include
+#' the sheetjs html dependency: \code{tabulator(..., sheetjs = TRUE)}
 #' @param ctx (\code{\link{tabulatorContext}}): tabulator context object
-#' @param type (character): csv, json or xlsx (needs sheetjs: \code{tabulator(..., sheetjs = TRUE)})
+#' @param type (character): csv, json or xlsx
 #' @param file_name (character, \code{NULL}): File name.
-#' @returns tabulator context object
 #'  If \code{NULL}, it is set to \code{"data.{type}"}.
+#' @returns tabulator context object
+#' @examples
+#' \dontrun{
+#' tabulatorContext("table") |>
+#'   trigger_download("csv", "table-data.csv")
+#' }
 #' @export
 trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name = NULL) {
   if (is.null(file_name)) {
@@ -16,6 +25,11 @@ trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name = N
 #' Submit data to R
 #' @inheritParams trigger_download
 #' @returns tabulator context object
+#' @examples
+#' \dontrun{
+#' tabulatorContext("table") |>
+#'   trigger_get_data()
+#' }
 #' @export
 trigger_get_data <- function(ctx) {
   invoke_method(ctx, "getData")
@@ -23,8 +37,13 @@ trigger_get_data <- function(ctx) {
 
 #' Add row to table
 #' @inheritParams trigger_download
-#' @param row (list | NULL): row data or \code{NULL} to add an empty row
+#' @param row (list): row data or \code{NULL} to add an empty row
 #' @returns tabulator context object
+#' @examples
+#' \dontrun{
+#' tabulatorContext("table") |>
+#'   add_row()
+#' }
 #' @export
 add_row <- function(ctx, row = NULL) {
   invoke_method(ctx, "addRow", row)
@@ -33,6 +52,11 @@ add_row <- function(ctx, row = NULL) {
 #' Delete selected rows from table
 #' @inheritParams trigger_download
 #' @returns tabulator context object
+#' @examples
+#' \dontrun{
+#' tabulatorContext("table") |>
+#'   delete_selected_rows()
+#' }
 #' @export
 delete_selected_rows <- function(ctx) {
   invoke_method(ctx, "deleteSelectedRows")
@@ -47,6 +71,11 @@ delete_row <- function(ctx) {
 #' Undo changes
 #' @inheritParams trigger_download
 #' @returns tabulator context object
+#' @examples
+#' \dontrun{
+#' tabulatorContext("table") |>
+#'   undo()
+#' }
 #' @export
 undo <- function(ctx) {
   invoke_method(ctx, "undo")
@@ -55,6 +84,11 @@ undo <- function(ctx) {
 #' Redo changes
 #' @inheritParams trigger_download
 #' @returns tabulator context object
+#' @examples
+#' \dontrun{
+#' tabulatorContext("table") |>
+#'   redo()
+#' }
 #' @export
 redo <- function(ctx) {
   invoke_method(ctx, "redo")
@@ -63,6 +97,11 @@ redo <- function(ctx) {
 #' Submit sheet data to R
 #' @inheritParams trigger_download
 #' @returns tabulator context object
+#' @examples
+#' \dontrun{
+#' tabulatorContext("table") |>
+#'   trigger_get_sheet_data()
+#' }
 #' @export
 trigger_get_sheet_data <- function(ctx) {
   invoke_method(ctx, "getSheetData")

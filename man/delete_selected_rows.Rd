@@ -15,3 +15,9 @@ tabulator context object
 \description{
 Delete selected rows from table
 }
+\examples{
+\dontrun{
+tabulatorContext("table") |>
+  delete_selected_rows()
+}
+}

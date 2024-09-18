@@ -15,3 +15,9 @@ tabulator context object
 \description{
 Undo changes
 }
+\examples{
+\dontrun{
+tabulatorContext("table") |>
+  undo()
+}
+}
