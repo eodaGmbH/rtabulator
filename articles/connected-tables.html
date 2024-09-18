@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rtabulator</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@
 
 <link href="connected-tables_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 <script src="connected-tables_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="connected-tables_files/tabulator-6.2.5/tabulator.min.css" rel="stylesheet">
-<script src="connected-tables_files/tabulator-6.2.5/tabulator.min.js"></script><script src="connected-tables_files/rtabulator-binding-0.1.1.9000/rtabulator.js"></script><script src="https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js"></script><div class="row">
+<script src="connected-tables_files/tabulator-6.2.5/tabulator.min.js"></script><script src="connected-tables_files/rtabulator-binding-0.1.2/rtabulator.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Connecting tables</h1>
@@ -80,7 +80,7 @@ can move rows between two or more tables:</p>
 <span><span class="va">tab_sender</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tabulator.html">tabulator</a></span><span class="op">(</span></span>
 <span>  <span class="va">sender_df</span>,</span>
 <span>  <span class="fu"><a href="../reference/tabulator_options.html">tabulator_options</a></span><span class="op">(</span></span>
-<span>    movable_rows  <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    movable_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    movable_rows_connected_tables <span class="op">=</span> <span class="st">"#table-receiver"</span>,</span>
 <span>    movable_rows_receiver <span class="op">=</span> <span class="st">"add"</span>,</span>
 <span>    movable_rows_sender <span class="op">=</span> <span class="st">"delete"</span>,</span>
@@ -103,8 +103,8 @@ can move rows between two or more tables:</p>
 <div class="rtabulator html-widget html-fill-item" id="table-receiver" style="width:700px;height:432.632880098888px;"></div>
 <script type="application/json" data-for="table-receiver">{"x":{"data":{"Sepal_Length":[],"Sepal_Width":[],"Petal_Length":[],"Petal_Width":[],"Species":[],"id":[]},"options":{"height":"311px","history":false,"layout":"fitColumns","responsiveLayout":false,"movableColumns":false,"headerVisible":true,"addRowPos":"bottom","movableRows":false,"resizableRows":false,"index":"id","groupStartOpen":true,"editTriggerEvent":"dblclick","selectableRows":"highlight","pagination":false,"paginationSize":10,"paginationSizeSelector":false,"paginationAddRow":"page","spreadsheet":false,"placeholder":"Drag rows here","columns":[{"title":"Sepal_Length","field":"Sepal_Length","hozAlign":"right"},{"title":"Sepal_Width","field":"Sepal_Width","hozAlign":"right"},{"title":"Petal_Length","field":"Petal_Length","hozAlign":"right"},{"title":"Petal_Width","field":"Petal_Width","hozAlign":"right"},{"title":"Species","field":"Species","hozAlign":"left"}]},"stylesheetText":null},"evals":[],"jsHooks":[]}</script><hr>
 <p><strong>Note</strong></p>
-<p>In some browsers <em>moving rows functionality</em> does not seem to
-work at the moment.</p>
+<p>At the moment <em>moving rows functionality</em> <strong>does not
+seem to work</strong> in Firefox and on mobile devices.</p>
 <hr></main>
 </div>
 
@@ -115,7 +115,7 @@ work at the moment.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
