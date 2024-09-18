@@ -32,6 +32,12 @@ interactive tables in markdown documents and Shiny application using
 - Download data
 - Freeze data
 
+To learn more about rtabulator, see the documentation at
+<https://eodagmbh.github.io/rtabulator/>.
+
+Bindings for Python are available at
+<https://github.com/eodaGmbH/py-tabulator>.
+
 ## Installation
 
 Once on CRAN you can install rtabulator with:
@@ -73,7 +79,3 @@ tabulator(data = list(), spreadsheet = TRUE)
 ``` r
 shiny::runGitHub("eodaGmbH/rtabulator", subdir = "examples/shiny/titanic")
 ```
-
-## Documentation
-
-[rtabulator docs](https://eodagmbh.github.io/rtabulator/)
