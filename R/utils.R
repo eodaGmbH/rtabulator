@@ -7,11 +7,13 @@ keys_to_camel_case <- function(x) {
 }
 
 # Drop NULL values from list
+# TODO: Use 'purrr:compact()'
 compact <- function(x) {
   x[!sapply(x, is.null)]
 }
 
 # Convert list of named lists to data frame
+# TODO: obsolete!?
 list_to_data_frame <- function(x) {
   # jsonlite::toJSON(x, auto_unbox = TRUE) |> jsonlite::fromJSON()
   return(do.call(rbind.data.frame, x))

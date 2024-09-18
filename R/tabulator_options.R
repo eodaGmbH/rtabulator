@@ -2,7 +2,7 @@
 #' @param height (character) The height of the table in px.
 #' @param history (bool): Enable user interaction history functionality.
 #' @param columns (list): Column definitions.
-#'  If set to \code{NULL} definitions are auto generated from table data.
+#'  If set to \code{NULL}, definitions are auto generated from table data.
 #' @param layout (character): Layout mode of the table columns.
 #' @param responsive_layout (bool): Automatically hide and show columns to fit
 #'  the width of the Tabulator element.
@@ -22,8 +22,8 @@
 #'  Set to \code{FALSE} to disable toggling at all.
 #' @param edit_trigger_event (character): Event that triggers a cell edit.
 #' @param selectable_rows (character, bool, integer) Set to \code{FALSE} to disble row selection.
-#'  If set to \code{TRUE} you can select as many rows as you want.
-#'  If set to \code{"highlight"} rows are just highlighted but do not change state when clicked.
+#'  If set to \code{TRUE}, you can select as many rows as you want.
+#'  If set to \code{"highlight"}, rows are just highlighted but do not change state when clicked.
 #'  An integer value sets the maximum number of rows that can be selected.
 #' @param pagination (bool): Whether to enable pagination.
 #' @param pagination_size (integer): Number of rows on each page.
@@ -36,6 +36,7 @@
 #' @param spreadsheet_sheets (list): List of sheet definitions.
 #' @param spreadsheet_sheet_tabs (bool): Whether to show sheet tabs in the footer.
 #' @param ... Further options.
+#' @returns list
 #' @seealso \url{https://tabulator.info/docs/6.2/options}
 #' @example examples/tabulator_setup.R
 #' @export
@@ -53,6 +54,7 @@ tabulator_options <- function(
     row_height = NULL,
     add_row_pos = c("bottom", "top"),
     movable_rows = FALSE,
+    # TODO: Add movable rows params
     # ---
     # movable_rows_connected_tables = NULL,
     # movable_rows_receiver = NULL,
@@ -83,6 +85,7 @@ tabulator_options <- function(
     spreadsheet_sheets = NULL,
     spreadsheet_sheet_tabs = NULL,
     ...) {
+  # Body
   params <- as.list(environment())
   params$layout <- match.arg(layout)
   params$add_row_pos <- match.arg(add_row_pos)
@@ -104,6 +107,7 @@ default_spreadsheet_options <- list(
 #' Set pagination options
 #' @inheritParams set_formatter_html
 #' @inheritParams tabulator_options
+#' @returns tabulator htmlwidget
 #' @example examples/options/pagination_options.R
 #' @export
 set_options_pagination <- function(
@@ -127,6 +131,7 @@ set_options_pagination <- function(
 #' Set group by options
 #' @inheritParams set_formatter_html
 #' @inheritParams tabulator_options
+#' @returns tabulator htmlwidget
 #' @export
 set_options_group_by <- function(
     widget,

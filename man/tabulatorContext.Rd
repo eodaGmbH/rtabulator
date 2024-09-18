@@ -11,6 +11,9 @@ tabulatorContext(output_id, session = shiny::getDefaultReactiveDomain())
 
 \item{session}{A shiny session object.}
 }
+\value{
+tabulator context object
+}
 \description{
 Create a tabulator context object
 }

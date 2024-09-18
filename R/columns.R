@@ -71,6 +71,7 @@ add_filter_to_columns <- function(columns) {
 #'  If set to \code{NULL} it is applied to all columns.
 #' @param .f (function): The column setter function that updates the column settings.
 #' @param ... Arguments that are passed to \code{.f}.
+#' @returns tabulator htmlwidget
 #' @example examples/for_each_col.R
 #' @export
 for_each_col <- function(widget, columns = NULL, .f, ...) {
@@ -91,6 +92,7 @@ for_each_col <- function(widget, columns = NULL, .f, ...) {
 #' @param widget (\code{\link{tabulator}}) A tabulator widget.
 #' @param column (character): The column the formatter is applied to.
 #' @param hoz_align (character): The horizontal alignment of the column.
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_html.R
 #' @export
 set_formatter_html <- function(widget, column, hoz_align = c("left", "center", "right")) {
@@ -100,6 +102,7 @@ set_formatter_html <- function(widget, column, hoz_align = c("left", "center", "
 
 #' Set plain text formatter
 #' @inheritParams set_formatter_html
+#' @returns tabulator htmlwidget
 #' @export
 # TODO: Add example
 set_formatter_plaintext <- function(widget, column, hoz_align = "left") {
@@ -110,6 +113,7 @@ set_formatter_plaintext <- function(widget, column, hoz_align = "left") {
 #' Set textarea formatter
 #' @inheritParams set_formatter_html
 #' @example examples/formatters/formatter_textarea.R
+#' @returns tabulator htmlwidget
 #' @export
 set_formatter_textarea <- function(widget, column, hoz_align = "left") {
   col_update <- list(formatter = "textarea", hozAlign = hoz_align)
@@ -128,6 +132,7 @@ set_formatter_textarea <- function(widget, column, hoz_align = "left") {
 #'  which is the standard style for negative numbers in accounting.
 #' @param precision (integer, bool): The number of decimals to display.
 #'  Set to \code{FALSE} to display all decimals that are provided.
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_money.R
 #' @export
 set_formatter_money <- function(
@@ -164,6 +169,7 @@ set_formatter_money <- function(
 #'  when generating the image src url.
 #' @param url_suffix (character): String to add to the end of the cell value
 #'  when generating the image src url.
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_image.R
 #' @export
 set_formatter_image <- function(
@@ -174,6 +180,7 @@ set_formatter_image <- function(
     url_prefix = NULL,
     url_suffix = NULL,
     hoz_align = "center") {
+  # Body
   col_update <- list(
     formatter = "image",
     formatterParams = compact(list(
@@ -195,6 +202,7 @@ set_formatter_image <- function(
 #'  The cell is passed to the function as its first argument.
 #'  Use \link[htmlwidgets]{JS} to pass JS code.
 #' @param target (character): Target attribute of the anchor tag.
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_link.R
 #' @export
 set_formatter_link <- function(
@@ -213,7 +221,8 @@ set_formatter_link <- function(
       urlPrefix = url_prefix,
       url = url,
       target = target
-    ))
+    )),
+    hozAlign = hoz_align
   )
   modify_col_def(widget, column, col_update)
 }
@@ -222,6 +231,7 @@ set_formatter_link <- function(
 #' @inheritParams set_formatter_html
 #' @param number_of_stars The maximum number of stars to be displayed.
 #'  If set to \code{NA}, the maximum value of the column is used.
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_star.R
 #' @export
 set_formatter_star <- function(widget, column, number_of_stars = NA, hoz_align = "center") {
@@ -240,16 +250,17 @@ set_formatter_star <- function(widget, column, number_of_stars = NA, hoz_align =
 #' Set progress formatter
 #' @inheritParams set_formatter_html
 #' @param min (numeric): The minimum value for progress bar.
-#'  If set to \code{NA} the minimum value of the column is used.
+#'  If set to \code{NA}, the minimum value of the column is used.
 #' @param max (numeric): The maximum value for progress bar.
-#'  If set to \code{NA} the maximum value of the column is used.
+#'  If set to \code{NA}, the maximum value of the column is used.
 #' @param color (character): Either a single color or a vector of colors
-#' @param legend (character, \code{TRUE}, JavaScript function): If set to \code{TRUE} the value of the cell is displayed.
-#'  Set to \code{NA} to display no value at all.
-#'  Use \link[htmlwidgets]{JS} to pass a JS function as legend.
-#'  The cell value is passed to the function as its first argument.
+#' @param legend (character, \code{TRUE}, JavaScript function): If set to \code{TRUE},
+#'  the value of the cell is displayed. Set to \code{NA} to display no value at all.
+#'  Use \link[htmlwidgets]{JS} to pass a JavaScript function as legend.
+#'  In this case, the cell value is passed to the function as its first argument.
 #' @param legend_color (character): The text color of the legend.
 #' @param legend_align (character): The text alignment of the legend.
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_progress.R
 #' @export
 set_formatter_progress <- function(
@@ -262,6 +273,7 @@ set_formatter_progress <- function(
     legend_color = "#000000",
     legend_align = c("center", "left", "right", "justify"),
     hoz_align = "left") {
+  # Body
   if (is.na(min)) {
     min <- min(widget$x$data[column])
   }
@@ -288,9 +300,10 @@ set_formatter_progress <- function(
 #' Set tick cross formatter
 #' @inheritParams set_formatter_html
 #' @example examples/formatters/formatter_tick_cross.R
+#' @returns tabulator htmlwidget
 #' @export
-set_formatter_tick_cross <- function(widget, column) {
-  col_update <- list(formatter = "tickCross")
+set_formatter_tick_cross <- function(widget, column, hoz_align = "center") {
+  col_update <- list(formatter = "tickCross", hozAlign = hoz_align)
   modify_col_def(widget, column, col_update)
 }
 
@@ -299,10 +312,11 @@ set_formatter_tick_cross <- function(widget, column) {
 #' @param size (numeric): The size of the switch in pixels.
 #' @param on_value (character): The value of the cell for the switch to be on.
 #' @param off_value (character) The value of the cell for the switch to be off.
-#' @param on_truthy (bool): TODO: ???
+#' @param on_truthy (bool): Whether to show the switch as on if the value of the cell is truthy.
 #' @param on_color (character): The color of the switch if it is on.
 #' @param off_color (character): The color of the switch if it is off.
 #' @param clickable (bool): Enable switch functionality to toggle the cell value on click.
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_toggle_switch.R
 #' @export
 set_formatter_toggle_switch <- function(
@@ -332,11 +346,17 @@ set_formatter_toggle_switch <- function(
 }
 
 #' Set datetime formatter
+#'
+#' @details
+#' To use this formatter, you need to include the luxon html dependency
+#' when creating a tabulator widget.
 #' @inheritParams set_formatter_html
 #' @param input_format (character): The datetime input format.
 #' @param output_format (character): The datetime output format.
-#' @param invalid_placeholder (character): The value to be displayed if an invalid datetime is provided.
+#' @param invalid_placeholder (character): The value to be displayed
+#'  if an invalid datetime is provided.
 #' @param timezone (character): The timezone of the datetime.
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_datetime.R
 #' @export
 set_formatter_datetime <- function(
@@ -345,7 +365,8 @@ set_formatter_datetime <- function(
     input_format = "yyyy-MM-dd hh:ss:mm",
     output_format = "yy/MM/dd",
     invalid_placeholder = "(invalid datetime)",
-    timezone = NA) {
+    timezone = NA,
+    hoz_align = "left") {
   # Body
   col_update <- list(
     formatter = "datetime",
@@ -354,13 +375,15 @@ set_formatter_datetime <- function(
       outputFormat = output_format,
       invalidPlaceholder = invalid_placeholder,
       timezone = timezone
-    )
+    ),
+    hozAlign = hoz_align
   )
   modify_col_def(widget, column, col_update)
 }
 
 #' Set color formatter
 #' @inheritParams set_formatter_html
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_color.R
 #' @export
 set_formatter_color <- function(widget, column) {
@@ -370,6 +393,7 @@ set_formatter_color <- function(widget, column) {
 
 #' Set traffic light formatter
 #' @inheritParams set_formatter_progress
+#' @returns tabulator htmlwidget
 #' @example examples/formatters/formatter_traffic_light.R
 #' @export
 set_formatter_traffic_light <- function(
@@ -418,6 +442,7 @@ set_column_editor <- function(widget, columns, type = c("input", "number")) {
 #' @param editor (character): The editor type.
 #' @param validator (character vector): One or more validators to validate user input.
 #' @param ... Optional editor parameters depending on the selected editor.
+#' @returns tabulator htmlwidget
 #' @seealso
 #'  * \url{https://tabulator.info/docs/6.2/edit} for available editors
 #'  * \url{https://tabulator.info/docs/6.2/validate} for available validators
@@ -450,12 +475,16 @@ set_editor <- function(
 #' @param func (character): The filter function.
 #' @param clearable (bool): Whether to display a cross to clear the filter.
 #' @param placeholder (character): Text that is displayed when no filter is set.
+#' @returns tabulator htmlwidget
 #' @example examples/misc/header_filter.R
 #' @export
+# TODO: Rename to params that they match params used by Tabulator JS
 set_header_filter <- function(
     widget,
     column,
+    # TODO: Rename to 'filter_type' or just 'filter' or 'header_filter'?
     type = c("input", "number", "list", "tickCross"),
+    # TODO: Rename to 'filter_func'?
     func = c("like", "=", ">", ">=", "<", "<="),
     values_lookup = TRUE,
     clearable = TRUE,
@@ -482,6 +511,7 @@ set_header_filter <- function(
 
 #' Set tooltip
 #' @inheritParams set_formatter_html
+#' @returns tabulator htmlwidget
 #' @example examples/misc/tooltip.R
 #' @export
 set_tooltip <- function(widget, column) {
@@ -499,6 +529,7 @@ set_tooltip <- function(widget, column) {
 #' @param tooltip (bool): Whether to show tooltips displaying the cell value.
 #' @param width (integer): Fixed width of columns.
 #' @param ... Additional settings.
+#' @returns tabulator htmlwidget
 #' @seealso \url{https://tabulator.info/docs/6.2/columns#defaults}
 #' @example examples/column_defaults.R
 #' @export
@@ -510,6 +541,7 @@ set_column_defaults <- function(
     tooltip = TRUE,
     width = NULL,
     ...) {
+  # Body
   widget$x$options$columnDefaults <- compact(list(
     editor = editor,
     headerFilter = header_filter,
@@ -529,12 +561,13 @@ set_column_defaults <- function(
 #' @param precision (integer)  The number of decimals to display.
 #'  Set to \code{FALSE} to display all decimals.
 #' @param pos (character): Position at which calculated values are displayed.
+#' @returns tabulator htmlwidget
 #' @example examples/data_url.R
 #' @export
 set_calculation <- function(
     widget,
     column,
-    func = c("avg", "max", "min", "sum", "count", "unique"),
+    func = c("avg", "max", "min", "sum", "count", "unique"), # Rename to 'calc'?
     precision = 2,
     pos = c("top", "bottom")) {
   # Body

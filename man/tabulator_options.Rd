@@ -42,7 +42,7 @@ tabulator_options(
 \item{history}{(bool): Enable user interaction history functionality.}
 
 \item{columns}{(list): Column definitions.
-If set to \code{NULL} definitions are auto generated from table data.}
+If set to \code{NULL}, definitions are auto generated from table data.}
 
 \item{layout}{(character): Layout mode of the table columns.}
 
@@ -77,8 +77,8 @@ Set to \code{FALSE} to disable toggling at all.}
 \item{edit_trigger_event}{(character): Event that triggers a cell edit.}
 
 \item{selectable_rows}{(character, bool, integer) Set to \code{FALSE} to disble row selection.
-If set to \code{TRUE} you can select as many rows as you want.
-If set to \code{"highlight"} rows are just highlighted but do not change state when clicked.
+If set to \code{TRUE}, you can select as many rows as you want.
+If set to \code{"highlight"}, rows are just highlighted but do not change state when clicked.
 An integer value sets the maximum number of rows that can be selected.}
 
 \item{pagination}{(bool): Whether to enable pagination.}
@@ -102,6 +102,9 @@ An integer value sets the maximum number of rows that can be selected.}
 \item{spreadsheet_sheet_tabs}{(bool): Whether to show sheet tabs in the footer.}
 
 \item{...}{Further options.}
+}
+\value{
+list
 }
 \description{
 Create a tabulator options object

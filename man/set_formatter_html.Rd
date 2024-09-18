@@ -13,6 +13,9 @@ set_formatter_html(widget, column, hoz_align = c("left", "center", "right"))
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
+\value{
+tabulator htmlwidget
+}
 \description{
 Set HTML formatter
 }

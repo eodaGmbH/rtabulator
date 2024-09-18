@@ -26,6 +26,9 @@ set_options_pagination(
 
 \item{...}{Further options.}
 }
+\value{
+tabulator htmlwidget
+}
 \description{
 Set pagination options
 }

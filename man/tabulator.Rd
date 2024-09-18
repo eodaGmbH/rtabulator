@@ -46,6 +46,9 @@ Passed to \code{\link[readr]{read_csv}} if \code{data} is a file name.}
 
 \item{...}{Named arguments that are appended to the \code{options} parameter.}
 }
+\value{
+tabulator htmlwidget
+}
 \description{
 Create a tabulator widget
 }

@@ -22,23 +22,26 @@ set_formatter_progress(
 \item{column}{(character): The column the formatter is applied to.}
 
 \item{min}{(numeric): The minimum value for progress bar.
-If set to \code{NA} the minimum value of the column is used.}
+If set to \code{NA}, the minimum value of the column is used.}
 
 \item{max}{(numeric): The maximum value for progress bar.
-If set to \code{NA} the maximum value of the column is used.}
+If set to \code{NA}, the maximum value of the column is used.}
 
 \item{color}{(character): Either a single color or a vector of colors}
 
-\item{legend}{(character, \code{TRUE}, JavaScript function): If set to \code{TRUE} the value of the cell is displayed.
-Set to \code{NA} to display no value at all.
-Use \link[htmlwidgets]{JS} to pass a JS function as legend.
-The cell value is passed to the function as its first argument.}
+\item{legend}{(character, \code{TRUE}, JavaScript function): If set to \code{TRUE},
+the value of the cell is displayed. Set to \code{NA} to display no value at all.
+Use \link[htmlwidgets]{JS} to pass a JavaScript function as legend.
+In this case, the cell value is passed to the function as its first argument.}
 
 \item{legend_color}{(character): The text color of the legend.}
 
 \item{legend_align}{(character): The text alignment of the legend.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
+}
+\value{
+tabulator htmlwidget
 }
 \description{
 Set progress formatter

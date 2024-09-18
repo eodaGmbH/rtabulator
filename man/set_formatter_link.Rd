@@ -31,6 +31,9 @@ Use \link[htmlwidgets]{JS} to pass JS code.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
+\value{
+tabulator htmlwidget
+}
 \description{
 Set link formatter
 }

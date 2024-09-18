@@ -9,6 +9,9 @@ trigger_get_data(ctx)
 \arguments{
 \item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 }
+\value{
+tabulator context object
+}
 \description{
 Submit data to R
 }

@@ -25,6 +25,9 @@ Set to \code{FALSE} to display all decimals.}
 
 \item{pos}{(character): Position at which calculated values are displayed.}
 }
+\value{
+tabulator htmlwidget
+}
 \description{
 Set calculation
 }

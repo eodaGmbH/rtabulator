@@ -27,13 +27,16 @@ set_formatter_toggle_switch(
 
 \item{off_value}{(character) The value of the cell for the switch to be off.}
 
-\item{on_truthy}{(bool): TODO: ???}
+\item{on_truthy}{(bool): Whether to show the switch as on if the value of the cell is truthy.}
 
 \item{on_color}{(character): The color of the switch if it is on.}
 
 \item{off_color}{(character): The color of the switch if it is off.}
 
 \item{clickable}{(bool): Enable switch functionality to toggle the cell value on click.}
+}
+\value{
+tabulator htmlwidget
 }
 \description{
 Set toggle switch formatter

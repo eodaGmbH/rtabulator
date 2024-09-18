@@ -3,13 +3,15 @@
 #' @param key (character): Optional unique key of the spreadsheet.
 #' @param data (list): The initial data of the spreadsheet.
 #'  Set to \code{NULL} to create an empty spreadsheet.
+#' @returns list
 #' @export
 spreadsheet_def <- function(title, key = NULL, data = NULL) {
   return(compact(as.list(environment())))
 }
 
 ## #' @export
-# TODO: Is this useful?
+# TODO: Is this useful? Yes, but rename to 'set_options_spreadsheet'
+# and use 'modify_tabulator_options'
 set_spreadsheet_mode <- function(
     widget,
     spreadsheet_rows = NULL,

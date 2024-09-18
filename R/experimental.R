@@ -2,6 +2,7 @@
 #' Set multi column header
 #' @inheritParams set_formatter_html
 #' @param multi_columns (list): Multi column definitions.
+#' @returns tabulator htmlwidget
 #' @example examples/experimental/multi_column_header.R
 #' @export
 set_multi_column_header <- function(widget, multi_columns) {
@@ -18,7 +19,6 @@ set_multi_column_header <- function(widget, multi_columns) {
     if (!column_name %in% used_cols) res <- append(res, list(find_column(widget, column_name)))
   }
 
-  # return(res)
   widget$x$options$columns <- res
   return(widget)
 }
