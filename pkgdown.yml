@@ -2,8 +2,8 @@ pandoc: 3.1.11
 pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
-  articles/connectes-tables: connectes-tables.html
+  articles/connected-tables: connected-tables.html
   articles/rtabulator: rtabulator.html
   articles/shiny: shiny.html
   articles/themes: themes.html
-last_built: 2024-09-17T21:17Z
+last_built: 2024-09-18T07:19Z
