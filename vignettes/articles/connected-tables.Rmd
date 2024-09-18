@@ -22,7 +22,7 @@ empty_df <- head(iris, 0)
 tab_sender <- tabulator(
   sender_df,
   tabulator_options(
-    movable_rows  = TRUE,
+    movable_rows = TRUE,
     movable_rows_connected_tables = "#table-receiver",
     movable_rows_receiver = "add",
     movable_rows_sender = "delete",
