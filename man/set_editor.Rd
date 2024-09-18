@@ -48,6 +48,8 @@ tabulator(iris[, c(2, 5)], setup) |>
   )
 }
 \seealso{
-\url{https://tabulator.info/docs/6.2/edit} for available editors
- \url{https://tabulator.info/docs/6.2/validate} for available validators.
+\itemize{
+\item \url{https://tabulator.info/docs/6.2/edit} for available editors
+\item \url{https://tabulator.info/docs/6.2/validate} for available validators
+}
 }

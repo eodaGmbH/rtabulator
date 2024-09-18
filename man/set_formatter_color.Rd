@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_color}
 \alias{set_formatter_color}
-\title{Color Formatter}
+\title{Set color formatter}
 \usage{
 set_formatter_color(widget, column)
 }
@@ -12,7 +12,7 @@ set_formatter_color(widget, column)
 \item{column}{(character): The column the formatter is applied to.}
 }
 \description{
-Color Formatter
+Set color formatter
 }
 \examples{
 data <- data.frame(

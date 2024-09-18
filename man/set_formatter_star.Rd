@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_star}
 \alias{set_formatter_star}
-\title{Star Rating Formatter}
+\title{Set star rating formatter}
 \usage{
 set_formatter_star(widget, column, number_of_stars = NA, hoz_align = "center")
 }
@@ -17,7 +17,7 @@ If set to \code{NA}, the maximum value of the column is used.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-Star Rating Formatter
+Set star rating formatter
 }
 \examples{
 data <- data.frame(

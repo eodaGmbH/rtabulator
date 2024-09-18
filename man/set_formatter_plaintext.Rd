@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_plaintext}
 \alias{set_formatter_plaintext}
-\title{Plain Text Formatter}
+\title{Set plain text formatter}
 \usage{
 set_formatter_plaintext(widget, column, hoz_align = "left")
 }
@@ -14,5 +14,5 @@ set_formatter_plaintext(widget, column, hoz_align = "left")
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-Plain Text Formatter
+Set plain text formatter
 }

@@ -1,7 +1,7 @@
 # See example here: https://github.com/eodaGmbH/py-tabulator/blob/main/docs/examples/getting_started/shiny_core_multi_row_headers.py
-#' Multi Column Header
+#' Set multi column header
 #' @inheritParams set_formatter_html
-#' @param multi_columns (list): Multi column definitions
+#' @param multi_columns (list): Multi column definitions.
 #' @example examples/experimental/multi_column_header.R
 #' @export
 set_multi_column_header <- function(widget, multi_columns) {

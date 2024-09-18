@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_traffic_light}
 \alias{set_formatter_traffic_light}
-\title{Traffic Light Formatter}
+\title{Set traffic light formatter}
 \usage{
 set_formatter_traffic_light(
   widget,
@@ -29,7 +29,7 @@ If set to \code{NA} the maximum value of the column is used.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-Traffic Light Formatter
+Set traffic light formatter
 }
 \examples{
 data <- data.frame(

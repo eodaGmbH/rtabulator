@@ -1,12 +1,15 @@
-#' Create a Tabulator Widget
+#' Create a tabulator widget
 #'
+#' @details
 #' Dots in column names are replaced by underscores.
 #' @param data (data.frame, character or list): In spreadsheet mode data needs to be a list or \code{NULL}
 #'  for an empty spreadsheet.
 #' @param options (list): Setup options. See \code{\link{tabulator_options}}.
 #' @param editable (bool): Whether the table is editable.
-#' @param sheetjs (bool): Whether to add sheetjs (\url{https://sheetjs.com/}) dependency,
-#'  which is needed for xlsx downloads.
+#' @param luxon (bool): Whether to add \href{https://moment.github.io/luxon/}{luxon} dependency,
+#'  which is required for \code{\link{set_formatter_datetime}}.
+#' @param sheetjs (bool): Whether to add \href{https://sheetjs.com/}{sheetjs} dependency,
+#'  which is required for \code{\link{trigger_download}} to support Excel type downloads.
 #' @param theme (character): Theme to apply to the table.
 #' @param col_select (character vector) Columns to select.
 #'  Passed to \code{\link[readr]{read_csv}} if \code{data} is a file name.
@@ -21,6 +24,7 @@ tabulator <- function(
     data,
     options = tabulator_options(),
     editable = FALSE,
+    luxon = FALSE,
     sheetjs = FALSE,
     theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3", "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
     col_select = NULL,
@@ -28,6 +32,7 @@ tabulator <- function(
     height = NULL,
     element_id = NULL,
     ...) {
+  # Body
   if (is.null(options)) options <- list()
 
   if (is.character(data)) {
@@ -59,9 +64,11 @@ tabulator <- function(
     stylesheetText = stylesheet_text
   )
 
-  # TODO: Make it optional when datetime formatter is called
-  dependencies <- list(luxon_dependency)
-  # dependencies <- list()
+  dependencies <- list()
+  if (isTRUE(luxon)) {
+    dependencies <- c(dependencies, list(luxon_dependency))
+  }
+
   if (theme != "default") {
     dependencies <- c(dependencies, list(get_theme_dependeny(theme)))
   }

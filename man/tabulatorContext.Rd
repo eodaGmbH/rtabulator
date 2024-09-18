@@ -2,17 +2,18 @@
 % Please edit documentation in R/tabulator_context.R
 \name{tabulatorContext}
 \alias{tabulatorContext}
-\title{Create a Tabulator Context Object
-A \code{tabulatorContext} object makes it possible to update your widget in a Shiny app.}
+\title{Create a tabulator context object}
 \usage{
 tabulatorContext(output_id, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
 \item{output_id}{(character): A tabulator output id.}
 
-\item{session}{shiny session object}
+\item{session}{A shiny session object.}
 }
 \description{
-Create a Tabulator Context Object
-A \code{tabulatorContext} object makes it possible to update your widget in a Shiny app.
+Create a tabulator context object
+}
+\details{
+A \code{tabulatorContext} object makes it possible to update your widget in a Shiny application.
 }

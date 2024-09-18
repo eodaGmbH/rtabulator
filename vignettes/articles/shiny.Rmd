@@ -14,7 +14,7 @@ library(shiny)
 library(rtabulator)
 ```
 
-## Basic Usage
+## Basic usage
 
 Use `tabulatorOutput()` in the UI and `renderTabulator()` in the server part of your Shiny application:
 

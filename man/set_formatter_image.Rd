@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_image}
 \alias{set_formatter_image}
-\title{Image Formatter}
+\title{Set image formatter}
 \usage{
 set_formatter_image(
   widget,
@@ -32,7 +32,7 @@ when generating the image src url.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-Image Formatter
+Set image formatter
 }
 \examples{
 image_url <- "https://picsum.photos/id/"

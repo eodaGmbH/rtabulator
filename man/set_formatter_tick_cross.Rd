@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_tick_cross}
 \alias{set_formatter_tick_cross}
-\title{Tick Cross Formatter}
+\title{Set tick cross formatter}
 \usage{
 set_formatter_tick_cross(widget, column)
 }
@@ -12,7 +12,7 @@ set_formatter_tick_cross(widget, column)
 \item{column}{(character): The column the formatter is applied to.}
 }
 \description{
-Tick Cross Formatter
+Set tick cross formatter
 }
 \examples{
 data <- data.frame(

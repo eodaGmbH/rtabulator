@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_progress}
 \alias{set_formatter_progress}
-\title{Progress Formatter}
+\title{Set progress formatter}
 \usage{
 set_formatter_progress(
   widget,
@@ -41,7 +41,7 @@ The cell value is passed to the function as its first argument.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-Progress Formatter
+Set progress formatter
 }
 \examples{
 data <- data.frame(

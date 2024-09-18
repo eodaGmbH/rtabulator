@@ -1,3 +1,13 @@
+# rtabulator 0.1.1.9000
+
+* Custom input handlers
+* `set_pagination`
+* `set_group_by`
+* `for_each_col` to apply same column settings to multiple columns at once
+* `set_tooltip`
+* `set_columns_defaults`
+* `titanic` data set
+
 # rtabulator 0.1.1
 
 * Update docs

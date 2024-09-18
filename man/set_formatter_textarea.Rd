@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_textarea}
 \alias{set_formatter_textarea}
-\title{Text Area Formatter}
+\title{Set textarea formatter}
 \usage{
 set_formatter_textarea(widget, column, hoz_align = "left")
 }
@@ -14,7 +14,7 @@ set_formatter_textarea(widget, column, hoz_align = "left")
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \description{
-Text Area Formatter
+Set textarea formatter
 }
 \examples{
 data <- data.frame(

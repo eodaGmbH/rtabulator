@@ -2,12 +2,13 @@
 % Please edit documentation in R/tabulator.R
 \name{tabulator}
 \alias{tabulator}
-\title{Create a Tabulator Widget}
+\title{Create a tabulator widget}
 \usage{
 tabulator(
   data,
   options = tabulator_options(),
   editable = FALSE,
+  luxon = FALSE,
   sheetjs = FALSE,
   theme = c("default", "midnight", "modern", "simple", "site", "bootstrap3",
     "bootstrap4", "bootstrap5", "bulma", "materialize", "semanticui"),
@@ -26,8 +27,11 @@ for an empty spreadsheet.}
 
 \item{editable}{(bool): Whether the table is editable.}
 
-\item{sheetjs}{(bool): Whether to add sheetjs (\url{https://sheetjs.com/}) dependency,
-which is needed for xlsx downloads.}
+\item{luxon}{(bool): Whether to add \href{https://moment.github.io/luxon/}{luxon} dependency,
+which is required for \code{\link{set_formatter_datetime}}.}
+
+\item{sheetjs}{(bool): Whether to add \href{https://sheetjs.com/}{sheetjs} dependency,
+which is required for \code{\link{trigger_download}} to support Excel type downloads.}
 
 \item{theme}{(character): Theme to apply to the table.}
 
@@ -43,6 +47,9 @@ Passed to \code{\link[readr]{read_csv}} if \code{data} is a file name.}
 \item{...}{Named arguments that are appended to the \code{options} parameter.}
 }
 \description{
+Create a tabulator widget
+}
+\details{
 Dots in column names are replaced by underscores.
 }
 \examples{

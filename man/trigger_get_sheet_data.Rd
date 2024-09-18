@@ -2,7 +2,7 @@
 % Please edit documentation in R/context_calls.R
 \name{trigger_get_sheet_data}
 \alias{trigger_get_sheet_data}
-\title{Submit data to R}
+\title{Submit sheet data to R}
 \usage{
 trigger_get_sheet_data(ctx)
 }
@@ -10,5 +10,5 @@ trigger_get_sheet_data(ctx)
 \item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 }
 \description{
-Submit data to R
+Submit sheet data to R
 }

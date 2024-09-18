@@ -18,15 +18,15 @@ trigger_get_data <- function(ctx) {
   invoke_method(ctx, "getData")
 }
 
-#' Add a row to the table
+#' Add a row to a table
 #' @inheritParams trigger_download
-#' @param row (list | NULL) row data or NULL to add an empty row
+#' @param row (list | NULL): row data or \code{NULL} to add an empty row
 #' @export
 add_row <- function(ctx, row = NULL) {
   invoke_method(ctx, "addRow", row)
 }
 
-#' Delete selected rows from the table
+#' Delete selected rows from a table
 #' @inheritParams trigger_download
 #' @export
 delete_selected_rows <- function(ctx) {
@@ -52,7 +52,7 @@ redo <- function(ctx) {
   invoke_method(ctx, "redo")
 }
 
-#' Submit data to R
+#' Submit sheet data to R
 #' @inheritParams trigger_download
 #' @export
 trigger_get_sheet_data <- function(ctx) {

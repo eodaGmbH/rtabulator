@@ -1,16 +1,17 @@
 Package: rtabulator
 Type: Package
 Title: R Bindings for Tabulator JS
-Version: 0.1.1.9000
-Date: 2024-09-15
+Version: 0.1.2
+Date: 2024-09-18
 Authors@R: c(
   person("Stefan", "Kuethe", email = "crazycapivara@gmail.com", role = c("aut", "cre")),
   person("Nico", "Friess", email = "nico.friess@eoda.de", role = c("aut"))
   )
 Maintainer: Stefan Kuethe <crazycapivara@gmail.com>
 Description: Provides R bindings for 'Tabulator JS' <https://tabulator.info/>.
-  Makes it a breeze to create highly customisable interactive tables in markdown documents
-  and Shiny applications.
+  Makes it a breeze to create highly customizable interactive tables in markdown documents
+  and Shiny applications. It includes filtering, grouping, editing, input validation,
+  history recording, column formatters, packaged themes and more.
 URL:
   https://github.com/eodaGmbH/rtabulator
   https://eodagmbh.github.io/rtabulator/
@@ -23,7 +24,6 @@ Imports:
     glue,
     htmltools,
     htmlwidgets,
-    jsonlite,
     purrr,
     readr,
     shiny

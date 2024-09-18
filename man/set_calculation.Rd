@@ -2,7 +2,7 @@
 % Please edit documentation in R/columns.R
 \name{set_calculation}
 \alias{set_calculation}
-\title{Add a calculation to a column}
+\title{Set calculation}
 \usage{
 set_calculation(
   widget,
@@ -26,7 +26,7 @@ Set to \code{FALSE} to display all decimals.}
 \item{pos}{(character): Position at which calculated values are displayed.}
 }
 \description{
-Add a calculation to a column
+Set calculation
 }
 \examples{
 data_url <- "https://raw.githubusercontent.com/eodaGmbH/rtabulator/main/data-raw/titanic.csv"
