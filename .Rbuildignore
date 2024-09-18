@@ -11,3 +11,4 @@ _NAMESPACE
 ^\.github$
 images/
 ^vignettes/articles$
+^cran-comments\.md$

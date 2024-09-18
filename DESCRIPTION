@@ -4,8 +4,10 @@ Title: R Bindings for Tabulator JS
 Version: 0.1.2
 Date: 2024-09-18
 Authors@R: c(
-  person("Stefan", "Kuethe", email = "crazycapivara@gmail.com", role = c("aut", "cre")),
-  person("Nico", "Friess", email = "nico.friess@eoda.de", role = c("aut"))
+  person("Stefan", "Kuethe", email = "crazycapivara@gmail.com", role = c("aut", "cre", "cph")),
+  person("Nico", "Friess", email = "nico.friess@eoda.de", role = "aut"),
+  person("Oli", "Folkerd", role = "cph",
+          comment = "Author of included tabulator.js library")
   )
 Maintainer: Stefan Kuethe <crazycapivara@gmail.com>
 Description: Provides R bindings for 'Tabulator JS' <https://tabulator.info/>.

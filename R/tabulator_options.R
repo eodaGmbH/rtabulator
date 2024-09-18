@@ -132,6 +132,7 @@ set_options_pagination <- function(
 #' @inheritParams set_formatter_html
 #' @inheritParams tabulator_options
 #' @returns tabulator htmlwidget
+#' @example examples/options/group_by_options.R
 #' @export
 set_options_group_by <- function(
     widget,

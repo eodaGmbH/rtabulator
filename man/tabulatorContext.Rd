@@ -20,3 +20,9 @@ Create a tabulator context object
 \details{
 A \code{tabulatorContext} object makes it possible to update your widget in a Shiny application.
 }
+\examples{
+\dontrun{
+tabulatorContext("table") |>
+  trigger_download("csv")
+}
+}

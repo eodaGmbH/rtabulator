@@ -40,7 +40,8 @@ Bindings for Python are available at
 
 ## Installation
 
-Once on CRAN you can install rtabulator with:
+You can install the released version of rtabulator from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("rtabulator")

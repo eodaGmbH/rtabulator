@@ -15,3 +15,9 @@ tabulator context object
 \description{
 Redo changes
 }
+\examples{
+\dontrun{
+tabulatorContext("table") |>
+  redo()
+}
+}

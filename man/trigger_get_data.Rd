@@ -15,3 +15,9 @@ tabulator context object
 \description{
 Submit data to R
 }
+\examples{
+\dontrun{
+tabulatorContext("table") |>
+  trigger_get_data()
+}
+}

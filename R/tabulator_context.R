@@ -21,6 +21,11 @@ invoke_method <- function(widget, method_name, ...) {
 #' @param output_id (character): A tabulator output id.
 #' @param session A shiny session object.
 #' @returns tabulator context object
+#' @examples
+#' \dontrun{
+#' tabulatorContext("table") |>
+#'   trigger_download("csv")
+#' }
 #' @export
 tabulatorContext <- function(output_id, session = shiny::getDefaultReactiveDomain()) {
   ctx <- list(
