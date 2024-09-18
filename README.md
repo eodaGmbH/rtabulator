@@ -46,7 +46,7 @@ You can install the development version of rtabulator like so:
 remotes::install_github("eodaGmbH/rtabulator")
 ```
 
-## Basic Usage
+## Basic usage
 
 ``` r
 library(rtabulator)
