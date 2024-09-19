@@ -15,7 +15,7 @@ trigger_download(ctx, type = c("csv", "json", "xlsx"), file_name = NULL)
 If \code{NULL}, it is set to \code{"data.{type}"}.}
 }
 \value{
-tabulator context object
+\link{tabulatorContext} object
 }
 \description{
 Download table data

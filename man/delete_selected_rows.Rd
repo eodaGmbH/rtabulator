@@ -10,7 +10,7 @@ delete_selected_rows(ctx)
 \item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 }
 \value{
-tabulator context object
+\link{tabulatorContext} object
 }
 \description{
 Delete selected rows from table

@@ -10,7 +10,7 @@ redo(ctx)
 \item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
 }
 \value{
-tabulator context object
+\link{tabulatorContext} object
 }
 \description{
 Redo changes

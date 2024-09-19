@@ -7,7 +7,7 @@
 #' @param type (character): csv, json or xlsx
 #' @param file_name (character, \code{NULL}): File name.
 #'  If \code{NULL}, it is set to \code{"data.{type}"}.
-#' @returns tabulator context object
+#' @returns \link{tabulatorContext} object
 #' @examples
 #' \dontrun{
 #' tabulatorContext("table") |>
@@ -23,8 +23,7 @@ trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name = N
 }
 
 #' Submit data to R
-#' @inheritParams trigger_download
-#' @returns tabulator context object
+#' @inherit trigger_download params return
 #' @examples
 #' \dontrun{
 #' tabulatorContext("table") |>
@@ -36,9 +35,8 @@ trigger_get_data <- function(ctx) {
 }
 
 #' Add row to table
-#' @inheritParams trigger_download
+#' @inherit trigger_download params return
 #' @param row (list): row data or \code{NULL} to add an empty row
-#' @returns tabulator context object
 #' @examples
 #' \dontrun{
 #' tabulatorContext("table") |>
@@ -50,8 +48,7 @@ add_row <- function(ctx, row = NULL) {
 }
 
 #' Delete selected rows from table
-#' @inheritParams trigger_download
-#' @returns tabulator context object
+#' @inherit trigger_download params return
 #' @examples
 #' \dontrun{
 #' tabulatorContext("table") |>
@@ -69,8 +66,7 @@ delete_row <- function(ctx) {
 }
 
 #' Undo changes
-#' @inheritParams trigger_download
-#' @returns tabulator context object
+#' @inherit trigger_download params return
 #' @examples
 #' \dontrun{
 #' tabulatorContext("table") |>
@@ -82,8 +78,7 @@ undo <- function(ctx) {
 }
 
 #' Redo changes
-#' @inheritParams trigger_download
-#' @returns tabulator context object
+#' @inherit trigger_download params return
 #' @examples
 #' \dontrun{
 #' tabulatorContext("table") |>
@@ -95,8 +90,7 @@ redo <- function(ctx) {
 }
 
 #' Submit sheet data to R
-#' @inheritParams trigger_download
-#' @returns tabulator context object
+#' @inherit trigger_download params return
 #' @examples
 #' \dontrun{
 #' tabulatorContext("table") |>

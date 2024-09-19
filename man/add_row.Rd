@@ -12,7 +12,7 @@ add_row(ctx, row = NULL)
 \item{row}{(list): row data or \code{NULL} to add an empty row}
 }
 \value{
-tabulator context object
+\link{tabulatorContext} object
 }
 \description{
 Add row to table
