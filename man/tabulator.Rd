@@ -59,11 +59,11 @@ Dots in column names are replaced by underscores.
 setup <- tabulator_options(
   spreadsheet = TRUE,
   spreadsheet_sheets = list(
-    list(
+    spreadsheet_def(
       title = "First",
       data = list(c(1, 2, 3))
     ),
-    list(
+    spreadsheet_def(
       title = "Second",
       data = list(c(4, 5, 6))
     )
