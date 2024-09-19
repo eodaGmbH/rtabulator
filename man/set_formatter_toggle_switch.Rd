@@ -36,7 +36,7 @@ set_formatter_toggle_switch(
 \item{clickable}{(bool): Enable switch functionality to toggle the cell value on click.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set toggle switch formatter

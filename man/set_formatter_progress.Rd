@@ -41,7 +41,7 @@ In this case, the cell value is passed to the function as its first argument.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set progress formatter

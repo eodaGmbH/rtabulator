@@ -17,7 +17,7 @@ If set to \code{NULL} it is applied to all columns.}
 \item{...}{Arguments that are passed to \code{.f}.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Apply a column setter function to multiple columns

@@ -1,8 +1,7 @@
 # See example here: https://github.com/eodaGmbH/py-tabulator/blob/main/docs/examples/getting_started/shiny_core_multi_row_headers.py
 #' Set multi column header
-#' @inheritParams set_formatter_html
+#' @inherit set_formatter_html params return
 #' @param multi_columns (list): Multi column definitions.
-#' @returns tabulator htmlwidget
 #' @example examples/experimental/multi_column_header.R
 #' @export
 set_multi_column_header <- function(widget, multi_columns) {
@@ -45,4 +44,11 @@ get_theme_dependeny <- function(
     stylesheet = glue::glue("tabulator_{theme}.min.css"),
     all_files = FALSE
   )
+}
+
+# -----
+# #' Test docs
+# #' @inherit set_formatter_html params return
+test_column_func <- function(widget, column) {
+  return(widget)
 }

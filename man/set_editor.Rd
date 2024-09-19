@@ -25,7 +25,7 @@ set_editor(
 \item{...}{Optional editor parameters depending on the selected editor.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set editor

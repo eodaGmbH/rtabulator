@@ -14,8 +14,12 @@ set_formatter_plaintext(widget, column, hoz_align = "left")
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set plain text formatter
+}
+\examples{
+tabulator(iris) |>
+  set_formatter_plaintext("Species", hoz_align = "right")
 }

@@ -105,9 +105,8 @@ default_spreadsheet_options <- list(
 )
 
 #' Set pagination options
-#' @inheritParams set_formatter_html
+#' @inherit set_formatter_html params return
 #' @inheritParams tabulator_options
-#' @returns tabulator htmlwidget
 #' @example examples/options/pagination_options.R
 #' @export
 set_options_pagination <- function(
@@ -129,9 +128,8 @@ set_options_pagination <- function(
 }
 
 #' Set group by options
-#' @inheritParams set_formatter_html
+#' @inherit set_formatter_html params return
 #' @inheritParams tabulator_options
-#' @returns tabulator htmlwidget
 #' @example examples/options/group_by_options.R
 #' @export
 set_options_group_by <- function(

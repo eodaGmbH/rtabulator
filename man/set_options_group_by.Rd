@@ -27,7 +27,7 @@ Set to \code{FALSE} to disable toggling at all.}
 \item{...}{Further options.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set group by options

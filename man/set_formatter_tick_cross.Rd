@@ -14,7 +14,7 @@ set_formatter_tick_cross(widget, column, hoz_align = "center")
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set tick cross formatter

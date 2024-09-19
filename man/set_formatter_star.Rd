@@ -17,7 +17,7 @@ If set to \code{NA}, the maximum value of the column is used.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set star rating formatter

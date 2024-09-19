@@ -32,7 +32,7 @@ Set to \code{FALSE} to disable header filters.}
 \item{...}{Additional settings.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set column defaults

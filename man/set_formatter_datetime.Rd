@@ -31,7 +31,7 @@ if an invalid datetime is provided.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set datetime formatter

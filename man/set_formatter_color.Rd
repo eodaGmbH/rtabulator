@@ -12,7 +12,7 @@ set_formatter_color(widget, column)
 \item{column}{(character): The column the formatter is applied to.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set color formatter

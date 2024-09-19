@@ -30,7 +30,7 @@ set_header_filter(
 \item{placeholder}{(character): Text that is displayed when no filter is set.}
 }
 \value{
-tabulator htmlwidget
+\link{tabulator} widget
 }
 \description{
 Set header filter
