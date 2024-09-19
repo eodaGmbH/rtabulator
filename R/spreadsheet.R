@@ -4,6 +4,7 @@
 #' @param data (list): The initial data of the spreadsheet.
 #'  Set to \code{NULL} to create an empty spreadsheet.
 #' @returns list
+#' @example examples/multiple_spreadsheets.R
 #' @export
 spreadsheet_def <- function(title, key = NULL, data = NULL) {
   return(compact(as.list(environment())))

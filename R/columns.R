@@ -1,8 +1,8 @@
-#' Create column definitions from data
-#' @param data (data.frame) data
-#' @param editor (bool): Whether to make columns editable.
-#' @param filter (bool): Whether to add a header filter to the columns.
-#' @export
+# #' Create column definitions from data
+# #' @param data (data.frame) data
+# #' @param editor (bool): Whether to make columns editable.
+# #' @param filter (bool): Whether to add a header filter to the columns.
+# #' @returns list
 # TODO: We do not need to export this func anymore
 create_columns <- function(data, editor = FALSE, filter = FALSE) {
   data <- fix_colnames(data)
@@ -87,6 +87,7 @@ for_each_col <- function(widget, columns = NULL, .f, ...) {
 }
 
 # Formatters ####
+# TODO: Move formatters to separate file
 
 #' Set HTML formatter
 #' @param widget (\code{\link{tabulator}}) A tabulator widget.

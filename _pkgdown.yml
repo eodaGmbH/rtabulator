@@ -50,7 +50,6 @@ reference:
       Utitily functions
     contents:
       - spreadsheet_def
-      - create_columns
 
   - title: Data Sets
     contents:
