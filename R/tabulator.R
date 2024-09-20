@@ -1,23 +1,22 @@
-#' Create a tabulator widget
+#' HTML widget to work with tabular data
 #'
 #' @details
 #' Dots in column names are replaced by underscores.
 #' @param data (data.frame, character or list): In spreadsheet mode data needs to be a list or \code{NULL}
 #'  for an empty spreadsheet.
-#' @param options (list): Setup options. See \code{\link{tabulator_options}}.
-#' @param editable (bool): Whether the table is editable.
-#' @param luxon (bool): Whether to add \href{https://moment.github.io/luxon/}{luxon} dependency,
-#'  which is required for \code{\link{set_formatter_datetime}}.
-#' @param sheetjs (bool): Whether to add \href{https://sheetjs.com/}{sheetjs} dependency,
-#'  which is required for \code{\link{trigger_download}} to support Excel type downloads.
-#' @param theme (character): Theme to apply to the table.
-#' @param col_select (character vector) Columns to select.
-#'  Passed to \code{\link[readr]{read_csv}} if \code{data} is a file name.
-#' @param width Width of the widget.
-#' @param height Height of the widget.
-#' @param element_id The unique ID of the widget.
-#' @param ... Named arguments that are appended to the \code{options} parameter.
-#' @returns tabulator htmlwidget
+#' @param options List of setup options. Defaults to [tabulator_options()].
+#' @param editable Whether the table is editable.
+#' @param luxon Whether to add [luxon](https://moment.github.io/luxon/) HTML dependency,
+#'  which is required for [set_formatter_datetime()].
+#' @param sheetjs Whether to add [sheetjs](https://sheetjs.com/) HTML dependency,
+#'  which is required for [trigger_download()] to support downloads of `xlsx` files.
+#' @param theme Name of the theme to be applied to the table.
+#' @param col_select Passed to [readr::read_csv()] if `data` is a file name.
+#' @param width,height Output size.
+#' @param element_id Unique ID of the widget element.
+#' @param ... Named arguments that are appended to the `options` parameter.
+#' @seealso [tabulatorOutput()] for use within Shiny apps
+#' @returns A HTML widget
 #' @example examples/multiple_spreadsheets.R
 #' @import htmlwidgets
 #' @export
@@ -103,7 +102,7 @@ tabulator <- function(
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
-#'
+#' @returns Components for use inside a Shiny app.
 #' @name rtabulator-shiny
 #'
 #' @export
