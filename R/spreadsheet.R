@@ -1,9 +1,11 @@
-#' Create a spreadsheet definition
-#' @param title (character): The name of the spreadsheet.
-#' @param key (character): Optional unique key of the spreadsheet.
-#' @param data (list): The initial data of the spreadsheet.
-#'  Set to \code{NULL} to create an empty spreadsheet.
-#' @returns list
+#' Spreadsheet definition for `tabulator()` HTML widget
+#'
+#' @param title Name of the spreadsheet.
+#' @param key Unique key of the spreadsheet.
+#' @param data Initial data of the spreadsheet.
+#'  Set to `NULL` to create an empty spreadsheet.
+#' @returns list with spreadsheet options to be used as a sheet of the
+#'  `spreadsheet_sheets` parameter in [tabulator_options()]
 #' @example examples/multiple_spreadsheets.R
 #' @export
 spreadsheet_def <- function(title, key = NULL, data = NULL) {
