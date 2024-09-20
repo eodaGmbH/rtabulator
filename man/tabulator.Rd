@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabulator.R
 \name{tabulator}
 \alias{tabulator}
-\title{Create a tabulator widget}
+\title{HTML widget to work with tabular data}
 \usage{
 tabulator(
   data,
@@ -23,34 +23,31 @@ tabulator(
 \item{data}{(data.frame, character or list): In spreadsheet mode data needs to be a list or \code{NULL}
 for an empty spreadsheet.}
 
-\item{options}{(list): Setup options. See \code{\link{tabulator_options}}.}
+\item{options}{List of setup options. Defaults to \code{\link[=tabulator_options]{tabulator_options()}}.}
 
-\item{editable}{(bool): Whether the table is editable.}
+\item{editable}{Whether the table is editable.}
 
-\item{luxon}{(bool): Whether to add \href{https://moment.github.io/luxon/}{luxon} dependency,
-which is required for \code{\link{set_formatter_datetime}}.}
+\item{luxon}{Whether to add \href{https://moment.github.io/luxon/}{luxon} HTML dependency,
+which is required for \code{\link[=set_formatter_datetime]{set_formatter_datetime()}}.}
 
-\item{sheetjs}{(bool): Whether to add \href{https://sheetjs.com/}{sheetjs} dependency,
-which is required for \code{\link{trigger_download}} to support Excel type downloads.}
+\item{sheetjs}{Whether to add \href{https://sheetjs.com/}{sheetjs} HTML dependency,
+which is required for \code{\link[=trigger_download]{trigger_download()}} to support downloads of \code{xlsx} files.}
 
-\item{theme}{(character): Theme to apply to the table.}
+\item{theme}{Name of the theme to be applied to the table.}
 
-\item{col_select}{(character vector) Columns to select.
-Passed to \code{\link[readr]{read_csv}} if \code{data} is a file name.}
+\item{col_select}{Passed to \code{\link[readr:read_delim]{readr::read_csv()}} if \code{data} is a file name.}
 
-\item{width}{Width of the widget.}
+\item{width, height}{Output size.}
 
-\item{height}{Height of the widget.}
-
-\item{element_id}{The unique ID of the widget.}
+\item{element_id}{Unique ID of the widget element.}
 
 \item{...}{Named arguments that are appended to the \code{options} parameter.}
 }
 \value{
-tabulator htmlwidget
+A HTML widget
 }
 \description{
-Create a tabulator widget
+HTML widget to work with tabular data
 }
 \details{
 Dots in column names are replaced by underscores.
@@ -72,4 +69,7 @@ setup <- tabulator_options(
 )
 
 tabulator(data = NULL, setup, theme = "midnight")
+}
+\seealso{
+\code{\link[=tabulatorOutput]{tabulatorOutput()}} for use within Shiny apps
 }

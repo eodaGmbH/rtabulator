@@ -7,15 +7,19 @@
 set_formatter_plaintext(widget, column, hoz_align = "left")
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set plain text formatter
+}
+\examples{
+tabulator(iris) |>
+  set_formatter_plaintext("Species", hoz_align = "right")
 }

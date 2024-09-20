@@ -15,9 +15,9 @@ set_header_filter(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{type}{(character): The type of the filter.}
 
@@ -30,7 +30,7 @@ set_header_filter(
 \item{placeholder}{(character): Text that is displayed when no filter is set.}
 }
 \value{
-tabulator htmlwidget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set header filter

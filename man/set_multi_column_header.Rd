@@ -7,12 +7,12 @@
 set_multi_column_header(widget, multi_columns)
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
 \item{multi_columns}{(list): Multi column definitions.}
 }
 \value{
-tabulator htmlwidget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set multi column header

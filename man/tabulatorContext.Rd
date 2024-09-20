@@ -2,23 +2,23 @@
 % Please edit documentation in R/tabulator_context.R
 \name{tabulatorContext}
 \alias{tabulatorContext}
-\title{Create a tabulator context object}
+\title{Context object to update a \code{tabulator()} HTML widget}
 \usage{
 tabulatorContext(output_id, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{output_id}{(character): A tabulator output id.}
+\item{output_id}{A tabulator output id set with \code{\link[=tabulatorOutput]{tabulatorOutput()}}.}
 
 \item{session}{A shiny session object.}
 }
 \value{
-tabulator context object
+A context object that can be used to interact with a \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
-Create a tabulator context object
+Context object to update a \code{tabulator()} HTML widget
 }
 \details{
-A \code{tabulatorContext} object makes it possible to update your widget in a Shiny application.
+Makes it possible to update your \code{\link[=tabulator]{tabulator()}} HTML widget in Shiny apps.
 }
 \examples{
 \dontrun{

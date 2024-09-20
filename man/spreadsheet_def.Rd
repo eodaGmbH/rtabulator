@@ -2,23 +2,24 @@
 % Please edit documentation in R/spreadsheet.R
 \name{spreadsheet_def}
 \alias{spreadsheet_def}
-\title{Create a spreadsheet definition}
+\title{Spreadsheet definition for \code{tabulator()} HTML widget}
 \usage{
 spreadsheet_def(title, key = NULL, data = NULL)
 }
 \arguments{
-\item{title}{(character): The name of the spreadsheet.}
+\item{title}{Name of the spreadsheet.}
 
-\item{key}{(character): Optional unique key of the spreadsheet.}
+\item{key}{Unique key of the spreadsheet.}
 
-\item{data}{(list): The initial data of the spreadsheet.
+\item{data}{Initial data of the spreadsheet.
 Set to \code{NULL} to create an empty spreadsheet.}
 }
 \value{
-list
+list with spreadsheet options to be used as a sheet of the
+\code{spreadsheet_sheets} parameter in \code{\link[=tabulator_options]{tabulator_options()}}
 }
 \description{
-Create a spreadsheet definition
+Spreadsheet definition for \code{tabulator()} HTML widget
 }
 \examples{
 setup <- tabulator_options(

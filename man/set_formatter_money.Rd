@@ -17,9 +17,9 @@ set_formatter_money(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{decimal}{(character): Symbol to represent the decimal point.}
 
@@ -40,7 +40,7 @@ Set to \code{FALSE} to display all decimals that are provided.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set money formatter

@@ -2,22 +2,22 @@
 % Please edit documentation in R/columns.R
 \name{set_formatter_textarea}
 \alias{set_formatter_textarea}
-\title{Set textarea formatter}
+\title{Set text area formatter}
 \usage{
 set_formatter_textarea(widget, column, hoz_align = "left")
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
-Set textarea formatter
+Set text area formatter
 }
 \examples{
 data <- data.frame(

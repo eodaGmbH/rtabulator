@@ -7,10 +7,10 @@
 undo(ctx)
 }
 \arguments{
-\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
+\item{ctx}{A \code{\link[=tabulatorContext]{tabulatorContext()}} object.}
 }
 \value{
-tabulator context object
+A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 }
 \description{
 Undo changes

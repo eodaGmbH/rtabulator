@@ -17,9 +17,9 @@ set_formatter_toggle_switch(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{size}{(numeric): The size of the switch in pixels.}
 
@@ -36,7 +36,7 @@ set_formatter_toggle_switch(
 \item{clickable}{(bool): Enable switch functionality to toggle the cell value on click.}
 }
 \value{
-tabulator htmlwidget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set toggle switch formatter

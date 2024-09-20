@@ -233,9 +233,8 @@ setup <- tabulator_options(
 tabulator(NULL, setup)
 ```
 
-## How to learn more
+## Learn more
 
-* [API reference](../reference/index.html)
-* [Shiny integration](../articles/shiny.html)
-* [Themes](../articles/themes.html)
-* [Connecting tables](../articles/connected-tables.html)
+* Shiny integration: `vignette("shiny")`
+* Themes: `vignette("themes")`
+* Connecting tables: `vignette("connected-tables")`

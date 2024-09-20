@@ -15,15 +15,15 @@ set_formatter_link(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{label_field}{(character): Column to be used as label for the link.}
 
 \item{url_prefix}{(character): Prefix to add to the URL value.}
 
-\item{url}{(JS function): A JS function that return the URL value.
+\item{url}{(JavaScript function): A JavaScript function that return the URL value.
 The cell is passed to the function as its first argument.
 Use \link[htmlwidgets]{JS} to pass JS code.}
 
@@ -32,7 +32,7 @@ Use \link[htmlwidgets]{JS} to pass JS code.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-tabulator htmlwidget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set link formatter
