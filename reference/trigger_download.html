@@ -54,26 +54,25 @@
 
 
 <dl><dt id="arg-ctx">ctx<a class="anchor" aria-label="anchor" href="#arg-ctx"></a></dt>
-<dd><p>(<code><a href="tabulatorContext.html">tabulatorContext</a></code>): tabulator context object</p></dd>
+<dd><p>A <code><a href="tabulatorContext.html">tabulatorContext()</a></code> object.</p></dd>
 
 
 <dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
-<dd><p>(character): csv, json or xlsx</p></dd>
+<dd><p>File format.</p></dd>
 
 
 <dt id="arg-file-name">file_name<a class="anchor" aria-label="anchor" href="#arg-file-name"></a></dt>
-<dd><p>(character, <code>NULL</code>): File name.
-If <code>NULL</code>, it is set to <code>"data.{type}"</code>.</p></dd>
+<dd><p>File name. Set to <code>"data.{type}"</code> if <code>file_name = NULL</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>tabulator context object</p>
+    <p>A <code><a href="tabulatorContext.html">tabulatorContext()</a></code> object</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>If you want to provide xlsx downloads, you need to include
-the sheetjs html dependency: <code>tabulator(..., sheetjs = TRUE)</code></p>
+    <p>If you want to support <code>xlsx</code> downloads, you need to include
+the <a href="https://sheetjs.com/" class="external-link">sheetjs</a> HTML dependency with <code>tabulator(..., sheetjs = TRUE)</code>.</p>
     </div>
 
     <div class="section level2">
