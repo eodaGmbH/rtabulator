@@ -15,9 +15,9 @@ set_formatter_image(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{height}{(character): A CSS value for the height of the image.}
 
@@ -32,7 +32,7 @@ when generating the image src url.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set image formatter

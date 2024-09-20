@@ -1,13 +1,12 @@
 #' Download table data
 #'
 #' @details
-#' If you want to provide xlsx downloads, you need to include
-#' the sheetjs html dependency: \code{tabulator(..., sheetjs = TRUE)}
-#' @param ctx (\code{\link{tabulatorContext}}): tabulator context object
-#' @param type (character): csv, json or xlsx
-#' @param file_name (character, \code{NULL}): File name.
-#'  If \code{NULL}, it is set to \code{"data.{type}"}.
-#' @returns \link{tabulatorContext} object
+#' If you want to support `xlsx` downloads, you need to include
+#' the [sheetjs](https://sheetjs.com/) HTML dependency with `tabulator(..., sheetjs = TRUE)`.
+#' @param ctx A [tabulatorContext()] object.
+#' @param type File format.
+#' @param file_name File name. Set to `"data.{type}"` if `file_name = NULL`.
+#' @returns A [tabulatorContext()] object
 #' @examples
 #' \dontrun{
 #' tabulatorContext("table") |>

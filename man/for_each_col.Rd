@@ -7,17 +7,17 @@
 for_each_col(widget, columns = NULL, .f, ...)
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
 \item{columns}{(character vector): The columns the column setter function (\code{.f}) is applied to.
-If set to \code{NULL} it is applied to all columns.}
+If set to \code{NULL},  it is applied to all columns.}
 
 \item{.f}{(function): The column setter function that updates the column settings.}
 
 \item{...}{Arguments that are passed to \code{.f}.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Apply a column setter function to multiple columns

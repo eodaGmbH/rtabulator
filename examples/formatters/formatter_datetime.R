@@ -6,5 +6,5 @@ data <- data.frame(
   )
 )
 
-tabulator(data) |>
+tabulator(data, luxon = TRUE) |>
   set_formatter_datetime("Birthday", output_format = "dd.MM.yyyy")

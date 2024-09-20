@@ -14,9 +14,9 @@ set_editor(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{editor}{(character): The editor type.}
 
@@ -25,7 +25,7 @@ set_editor(
 \item{...}{Optional editor parameters depending on the selected editor.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set editor

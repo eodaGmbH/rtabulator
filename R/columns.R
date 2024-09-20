@@ -68,7 +68,7 @@ add_filter_to_columns <- function(columns) {
 #' Apply a column setter function to multiple columns
 #' @inherit set_formatter_html params return
 #' @param columns (character vector): The columns the column setter function (\code{.f}) is applied to.
-#'  If set to \code{NULL} it is applied to all columns.
+#'  If set to \code{NULL},  it is applied to all columns.
 #' @param .f (function): The column setter function that updates the column settings.
 #' @param ... Arguments that are passed to \code{.f}.
 #' @example examples/for_each_col.R
@@ -89,10 +89,10 @@ for_each_col <- function(widget, columns = NULL, .f, ...) {
 # TODO: Move formatters to separate file
 
 #' Set HTML formatter
-#' @param widget (\code{\link{tabulator}}) A tabulator widget.
-#' @param column (character): The column the formatter is applied to.
+#' @param widget A [tabulator()] HTML widget.
+#' @param column The name of the column the formatter is applied to.
 #' @param hoz_align (character): The horizontal alignment of the column.
-#' @returns \link{tabulator} widget
+#' @returns The updated [tabulator()] HTML widget
 #' @example examples/formatters/formatter_html.R
 #' @export
 set_formatter_html <- function(widget, column, hoz_align = c("left", "center", "right")) {
@@ -341,8 +341,8 @@ set_formatter_toggle_switch <- function(
 #' Set datetime formatter
 #'
 #' @details
-#' To use this formatter, you need to include the luxon html dependency
-#' when creating a tabulator widget.
+#' To use this formatter, you need to include
+#' the [luxon](https://moment.github.io/luxon/) HTML dependency with `tabulator(..., luxon = TRUE)`.
 #' @inherit set_formatter_html params return
 #' @param input_format (character): The datetime input format.
 #' @param output_format (character): The datetime output format.

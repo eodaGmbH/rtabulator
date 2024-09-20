@@ -7,10 +7,10 @@
 trigger_get_data(ctx)
 }
 \arguments{
-\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
+\item{ctx}{A \code{\link[=tabulatorContext]{tabulatorContext()}} object.}
 }
 \value{
-\link{tabulatorContext} object
+A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 }
 \description{
 Submit data to R

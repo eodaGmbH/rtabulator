@@ -1,5 +1,6 @@
-#' Create a tabulator options object
-#' @param height (character) The height of the table in px.
+#' Setup options for `tabulator()` HTML widget
+#'
+#' @param height (character) The height of the table in pixels.
 #' @param history (bool): Enable user interaction history functionality.
 #' @param columns (list): Column definitions.
 #'  If set to \code{NULL}, definitions are auto generated from table data.
@@ -36,8 +37,8 @@
 #' @param spreadsheet_sheets (list): List of sheet definitions.
 #' @param spreadsheet_sheet_tabs (bool): Whether to show sheet tabs in the footer.
 #' @param ... Further options.
-#' @returns list
-#' @seealso \url{https://tabulator.info/docs/6.2/options}
+#' @returns list with setup options to be used as `options` parameter in [tabulator()]
+#' @seealso \url{https://tabulator.info/docs/6.2/options} for a complete list of available options
 #' @example examples/tabulator_setup.R
 #' @export
 tabulator_options <- function(

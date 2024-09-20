@@ -15,7 +15,7 @@ set_column_defaults(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
 \item{editor}{(character, bool): One of \code{"input"} or \code{"number"}.
 If set to \code{FALSE} cells are not editable.}
@@ -32,7 +32,7 @@ Set to \code{FALSE} to disable header filters.}
 \item{...}{Additional settings.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set column defaults

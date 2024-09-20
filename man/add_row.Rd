@@ -7,12 +7,12 @@
 add_row(ctx, row = NULL)
 }
 \arguments{
-\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
+\item{ctx}{A \code{\link[=tabulatorContext]{tabulatorContext()}} object.}
 
 \item{row}{(list): row data or \code{NULL} to add an empty row}
 }
 \value{
-\link{tabulatorContext} object
+A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 }
 \description{
 Add row to table

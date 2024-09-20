@@ -13,7 +13,7 @@ set_options_group_by(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
 \item{group_by}{(character vector): Field to group rows by. Pass multiple values
 for multi level grouping.}
@@ -27,7 +27,7 @@ Set to \code{FALSE} to disable toggling at all.}
 \item{...}{Further options.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set group by options

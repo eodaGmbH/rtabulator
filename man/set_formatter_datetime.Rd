@@ -15,9 +15,9 @@ set_formatter_datetime(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{input_format}{(character): The datetime input format.}
 
@@ -31,14 +31,14 @@ if an invalid datetime is provided.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set datetime formatter
 }
 \details{
-To use this formatter, you need to include the luxon html dependency
-when creating a tabulator widget.
+To use this formatter, you need to include
+the \href{https://moment.github.io/luxon/}{luxon} HTML dependency with \code{tabulator(..., luxon = TRUE)}.
 }
 \examples{
 data <- data.frame(
@@ -49,6 +49,6 @@ data <- data.frame(
   )
 )
 
-tabulator(data) |>
+tabulator(data, luxon = TRUE) |>
   set_formatter_datetime("Birthday", output_format = "dd.MM.yyyy")
 }

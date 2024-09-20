@@ -13,7 +13,7 @@ set_calculation(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
 \item{column}{(character): The column the \code{func} is applied to.}
 
@@ -26,7 +26,7 @@ Set to \code{FALSE} to display all decimals.}
 \item{pos}{(character): Position at which calculated values are displayed.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set calculation

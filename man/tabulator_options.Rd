@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabulator_options.R
 \name{tabulator_options}
 \alias{tabulator_options}
-\title{Create a tabulator options object}
+\title{Setup options for \code{tabulator()} HTML widget}
 \usage{
 tabulator_options(
   height = "311px",
@@ -37,7 +37,7 @@ tabulator_options(
 )
 }
 \arguments{
-\item{height}{(character) The height of the table in px.}
+\item{height}{(character) The height of the table in pixels.}
 
 \item{history}{(bool): Enable user interaction history functionality.}
 
@@ -104,10 +104,10 @@ An integer value sets the maximum number of rows that can be selected.}
 \item{...}{Further options.}
 }
 \value{
-list
+list with setup options to be used as \code{options} parameter in \code{\link[=tabulator]{tabulator()}}
 }
 \description{
-Create a tabulator options object
+Setup options for \code{tabulator()} HTML widget
 }
 \examples{
 setup <- tabulator_options(
@@ -121,5 +121,5 @@ setup <- tabulator_options(
 tabulator(iris, setup)
 }
 \seealso{
-\url{https://tabulator.info/docs/6.2/options}
+\url{https://tabulator.info/docs/6.2/options} for a complete list of available options
 }

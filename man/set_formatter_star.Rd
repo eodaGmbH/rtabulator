@@ -7,9 +7,9 @@
 set_formatter_star(widget, column, number_of_stars = NA, hoz_align = "center")
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{number_of_stars}{The maximum number of stars to be displayed.
 If set to \code{NA}, the maximum value of the column is used.}
@@ -17,7 +17,7 @@ If set to \code{NA}, the maximum value of the column is used.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set star rating formatter

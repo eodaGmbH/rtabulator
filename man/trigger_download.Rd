@@ -7,22 +7,21 @@
 trigger_download(ctx, type = c("csv", "json", "xlsx"), file_name = NULL)
 }
 \arguments{
-\item{ctx}{(\code{\link{tabulatorContext}}): tabulator context object}
+\item{ctx}{A \code{\link[=tabulatorContext]{tabulatorContext()}} object.}
 
-\item{type}{(character): csv, json or xlsx}
+\item{type}{File format.}
 
-\item{file_name}{(character, \code{NULL}): File name.
-If \code{NULL}, it is set to \code{"data.{type}"}.}
+\item{file_name}{File name. Set to \code{"data.{type}"} if \code{file_name = NULL}.}
 }
 \value{
-\link{tabulatorContext} object
+A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 }
 \description{
 Download table data
 }
 \details{
-If you want to provide xlsx downloads, you need to include
-the sheetjs html dependency: \code{tabulator(..., sheetjs = TRUE)}
+If you want to support \code{xlsx} downloads, you need to include
+the \href{https://sheetjs.com/}{sheetjs} HTML dependency with \code{tabulator(..., sheetjs = TRUE)}.
 }
 \examples{
 \dontrun{

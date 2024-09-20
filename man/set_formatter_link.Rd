@@ -15,9 +15,9 @@ set_formatter_link(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the formatter is applied to.}
+\item{column}{The name of the column the formatter is applied to.}
 
 \item{label_field}{(character): Column to be used as label for the link.}
 
@@ -32,7 +32,7 @@ Use \link[htmlwidgets]{JS} to pass JS code.}
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set link formatter

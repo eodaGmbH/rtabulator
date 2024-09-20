@@ -14,7 +14,7 @@ set_options_pagination(
 )
 }
 \arguments{
-\item{widget}{(\code{\link{tabulator}}) A tabulator widget.}
+\item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
 \item{pagination}{(bool): Whether to enable pagination.}
 
@@ -27,7 +27,7 @@ set_options_pagination(
 \item{...}{Further options.}
 }
 \value{
-\link{tabulator} widget
+The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
 Set pagination options
