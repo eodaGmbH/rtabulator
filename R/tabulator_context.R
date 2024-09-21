@@ -38,7 +38,6 @@ tabulatorContext <- function(output_id, session = shiny::getDefaultReactiveDomai
 
 send_tabulator_calls <- function(ctx) {
   handler_name <- glue::glue("tabulator-{id}", id = ctx$id)
-  print(handler_name)
   payload <- list(
     id = ctx$id,
     calls = ctx$x$calls
