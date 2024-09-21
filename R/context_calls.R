@@ -14,11 +14,12 @@
 #' }
 #' @export
 trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name = NULL) {
+  type <- match.arg(type)
   if (is.null(file_name)) {
     file_name <- glue::glue("data.{type}")
   }
 
-  invoke_method(ctx, "download", match.arg(type), file_name)
+  invoke_method(ctx, "download", type, file_name)
 }
 
 #' Submit data to R
