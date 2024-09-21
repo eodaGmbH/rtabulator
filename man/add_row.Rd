@@ -18,7 +18,7 @@ A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 Add row to table
 }
 \examples{
-\dontrun{
+\donttest{
 tabulatorContext("table") |>
   add_row()
 }

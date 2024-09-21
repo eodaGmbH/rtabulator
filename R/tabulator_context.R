@@ -22,7 +22,7 @@ invoke_method <- function(widget, method_name, ...) {
 #' @param session A shiny session object.
 #' @returns A context object that can be used to interact with a [tabulator()] HTML widget
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   trigger_download("csv")
 #' }
