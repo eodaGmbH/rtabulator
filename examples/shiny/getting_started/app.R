@@ -70,8 +70,8 @@ server <- function(input, output) {
   })
 
   observeEvent(input$table_data, {
-    # print(input$table_data)
-    print(list_to_data_frame(input$table_data$data))
+    print(input$table_data)
+    # print(list_to_data_frame(input$table_data$data))
   })
 }
 
