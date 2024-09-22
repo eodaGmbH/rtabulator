@@ -115,8 +115,14 @@ application:</p>
 <li><code>{OUTPUT_ID}_rows_selected</code></li>
 <li><code>{OUTPUT_ID}_data_filtered</code></li>
 <li><code>{OUTPUT_ID}_cell_edited</code></li>
-<li><code>{OUTPUT_ID}_get_data</code></li>
-<li><code>{OUTPUT_ID}_get_sheet_data</code></li>
+<li>
+<code>{OUTPUT_ID}_data</code>: Must be triggered with
+<code><a href="../reference/trigger_get_data.html">trigger_get_data()</a></code>
+</li>
+<li>
+<code>{OUTPUT_ID}_sheet_data</code>: Must be triggered with
+<code><a href="../reference/trigger_get_sheet_data.html">trigger_get_sheet_data()</a></code>
+</li>
 </ul>
 <p>Use <code><a href="../reference/tabulatorContext.html">tabulatorContext()</a></code> in conjunction with the trigger
 functions:</p>
