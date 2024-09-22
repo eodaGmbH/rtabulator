@@ -16,7 +16,7 @@ A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 Submit sheet data to R
 }
 \examples{
-\dontrun{
+\donttest{
 tabulatorContext("table") |>
   trigger_get_sheet_data()
 }

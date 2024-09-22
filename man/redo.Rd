@@ -16,7 +16,7 @@ A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 Redo changes
 }
 \examples{
-\dontrun{
+\donttest{
 tabulatorContext("table") |>
   redo()
 }

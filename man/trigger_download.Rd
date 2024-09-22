@@ -24,7 +24,7 @@ If you want to support \code{xlsx} downloads, you need to include
 the \href{https://sheetjs.com/}{sheetjs} HTML dependency with \code{tabulator(..., sheetjs = TRUE)}.
 }
 \examples{
-\dontrun{
+\donttest{
 tabulatorContext("table") |>
   trigger_download("csv", "table-data.csv")
 }

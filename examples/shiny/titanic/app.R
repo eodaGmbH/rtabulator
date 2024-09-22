@@ -61,9 +61,9 @@ server <- function(input, output) {
       trigger_get_data()
   })
 
-  observeEvent(input$titanic_get_data, {
+  observeEvent(input$titanic_data, {
     print("Got data. Thanx!")
-    print(head(input$titanic_get_data))
+    print(head(input$titanic_data))
   })
 }
 
