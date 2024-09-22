@@ -16,7 +16,7 @@ A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 Delete selected rows from table
 }
 \examples{
-\dontrun{
+\donttest{
 tabulatorContext("table") |>
   delete_selected_rows()
 }

@@ -16,7 +16,7 @@ A \code{\link[=tabulatorContext]{tabulatorContext()}} object
 Undo changes
 }
 \examples{
-\dontrun{
+\donttest{
 tabulatorContext("table") |>
   undo()
 }

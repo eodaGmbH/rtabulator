@@ -1,9 +1,5 @@
 # https://book.javascript-for-r.com/shiny-complete.html
 input_handler_data <- function(value, ...) {
-  if (debug_mode()) {
-    print("custom input handler data")
-  }
-
   if (getOption("rtabulator.raw_data", FALSE)) {
     return(value)
   }
@@ -14,10 +10,6 @@ input_handler_data <- function(value, ...) {
 }
 
 input_handler_sheet_data <- function(value, ...) {
-  if (debug_mode()) {
-    print("custom input handler data")
-  }
-
   if (getOption("rtabulator.raw_data", FALSE)) {
     return(value)
   }

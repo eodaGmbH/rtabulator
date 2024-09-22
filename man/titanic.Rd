@@ -15,3 +15,10 @@ data frame
 \description{
 Titanic data set
 }
+\examples{
+\donttest{
+titanic(c("PassengerId", "Age", "Pclass", "Fare")) |>
+  head()
+}
+
+}

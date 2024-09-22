@@ -21,7 +21,7 @@ Context object to update a \code{tabulator()} HTML widget
 Makes it possible to update your \code{\link[=tabulator]{tabulator()}} HTML widget in Shiny apps.
 }
 \examples{
-\dontrun{
+\donttest{
 tabulatorContext("table") |>
   trigger_download("csv")
 }
