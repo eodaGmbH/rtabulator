@@ -22,7 +22,7 @@ invoke_method <- function(widget, method_name, ...) {
 #' @param session A shiny session object.
 #' @returns A context object that can be used to interact with a [tabulator()] HTML widget
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   trigger_download("csv")
 #' }
@@ -38,7 +38,6 @@ tabulatorContext <- function(output_id, session = shiny::getDefaultReactiveDomai
 
 send_tabulator_calls <- function(ctx) {
   handler_name <- glue::glue("tabulator-{id}", id = ctx$id)
-  print(handler_name)
   payload <- list(
     id = ctx$id,
     calls = ctx$x$calls

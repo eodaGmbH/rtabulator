@@ -8,23 +8,24 @@
 #' @param file_name File name. Set to `"data.{type}"` if `file_name = NULL`.
 #' @returns A [tabulatorContext()] object
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   trigger_download("csv", "table-data.csv")
 #' }
 #' @export
 trigger_download <- function(ctx, type = c("csv", "json", "xlsx"), file_name = NULL) {
+  type <- match.arg(type)
   if (is.null(file_name)) {
     file_name <- glue::glue("data.{type}")
   }
 
-  invoke_method(ctx, "download", match.arg(type), file_name)
+  invoke_method(ctx, "download", type, file_name)
 }
 
 #' Submit data to R
 #' @inherit trigger_download params return
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   trigger_get_data()
 #' }
@@ -37,7 +38,7 @@ trigger_get_data <- function(ctx) {
 #' @inherit trigger_download params return
 #' @param row (list): row data or \code{NULL} to add an empty row
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   add_row()
 #' }
@@ -49,7 +50,7 @@ add_row <- function(ctx, row = NULL) {
 #' Delete selected rows from table
 #' @inherit trigger_download params return
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   delete_selected_rows()
 #' }
@@ -60,14 +61,14 @@ delete_selected_rows <- function(ctx) {
 
 # TODO: Test bindings
 delete_row <- function(ctx) {
-  print("Not implemented yet")
+  message("Not implemented yet")
   return(ctx)
 }
 
 #' Undo changes
 #' @inherit trigger_download params return
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   undo()
 #' }
@@ -79,7 +80,7 @@ undo <- function(ctx) {
 #' Redo changes
 #' @inherit trigger_download params return
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   redo()
 #' }
@@ -91,7 +92,7 @@ redo <- function(ctx) {
 #' Submit sheet data to R
 #' @inherit trigger_download params return
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' tabulatorContext("table") |>
 #'   trigger_get_sheet_data()
 #' }

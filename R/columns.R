@@ -547,7 +547,9 @@ set_column_defaults <- function(
 #' @param precision (integer)  The number of decimals to display.
 #'  Set to \code{FALSE} to display all decimals.
 #' @param pos (character): Position at which calculated values are displayed.
-#' @example examples/data_url.R
+#' @examples
+#' tabulator(iris) |>
+#'   set_calculation("Sepal_Length", "avg")
 #' @export
 set_calculation <- function(
     widget,

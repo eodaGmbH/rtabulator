@@ -12,3 +12,4 @@ _NAMESPACE
 images/
 ^vignettes/articles$
 ^cran-comments\.md$
+^CRAN-SUBMISSION$
