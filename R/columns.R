@@ -243,7 +243,7 @@ set_calculation <- function(
 # Generics
 
 modify_col_def <- function(widget, columns, col_update) {
-  for(column in columns){
+  for (column in columns) {
     for (index in 1:length(widget$x$options$columns)) {
       if (widget$x$options$columns[[index]]$field == column) {
         widget$x$options$columns[[index]] <- utils::modifyList(
@@ -252,7 +252,6 @@ modify_col_def <- function(widget, columns, col_update) {
       }
     }
   }
-
 
   return(widget)
 }
