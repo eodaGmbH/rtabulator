@@ -3,6 +3,10 @@ to_camel_case <- function(x) {
 }
 
 keys_to_camel_case <- function(x) {
+  if (is.null(x)) {
+    return(x)
+  }
+
   stats::setNames(x, to_camel_case(names(x)))
 }
 

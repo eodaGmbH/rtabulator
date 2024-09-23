@@ -61,6 +61,7 @@ tabulator <- function(
   x <- list(
     data = data,
     options = keys_to_camel_case(compact(options)),
+    bindingOptions = list(lang = "r"),
     stylesheetText = stylesheet_text
   )
 
