@@ -116,7 +116,7 @@ set_column_editor_ <- function(widget, columns, type = c("input", "number")) {
 #' @export
 set_editor <- function(
     widget,
-    column,
+    columns,
     editor = c(
       "input", "textarea", "number", "range",
       "tickCross", "star", "progress", "date", "time", "datetime", "list"
@@ -130,7 +130,7 @@ set_editor <- function(
     col_update$editorParams <- keys_to_camel_case(compact(editor_params))
   }
 
-  modify_col_def(widget, column, col_update)
+  modify_col_def(widget, columns, col_update)
 }
 
 #' Set header filter
@@ -145,7 +145,7 @@ set_editor <- function(
 # TODO: Rename to params that they match params used by Tabulator JS
 set_header_filter <- function(
     widget,
-    column,
+    columns,
     # TODO: Rename to 'filter_type' or just 'filter' or 'header_filter'?
     type = c("input", "number", "list", "tickCross"),
     # TODO: Rename to 'filter_func'?
@@ -155,7 +155,7 @@ set_header_filter <- function(
     placeholder = NULL) {
   # Body
   if (is.null(type)) {
-    type <- ifelse(is.numeric(widget$x$data[, column]), "number", "input")
+    type <- ifelse(is.numeric(widget$x$data[, columns]), "number", "input")
   } else {
     type <- match.arg(type)
   }
@@ -170,15 +170,15 @@ set_header_filter <- function(
     headerFilterFunc = func,
     headerFilterParams = header_filter_params
   )
-  modify_col_def(widget, column, col_update)
+  modify_col_def(widget, columns, col_update)
 }
 
 #' Set tooltip
 #' @inherit set_formatter_html params return
 #' @example examples/misc/tooltip.R
 #' @export
-set_tooltip <- function(widget, column) {
-  modify_col_def(widget, column, list(tooltip = TRUE))
+set_tooltip <- function(widget, columns) {
+  modify_col_def(widget, columns, list(tooltip = TRUE))
 }
 
 
@@ -217,7 +217,6 @@ set_column_defaults <- function(
 
 #' Set calculation
 #' @inherit set_formatter_html params return
-#' @param column (character): The column the \code{func} is applied to.
 #' @param func (character): The calculation function to be applied
 #'  to the values of the \code{column}.
 #' @param precision (integer)  The number of decimals to display.
@@ -229,7 +228,7 @@ set_column_defaults <- function(
 #' @export
 set_calculation <- function(
     widget,
-    column,
+    columns,
     func = c("avg", "max", "min", "sum", "count", "unique"), # Rename to 'calc'?
     precision = 2,
     pos = c("top", "bottom")) {
@@ -237,10 +236,23 @@ set_calculation <- function(
   pos <- match.arg(pos)
   col_update <- list(match.arg(func), list(precision = precision))
   names(col_update) <- c(paste0(pos, "Calc"), paste0(pos, "CalcParams"))
-  modify_col_def(widget, column, col_update)
+  modify_col_def(widget, columns, col_update)
 }
 
 # Generics
+
+#' Modify column definition
+#' @inherit set_formatter_html params return
+#' @param col_update A named list containing the updates to apply to each column in `columns`.
+#' The updates are merged into the existing column definitions.
+#' @importFrom utils modifyList
+#' @export
+#' @examples
+#'
+#' df <- data.frame(values = c(1,2,3), names = c("a","b","c"))
+#' tabulator(df) |>
+#'   modify_col_def(c("values","names"),
+#'   col_update = list(hozAlign = "center"))
 
 modify_col_def <- function(widget, columns, col_update) {
   for (column in columns) {
