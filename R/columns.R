@@ -130,7 +130,7 @@ set_editor <- function(
     col_update$editorParams <- keys_to_camel_case(compact(editor_params))
   }
 
-  modify_col_def(widget, column, col_update)
+  modify_col_def(widget, columns, col_update)
 }
 
 #' Set header filter
