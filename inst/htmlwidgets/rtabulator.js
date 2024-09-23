@@ -38,10 +38,14 @@
   }
 
   // built/widget.js
-  function run_calls(el, table, calls) {
+  function run_calls(tabulatorWidget, calls) {
+    const table = tabulatorWidget.getTable();
+    const elementId = tabulatorWidget.getElementId();
+    const bindingLang = tabulatorWidget.getBindingLang();
+    console.log("binding lang", bindingLang);
     calls.forEach(([method_name, options]) => {
       if (method_name === "getData") {
-        const inputName = `${el.id}_data:rtabulator.data`;
+        const inputName = bindingLang === "r" ? `${elementId}_data:rtabulator.data` : `${elementId}_data`;
         console.log("custom call", inputName);
         Shiny.setInputValue(inputName, { data: convertToDataFrame(table.getData()) }, { priority: "event" });
         return;
@@ -56,7 +60,7 @@
         return;
       }
       if (method_name === "getSheetData") {
-        const inputName = `${el.id}_sheet_data:rtabulator.sheet_data`;
+        const inputName = bindingLang === "r" ? `${elementId}_sheet_data:rtabulator.sheet_data` : `${elementId}_sheet_data`;
         console.log("custom call", inputName);
         Shiny.setInputValue(inputName, { data: table.getSheetData() }, { priority: "event" });
         return;
@@ -87,13 +91,13 @@
       const messageHandlerName = `tabulator-${this._container.id}`;
       Shiny.addCustomMessageHandler(messageHandlerName, (payload) => {
         console.log(payload);
-        run_calls(this._container, this._table, payload.calls);
+        run_calls(this, payload.calls);
       });
     }
     getTable() {
       return this._table;
     }
-    getId() {
+    getElementId() {
       return this._container.id;
     }
     getBindingLang() {
