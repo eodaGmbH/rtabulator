@@ -94,7 +94,7 @@ for_each_col <- function(widget, columns = NULL, .f, ...) {
 # #' @param columns (character vector): Columns the editor is applied to.
 # #' @param type (character): Either \code{input} or \code{number}.
 # #' @example examples/formatters/column_editor.R
-set_column_editor <- function(widget, columns, type = c("input", "number")) {
+set_column_editor_ <- function(widget, columns, type = c("input", "number")) {
   col_update <- list(editor = match.arg(type))
   for (column in columns) {
     widget <- modify_col_def(widget, column, col_update)
