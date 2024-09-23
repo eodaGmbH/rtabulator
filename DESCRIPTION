@@ -1,7 +1,7 @@
 Package: rtabulator
 Type: Package
 Title: R Bindings for 'Tabulator JS'
-Version: 0.1.2
+Version: 0.1.2.9000
 Date: 2024-09-22
 Authors@R: c(
   person("Stefan", "Kuethe", email = "crazycapivara@gmail.com", role = c("aut", "cre", "cph")),
