@@ -4,12 +4,12 @@
 \alias{set_tooltip}
 \title{Set tooltip}
 \usage{
-set_tooltip(widget, column)
+set_tooltip(widget, columns)
 }
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 }
 \value{
 The updated \code{\link[=tabulator]{tabulator()}} HTML widget
