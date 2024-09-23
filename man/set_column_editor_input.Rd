@@ -2,7 +2,7 @@
 % Please edit documentation in R/editors.R
 \name{set_column_editor_input}
 \alias{set_column_editor_input}
-\title{Title}
+\title{The \strong{input} editor allows entering of a single line of plain text}
 \usage{
 set_column_editor_input(
   widget,
@@ -30,7 +30,7 @@ set_column_editor_input(
 The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 }
 \description{
-Title
+The \strong{input} editor allows entering of a single line of plain text
 }
 \examples{
 examples/editors/editor_input
