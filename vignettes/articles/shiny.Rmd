@@ -56,8 +56,8 @@ shinyApp(ui = ui, server = server)
 - `{OUTPUT_ID}_rows_selected`
 - `{OUTPUT_ID}_data_filtered`
 - `{OUTPUT_ID}_cell_edited`
-- `{OUTPUT_ID}_data`: Must be triggered with `trigger_get_data()`
-- `{OUTPUT_ID}_sheet_data`: Must be triggered with `trigger_get_sheet_data()`
+- `{OUTPUT_ID}_data`: Must be triggered with `trigger_get_data()`.
+- `{OUTPUT_ID}_sheet_data`: Must be triggered with `trigger_get_sheet_data()`.
 
 Use `tabulatorContext()` in conjunction with the trigger functions: 
 
