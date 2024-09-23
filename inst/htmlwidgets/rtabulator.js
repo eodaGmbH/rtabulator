@@ -1,1 +1,133 @@
-(()=>{function i(o){return res={},o.length===0||(keys=Object.keys(o[0]),keys.forEach(e=>res[e]=o.map(a=>a[e]))),res}function d(o,e){o.on("rowClick",function(a,t){let r=`${e.id}_row_clicked`;console.log(r,t.getData()),Shiny.onInputChange(r,t.getData())}),o.on("rowClick",(a,t)=>{let r=`${e.id}_rows_selected:rtabulator.data`,s=o.getSelectedRows().map(n=>n.getData());console.log(r,s),Shiny.onInputChange(r,{data:i(s)})}),o.on("cellEdited",function(a){let t=`${e.id}_cell_edited`;console.log(t,a.getData()),Shiny.onInputChange(t,a.getData())}),o.on("dataFiltered",function(a,t){let r=`${e.id}_data_filtered:rtabulator.data`,s=t.map(n=>n.getData());console.log(r,s),Shiny.onInputChange(r,{data:i(s)})})}function u(o,e,a){a.forEach(([t,r])=>{if(t==="getData"){let s=`${o.id}_data:rtabulator.data`;console.log("custom call",s),Shiny.setInputValue(s,{data:i(e.getData())},{priority:"event"});return}if(t==="deleteSelectedRows"){console.log("custom call"),e.getSelectedRows().forEach(n=>{console.log(n.getIndex()),e.deleteRow(n.getIndex())});return}if(t==="getSheetData"){let s=`${o.id}_sheet_data:rtabulator.sheet_data`;console.log("custom call",s),Shiny.setInputValue(s,{data:e.getSheetData()},{priority:"event"});return}console.log(t,r),e[t](...r)})}var c=class{constructor(e,a,t){t.data=a,this._container=e,console.log("columns",t.columns),a!==null&&t.columns==null&&(t.autoColumns=!0),t.spreadsheet&&t.spreadsheetData==null&&(t.spreadsheetData=[]),this._table=new Tabulator(this._container,t),typeof Shiny=="object"&&(d(this._table,this._container),this._addShinyMessageHandler())}_addShinyMessageHandler(){let e=`tabulator-${this._container.id}`;Shiny.addCustomMessageHandler(e,a=>{console.log(a),u(this._container,this._table,a.calls)})}getTable(){return this._table}};function g(o,e,a){let t=null;function r(n){console.log(n),n.stylesheetText&&document.head.insertAdjacentHTML("beforeend",`<style>${n.stylesheetText}</style>`),n.options===null&&(n.options={});let l=null;n.options.spreadsheet===!0?n.options.spreadsheetData=n.data:l=HTMLWidgets.dataframeToD3(n.data),t=new c(o,l,n.options).getTable()}function s(n,l){}return{renderValue:r,resize:s}}HTMLWidgets.widget({name:"rtabulator",type:"output",factory:g});})();
+"use strict";
+(() => {
+  // built/utils.js
+  function convertToDataFrame(data) {
+    const res = {};
+    if (data.length === 0) {
+      return res;
+    }
+    const keys = Object.keys(data[0]);
+    keys.forEach((key) => res[key] = data.map((item) => item[key]));
+    return res;
+  }
+
+  // built/events.js
+  function addEventListeners(table, el) {
+    table.on("rowClick", function(e, row) {
+      const inputName = `${el.id}_row_clicked`;
+      console.log(inputName, row.getData());
+      Shiny.onInputChange(inputName, row.getData());
+    });
+    table.on("rowClick", (e, row) => {
+      const inputName = `${el.id}_rows_selected:rtabulator.data`;
+      const data = table.getSelectedRows().map((row2) => row2.getData());
+      console.log(inputName, data);
+      Shiny.onInputChange(inputName, { data: convertToDataFrame(data) });
+    });
+    table.on("cellEdited", function(cell) {
+      const inputName = `${el.id}_cell_edited`;
+      console.log(inputName, cell.getData());
+      Shiny.onInputChange(inputName, cell.getData());
+    });
+    table.on("dataFiltered", function(filters, rows) {
+      const inputName = `${el.id}_data_filtered:rtabulator.data`;
+      const data = rows.map((row) => row.getData());
+      console.log(inputName, data);
+      Shiny.onInputChange(inputName, { data: convertToDataFrame(data) });
+    });
+  }
+
+  // built/widget.js
+  function run_calls(el, table, calls) {
+    calls.forEach(([method_name, options]) => {
+      if (method_name === "getData") {
+        const inputName = `${el.id}_data:rtabulator.data`;
+        console.log("custom call", inputName);
+        Shiny.setInputValue(inputName, { data: convertToDataFrame(table.getData()) }, { priority: "event" });
+        return;
+      }
+      if (method_name === "deleteSelectedRows") {
+        console.log("custom call");
+        const rows = table.getSelectedRows();
+        rows.forEach((row) => {
+          console.log(row.getIndex());
+          table.deleteRow(row.getIndex());
+        });
+        return;
+      }
+      if (method_name === "getSheetData") {
+        const inputName = `${el.id}_sheet_data:rtabulator.sheet_data`;
+        console.log("custom call", inputName);
+        Shiny.setInputValue(inputName, { data: table.getSheetData() }, { priority: "event" });
+        return;
+      }
+      console.log(method_name, options);
+      table[method_name](...options);
+    });
+  }
+  var TabulatorWidget = class {
+    constructor(container, data, options, bindingOptions) {
+      options.data = data;
+      this._container = container;
+      this._bindingOptions = bindingOptions;
+      console.log("columns", options.columns);
+      if (data !== null && options.columns == null) {
+        options.autoColumns = true;
+      }
+      if (options.spreadsheet && options.spreadsheetData == null) {
+        options.spreadsheetData = [];
+      }
+      this._table = new Tabulator(this._container, options);
+      if (typeof Shiny === "object") {
+        addEventListeners(this._table, this._container);
+        this._addShinyMessageHandler();
+      }
+    }
+    _addShinyMessageHandler() {
+      const messageHandlerName = `tabulator-${this._container.id}`;
+      Shiny.addCustomMessageHandler(messageHandlerName, (payload) => {
+        console.log(payload);
+        run_calls(this._container, this._table, payload.calls);
+      });
+    }
+    getTable() {
+      return this._table;
+    }
+    getId() {
+      return this._container.id;
+    }
+    getBindingLang() {
+      return this._bindingOptions.lang;
+    }
+  };
+
+  // built/index-r.js
+  function tabulatorFactory(widgetElement, width, height) {
+    let table = null;
+    function renderValue(payload) {
+      console.log(payload);
+      if (payload.stylesheetText) {
+        document.head.insertAdjacentHTML("beforeend", `<style>${payload.stylesheetText}</style>`);
+      }
+      if (payload.options === null) {
+        payload.options = {};
+      }
+      let data = null;
+      if (payload.options.spreadsheet === true) {
+        payload.options.spreadsheetData = payload.data;
+      } else {
+        data = HTMLWidgets.dataframeToD3(payload.data);
+      }
+      const widget = new TabulatorWidget(widgetElement, data, payload.options, payload.bindingOptions);
+      table = widget.getTable();
+    }
+    function resize(width2, height2) {
+    }
+    return { renderValue, resize };
+  }
+  HTMLWidgets.widget({
+    name: "rtabulator",
+    type: "output",
+    factory: tabulatorFactory
+  });
+})();
