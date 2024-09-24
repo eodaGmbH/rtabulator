@@ -8,7 +8,7 @@ set_column_editor_text_area(
   widget,
   columns,
   elementAttributes = list(maxlength = 10),
-  mask = "AAA-999",
+  mask = "",
   select_contents = TRUE,
   vertical_navigation = "editor",
   shift_enter_submit = TRUE
@@ -16,6 +16,8 @@ set_column_editor_text_area(
 }
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
+
+\item{columns}{The name of the column the formatter is applied to.}
 
 \item{elementAttributes}{Set attributes directly on the textarea element}
 

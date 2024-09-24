@@ -1,7 +1,7 @@
 #' The \strong{input} editor allows entering of a single line of plain text
 #'
 #' @param widget A [tabulator()] HTML widget.
-#' @param column The name of the column the formatter is applied to.
+#' @param columns The name of the column the formatter is applied to.
 #' @param search Use search type input element with clear button
 #' @param mask Apply a mask to the input to allow characters to be entered only in a certain order
 #' @param select_contents When the editor is loaded select its text content
@@ -10,7 +10,7 @@
 #' @return The updated [tabulator()] HTML widget
 #' @export
 #'
-#' @examples examples/editors/editor_input
+#' @example examples/editors/editor_input.R
 set_column_editor_input <- function(widget,
                                     columns,
                                     search = TRUE,
