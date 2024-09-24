@@ -6,7 +6,7 @@
 \usage{
 set_formatter_image(
   widget,
-  column,
+  columns,
   height = "50px",
   width = "50px",
   url_prefix = NULL,
@@ -17,7 +17,7 @@ set_formatter_image(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{height}{(character): A CSS value for the height of the image.}
 

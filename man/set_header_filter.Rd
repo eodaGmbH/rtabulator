@@ -6,7 +6,7 @@
 \usage{
 set_header_filter(
   widget,
-  column,
+  columns,
   type = c("input", "number", "list", "tickCross"),
   func = c("like", "=", ">", ">=", "<", "<="),
   values_lookup = TRUE,
@@ -17,7 +17,7 @@ set_header_filter(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{type}{(character): The type of the filter.}
 

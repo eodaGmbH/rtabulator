@@ -16,6 +16,8 @@ set_column_editor_input(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
+\item{columns}{The name of the column the formatter is applied to.}
+
 \item{search}{Use search type input element with clear button}
 
 \item{mask}{Apply a mask to the input to allow characters to be entered only in a certain order}
@@ -23,8 +25,6 @@ set_column_editor_input(
 \item{select_contents}{When the editor is loaded select its text content}
 
 \item{elementAttributes}{Set attributes directly on the input element}
-
-\item{column}{The name of the column the formatter is applied to.}
 }
 \value{
 The updated \code{\link[=tabulator]{tabulator()}} HTML widget
@@ -33,5 +33,8 @@ The updated \code{\link[=tabulator]{tabulator()}} HTML widget
 The \strong{input} editor allows entering of a single line of plain text
 }
 \examples{
-examples/editors/editor_input
+df <- data.frame(values = c(1,2,3),
+                 names = c("a","b","c"))
+tabulator(df) |>
+  set_column_editor_input("names")
 }

@@ -6,7 +6,7 @@
 \usage{
 set_formatter_toggle_switch(
   widget,
-  column,
+  columns,
   size = 20,
   on_value = "on",
   off_value = "off",
@@ -19,7 +19,7 @@ set_formatter_toggle_switch(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{size}{(numeric): The size of the switch in pixels.}
 

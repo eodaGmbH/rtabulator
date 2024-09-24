@@ -19,6 +19,8 @@ set_column_editor_numeric(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
+\item{columns}{The name of the column the formatter is applied to.}
+
 \item{min}{the maximum allowed value}
 
 \item{max}{the minimum allowed value}

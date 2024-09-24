@@ -6,7 +6,7 @@
 \usage{
 set_formatter_datetime(
   widget,
-  column,
+  columns,
   input_format = "yyyy-MM-dd hh:ss:mm",
   output_format = "yy/MM/dd",
   invalid_placeholder = "(invalid datetime)",
@@ -17,7 +17,7 @@ set_formatter_datetime(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{input_format}{(character): The datetime input format.}
 

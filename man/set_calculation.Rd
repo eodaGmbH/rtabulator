@@ -6,7 +6,7 @@
 \usage{
 set_calculation(
   widget,
-  column,
+  columns,
   func = c("avg", "max", "min", "sum", "count", "unique"),
   precision = 2,
   pos = c("top", "bottom")
@@ -15,7 +15,7 @@ set_calculation(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{(character): The column the \code{func} is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{func}{(character): The calculation function to be applied
 to the values of the \code{column}.}

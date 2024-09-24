@@ -4,12 +4,12 @@
 \alias{set_formatter_color}
 \title{Set color formatter}
 \usage{
-set_formatter_color(widget, column)
+set_formatter_color(widget, columns)
 }
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 }
 \value{
 The updated \code{\link[=tabulator]{tabulator()}} HTML widget

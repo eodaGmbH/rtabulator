@@ -6,7 +6,7 @@
 \usage{
 set_editor(
   widget,
-  column,
+  columns,
   editor = c("input", "textarea", "number", "range", "tickCross", "star", "progress",
     "date", "time", "datetime", "list"),
   validator = NULL,
@@ -16,7 +16,7 @@ set_editor(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{editor}{(character): The editor type.}
 

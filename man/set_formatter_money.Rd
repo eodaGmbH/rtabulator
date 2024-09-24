@@ -6,7 +6,7 @@
 \usage{
 set_formatter_money(
   widget,
-  column,
+  columns,
   decimal = c(",", "."),
   thousand = c(".", ","),
   symbol = "$",
@@ -19,7 +19,7 @@ set_formatter_money(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{decimal}{(character): Symbol to represent the decimal point.}
 

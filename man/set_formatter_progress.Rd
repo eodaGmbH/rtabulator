@@ -6,7 +6,7 @@
 \usage{
 set_formatter_progress(
   widget,
-  column,
+  columns,
   min = NA,
   max = NA,
   color = c("yellow", "orange", "red"),
@@ -19,7 +19,7 @@ set_formatter_progress(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{min}{(numeric): The minimum value for progress bar.
 If set to \code{NA}, the minimum value of the column is used.}

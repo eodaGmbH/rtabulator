@@ -23,6 +23,15 @@ reference:
       - set_tooltip
       - for_each_col
 
+  - title: Column Settings since v0.1.2.9000
+    desc: >
+      Future functions that are available since v0.1.2.9000
+    contents:
+      - set_column_editor_input
+      - set_column_editor_numeric
+      - set_column_editor_text_area
+      - modify_col_def
+
   - title: Column Formatters
     desc: >
       Functions to set column formatters

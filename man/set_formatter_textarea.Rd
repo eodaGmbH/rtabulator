@@ -4,12 +4,12 @@
 \alias{set_formatter_textarea}
 \title{Set text area formatter}
 \usage{
-set_formatter_textarea(widget, column, hoz_align = "left")
+set_formatter_textarea(widget, columns, hoz_align = "left")
 }
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }

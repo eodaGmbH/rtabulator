@@ -104,7 +104,6 @@ test_that("set formatter money", {
 })
 
 test_that("set formatter image", {
-  skip_if_offline("picsum.photos")
   skip_on_cran()
   # Prepare
   col <- "image"

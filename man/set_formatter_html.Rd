@@ -4,12 +4,12 @@
 \alias{set_formatter_html}
 \title{Set HTML formatter}
 \usage{
-set_formatter_html(widget, column, hoz_align = c("left", "center", "right"))
+set_formatter_html(widget, columns, hoz_align = c("left", "center", "right"))
 }
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{hoz_align}{(character): The horizontal alignment of the column.}
 }

@@ -6,7 +6,7 @@
 \usage{
 set_formatter_link(
   widget,
-  column,
+  columns,
   label_field = NULL,
   url_prefix = NULL,
   url = NULL,
@@ -17,7 +17,7 @@ set_formatter_link(
 \arguments{
 \item{widget}{A \code{\link[=tabulator]{tabulator()}} HTML widget.}
 
-\item{column}{The name of the column the formatter is applied to.}
+\item{columns}{The names of the columns the formatter is applied to.}
 
 \item{label_field}{(character): Column to be used as label for the link.}
 
