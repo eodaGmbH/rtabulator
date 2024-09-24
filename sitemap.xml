@@ -14,10 +14,14 @@
 <url><loc>/reference/delete_selected_rows.html</loc></url>
 <url><loc>/reference/for_each_col.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/modify_col_def.html</loc></url>
 <url><loc>/reference/redo.html</loc></url>
 <url><loc>/reference/rtabulator-shiny.html</loc></url>
 <url><loc>/reference/set_calculation.html</loc></url>
 <url><loc>/reference/set_column_defaults.html</loc></url>
+<url><loc>/reference/set_column_editor_input.html</loc></url>
+<url><loc>/reference/set_column_editor_numeric.html</loc></url>
+<url><loc>/reference/set_column_editor_text_area.html</loc></url>
 <url><loc>/reference/set_editor.html</loc></url>
 <url><loc>/reference/set_formatter_color.html</loc></url>
 <url><loc>/reference/set_formatter_datetime.html</loc></url>
