@@ -1,3 +1,9 @@
+set_columns <- function(widget, columns, editor, formatter, validator, hozAlign){
+
+}
+
+
+
 # #' Create column definitions from data
 # #' @param data (data.frame) data
 # #' @param editor (bool): Whether to make columns editable.
