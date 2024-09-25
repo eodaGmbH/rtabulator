@@ -1,5 +1,70 @@
-set_columns <- function(widget, columns, editor, formatter, validator, hozAlign){
+#' Set column definitions
+#'
+#' @param widget
+#' @param columns
+#' @param formatter
+#' @param hoz_align
+#'
+#' @return
+#' @export
+#'
+#' @examples
+set_columns <- function(widget,
+                        columns,
+                        title = NULL,
+                        formatter = NULL,
+                        # TODO editor = NULL,
+                        # TODO validator = NULL,
+                        hoz_align = NULL,
+                        ...){
 
+  if(is.null(hoz_align) & !is.null(formatter)){
+    hoz_align = switch(formatter$formatter,
+                       html = "left",
+                       plaintext = "left",
+                       textarea = "left",
+                       money = "left",
+                       image = "center",
+                       link = "left",
+                       star = "center",
+                       progress = "left",
+                       tickCross = "center",
+                       datetime = "left",
+                       traffic = "center"
+    )
+  }
+
+  # Handling of missing parameters
+  if(formatter$formatter %in% "star"){
+    if(is.na(formatter$formatterParams$stars)){
+      formatter$formatterParams$stars <- max(widget$x$data[columns])
+    }
+  }
+if(formatter$formatter %in% c("progress", "traffic")){
+  if (is.na(formatter$formatterParams$min)) {
+    formatter$formatterParams$min <- min(widget$x$data[columns])
+  }
+  if (is.na(formatter$formatterParams$max)) {
+    formatter$formatterParams$max <- max(widget$x$data[columns])
+  }
+}
+
+# Handling of missing dependencies
+if (formatter$formatter == "datetime" & !"luxon" %in% names(widget$dependencies)){
+  warning("You need to enable the luxon dependency. Checkout `help(formatter_datetime)` for more hints.")
+}
+
+# Create update for column definition
+
+col_update <- list()
+col_update$hozAlign <- hoz_align
+col_update <- col_update |>
+  append(formatter) |>
+  # append(editor) |>
+  # append(validator) |>
+  append(list(...))
+
+modify_col_def(widget, columns, col_update)
 }
 
 
