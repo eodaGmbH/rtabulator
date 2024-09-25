@@ -34,5 +34,5 @@ data <- data.frame(
 )
 
 tabulator(data, width = 400) |>
-  set_formatter_html("text_style")
+  set_columns("text_style", formatter = formatter_html())
 }

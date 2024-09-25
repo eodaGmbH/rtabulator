@@ -28,7 +28,7 @@ data <- data.frame(
 )
 
 tabulator(data, width = 400) |>
-  set_formatter_tick_cross("Grunge") |>
-  set_formatter_tick_cross("Jazz") |>
-  set_formatter_tick_cross("Reggae")
+  set_columns("Grunge", formatter = formatter_tick_cross()) |>
+  set_columns("Jazz", formatter = formatter_tick_cross()) |>
+  set_columns("Reggae", formatter = formatter_tick_cross())
 }

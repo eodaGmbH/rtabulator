@@ -50,5 +50,5 @@ data <- data.frame(
 )
 
 tabulator(data, luxon = TRUE) |>
-  set_formatter_datetime("Birthday", output_format = "dd.MM.yyyy")
+  set_columns("Birthday", formatter = formatter_datetime(output_format = "dd.MM.yyyy"))
 }

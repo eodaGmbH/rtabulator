@@ -57,10 +57,11 @@ data <- data.frame(
 )
 
 tabulator(data) |>
-  set_formatter_money(
+  set_columns(
     "Account_Balance",
-    symbol = "\U20AC",
-    symbol_after = FALSE,
-    hoz_align = "right"
+    formatter = formatter_money(
+      symbol = " \U20AC",
+      symbol_after = TRUE
+    )
   )
 }

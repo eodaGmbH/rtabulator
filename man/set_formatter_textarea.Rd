@@ -29,5 +29,5 @@ data <- data.frame(
 )
 
 tabulator(data, width = 200) |>
-  set_formatter_textarea("txt")
+  set_columns("txt", formatter = formatter_textarea())
 }

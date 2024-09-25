@@ -24,5 +24,5 @@ data <- data.frame(
 )
 
 tabulator(data, width = 200) |>
-  set_formatter_color("Color")
+  set_columns(columns = "Color", formatter = formatter_color())
 }

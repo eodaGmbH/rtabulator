@@ -41,6 +41,5 @@ data <- data.frame(
 )
 
 tabulator(data, width = 200) |>
-  set_formatter_traffic_light("value") |>
-  set_formatter_plaintext("label", hoz_align = "center")
+  set_columns("value", formatter = formatter_traffic_light())
 }
