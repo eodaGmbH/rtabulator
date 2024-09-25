@@ -8,6 +8,7 @@
 #' @example examples/formatters/formatter_html.R
 #' @export
 set_formatter_html <- function(widget, columns, hoz_align = c("left", "center", "right")) {
+  .Deprecated("formatter_html")
   col_update <- list(formatter = "html", hozAlign = match.arg(hoz_align))
   modify_col_def(widget, columns, col_update)
 }
@@ -19,6 +20,7 @@ set_formatter_html <- function(widget, columns, hoz_align = c("left", "center", 
 #'   set_formatter_plaintext("Species", hoz_align = "right")
 #' @export
 set_formatter_plaintext <- function(widget, columns, hoz_align = "left") {
+  .Deprecated("formatter_plaintext")
   col_update <- list(formatter = "plaintext", hozAlign = hoz_align)
   modify_col_def(widget, columns, col_update)
 }
@@ -28,6 +30,7 @@ set_formatter_plaintext <- function(widget, columns, hoz_align = "left") {
 #' @example examples/formatters/formatter_textarea.R
 #' @export
 set_formatter_textarea <- function(widget, columns, hoz_align = "left") {
+  .Deprecated("formatter_textarea")
   col_update <- list(formatter = "textarea", hozAlign = hoz_align)
   modify_col_def(widget, columns, col_update)
 }
@@ -57,6 +60,7 @@ set_formatter_money <- function(
     precision = FALSE,
     hoz_align = "left") {
   # Body
+  .Deprecated("formatter_money")
   col_update <- list(
     formatter = "money",
     formatterParams = list(
@@ -91,6 +95,7 @@ set_formatter_image <- function(
     url_suffix = NULL,
     hoz_align = "center") {
   # Body
+  .Deprecated("formatter_image")
   col_update <- list(
     formatter = "image",
     formatterParams = compact(list(
@@ -123,6 +128,7 @@ set_formatter_link <- function(
     target = "_blank",
     hoz_align = "left") {
   # Body
+  .Deprecated("formatter_link")
   col_update <- list(
     formatter = "link",
     formatterParams = compact(list(
@@ -146,6 +152,7 @@ set_formatter_star <- function(widget, columns, number_of_stars = NA, hoz_align 
   if (is.na(number_of_stars)) {
     number_of_stars <- max(widget$x$data[columns])
   }
+  .Deprecated("formatter_star")
 
   col_update <- list(
     formatter = "star",
@@ -180,6 +187,7 @@ set_formatter_progress <- function(
     legend_color = "#000000",
     legend_align = c("center", "left", "right", "justify"),
     hoz_align = "left") {
+  .Deprecated("formatter_progress")
   # Body
   if (is.na(min)) {
     min <- min(widget$x$data[columns])
@@ -209,6 +217,7 @@ set_formatter_progress <- function(
 #' @example examples/formatters/formatter_tick_cross.R
 #' @export
 set_formatter_tick_cross <- function(widget, columns, hoz_align = "center") {
+  .Deprecated("formatter_tick_cross")
   col_update <- list(formatter = "tickCross", hozAlign = hoz_align)
   modify_col_def(widget, columns, col_update)
 }
@@ -235,6 +244,7 @@ set_formatter_toggle_switch <- function(
     off_color = "red",
     clickable = TRUE) {
   # Body
+  .Deprecated("formatter_toggle_switch")
   col_update <- list(
     formatter = "toggle",
     formatterParams = list(
@@ -271,6 +281,7 @@ set_formatter_datetime <- function(
     invalid_placeholder = "(invalid datetime)",
     timezone = NA,
     hoz_align = "left") {
+  .Deprecated("formatter_datetime")
   # Body
   col_update <- list(
     formatter = "datetime",
@@ -290,6 +301,7 @@ set_formatter_datetime <- function(
 #' @example examples/formatters/formatter_color.R
 #' @export
 set_formatter_color <- function(widget, columns) {
+  .Deprecated("formatter_color")
   col_update <- list(formatter = "color")
   modify_col_def(widget, columns, col_update)
 }
@@ -305,6 +317,7 @@ set_formatter_traffic_light <- function(
     max = NA,
     color = c("green", "orange", "red"),
     hoz_align = "center") {
+  .Deprecated("formatter_traffic_light")
   # Body
   if (is.na(min)) min <- min(widget$x$data[columns])
 
