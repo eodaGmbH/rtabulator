@@ -4,4 +4,5 @@ data <- data.frame(
 )
 
 tabulator(data) |>
-  set_formatter_toggle_switch("Available", on_value = "yes", off_value = "no")
+  set_columns("Available",
+              formatter = formatter_toggle_switch(on_value = "yes", off_value = "no"))

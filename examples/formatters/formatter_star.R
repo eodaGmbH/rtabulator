@@ -4,4 +4,6 @@ data <- data.frame(
 )
 
 tabulator(data, width = 200) |>
-  set_formatter_star("PassengerClass", number_of_stars = max(data$PassengerClass))
+  set_columns("PassengerClass",
+              formatter = formatter_star(number_of_stars = max(data$PassengerClass)))
+
