@@ -47,8 +47,7 @@ formatter_money <- function(
     symbol = "$ ", # "\U20AC"
     symbol_after = "p",
     negative_sign = "-",
-    precision = FALSE,
-    hoz_align = "left") {
+    precision = FALSE) {
   # Body
   col_update <- list(
     formatter = "money",
@@ -106,8 +105,7 @@ formatter_link <- function(
     label_field = NULL,
     url_prefix = NULL,
     url = NULL,
-    target = "_blank",
-    hoz_align = "left") {
+    target = "_blank") {
   # Body
   col_update <- list(
     formatter = "link",
