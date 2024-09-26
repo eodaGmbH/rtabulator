@@ -4,7 +4,7 @@
 #' @returns A list of column options for setting up the formatter.
 #' @example examples/formatters/formatter_html.R
 #' @export
-formatter_html <- function(){
+formatter_html <- function() {
   col_update <- list(formatter = "html")
   return(col_update)
 }
@@ -122,7 +122,7 @@ formatter_link <- function(
 #' Star rating formatter
 #' @inherit formatter_html return
 #' @param number_of_stars The maximum number of stars to be displayed.
-#'  If set to \code{NA}, the maximum value of the column is used.
+#'  If set to \code{NA}, the maximum value of the column is used in `set_columns()`
 #' @example examples/formatters/formatter_star.R
 #' @export
 formatter_star <- function(number_of_stars = NA) {
