@@ -17,44 +17,41 @@ set_columns <- function(widget,
                         # TODO editor = NULL,
                         # TODO validator = NULL,
                         hoz_align = NULL,
-                        ...){
-  if(is.null(hoz_align) & !is.null(formatter)){
-    hoz_align = switch(formatter$formatter,
-                       html = "left",
-                       plaintext = "left",
-                       textarea = "left",
-                       money = "left",
-                       image = "center",
-                       link = "left",
-                       star = "center",
-                       progress = "left",
-                       tickCross = "center",
-                       datetime = "left",
-                       traffic = "center"
+                        ...) {
+  if (is.null(hoz_align) & !is.null(formatter)) {
+    hoz_align <- switch(formatter$formatter,
+      image = "center",
+      star = "center",
+      progress = "left",
+      tickCross = "center",
+      traffic = "center",
+      "left"
     )
   }
 
-  if(!is.null(formatter)){
+  if (!is.null(formatter)) {
     # Handling of missing parameters
-    if(formatter$formatter %in% "star"){
-      if(is.na(formatter$formatterParams$stars)){
-        formatter$formatterParams$stars <- max(widget$x$data[columns])
+    if (formatter$formatter %in% "star") {
+      if (is.na(formatter$formatterParams$stars)) {
+        message("Parameter number_of_stars not set in formatter, using max value of data to determine number of stars. See ?formatter_star for more information.")
+        formatter$formatterParams$stars <- max(widget$x$data[columns], na.rm = T)
       }
     }
-    if(formatter$formatter %in% c("progress", "traffic")){
+    if (formatter$formatter %in% c("progress", "traffic")) {
       if (is.na(formatter$formatterParams$min)) {
-        formatter$formatterParams$min <- min(widget$x$data[columns])
+        message("Parameter min not set in formatter, using min value of data.")
+        formatter$formatterParams$min <- min(widget$x$data[columns], na.rm = T)
       }
       if (is.na(formatter$formatterParams$max)) {
-        formatter$formatterParams$max <- max(widget$x$data[columns])
+        message("Parameter max not set in formatter, using max value of data.")
+        formatter$formatterParams$max <- max(widget$x$data[columns], na.rm = T)
       }
     }
 
     # Handling of missing dependencies
-    if (formatter$formatter == "datetime" & !"luxon" %in% names(widget$dependencies)){
+    if (formatter$formatter == "datetime" & !"luxon" %in% names(widget$dependencies)) {
       warning("You need to enable the luxon dependency. Checkout `help(formatter_datetime)` for more hints.")
     }
-
   }
 
   # Create update for column definition
@@ -324,11 +321,11 @@ set_calculation <- function(
 #' @export
 #' @examples
 #'
-#' df <- data.frame(values = c(1,2,3), names = c("a","b","c"))
+#' df <- data.frame(values = c(1, 2, 3), names = c("a", "b", "c"))
 #' tabulator(df) |>
-#'   modify_col_def(c("values","names"),
-#'   col_update = list(hozAlign = "center"))
-
+#'   modify_col_def(c("values", "names"),
+#'     col_update = list(hozAlign = "center")
+#'   )
 modify_col_def <- function(widget, columns, col_update) {
   for (column in columns) {
     for (index in 1:length(widget$x$options$columns)) {
