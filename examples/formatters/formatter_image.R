@@ -7,11 +7,12 @@ image_data <- data.frame(
 )
 
 tabulator(image_data, tabulator_options(height = "400px")) |>
-  set_columns(columns = "image",
-              formatter = formatter_image(
-                height = image_size,
-                width = image_size,
-                url_prefix = image_url,
-                url_suffix = glue::glue("/{image_size}")
-              )
+  set_columns(
+    columns = "image",
+    formatter = formatter_image(
+      height = image_size,
+      width = image_size,
+      url_prefix = image_url,
+      url_suffix = glue::glue("/{image_size}")
+    )
   )

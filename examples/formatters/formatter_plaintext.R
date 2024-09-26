@@ -6,5 +6,7 @@ data <- data.frame(
 )
 
 tabulator(data, width = 200) |>
-  set_columns(columns = "txt",
-              formatter = formatter_plaintext())
+  set_columns(
+    columns = "txt",
+    formatter = formatter_plaintext()
+  )
