@@ -1,42 +1,34 @@
 # Formatters ####
 
-#' Set HTML formatter
-#' @param widget A [tabulator()] HTML widget.
-#' @param columns The names of the columns the formatter is applied to.
-#' @param hoz_align (character): The horizontal alignment of the column.
-#' @returns The updated [tabulator()] HTML widget
+#' HTML formatter
+#' @returns A list of column options for setting up the formatter.
 #' @example examples/formatters/formatter_html.R
 #' @export
-set_formatter_html <- function(widget, columns, hoz_align = c("left", "center", "right")) {
-  if (!testthat::is_testing()) .Deprecated("formatter_html")
-  col_update <- list(formatter = "html", hozAlign = match.arg(hoz_align))
-  modify_col_def(widget, columns, col_update)
+formatter_html <- function() {
+  col_update <- list(formatter = "html")
+  return(col_update)
 }
 
-#' Set plain text formatter
-#' @inherit set_formatter_html params return
-#' @examples
-#' tabulator(iris) |>
-#'   set_formatter_plaintext("Species", hoz_align = "right")
+#' Plain text formatter
+#' @inherit formatter_html return
+#' @example examples/formatters/formatter_html.R
 #' @export
-set_formatter_plaintext <- function(widget, columns, hoz_align = "left") {
-  if (!testthat::is_testing()) .Deprecated("formatter_plaintext")
-  col_update <- list(formatter = "plaintext", hozAlign = hoz_align)
-  modify_col_def(widget, columns, col_update)
+formatter_plaintext <- function() {
+  col_update <- list(formatter = "plaintext")
+  return(col_update)
 }
 
-#' Set text area formatter
-#' @inherit set_formatter_html params return
+#' Text area formatter
+#' @inherit formatter_html return
 #' @example examples/formatters/formatter_textarea.R
 #' @export
-set_formatter_textarea <- function(widget, columns, hoz_align = "left") {
-  if (!testthat::is_testing()) .Deprecated("formatter_textarea")
-  col_update <- list(formatter = "textarea", hozAlign = hoz_align)
-  modify_col_def(widget, columns, col_update)
+formatter_textarea <- function() {
+  col_update <- list(formatter = "textarea")
+  return(col_update)
 }
 
-#' Set money formatter
-#' @inherit set_formatter_html params return
+#' Money formatter
+#' @inherit formatter_html return
 #' @param decimal (character): Symbol to represent the decimal point.
 #' @param thousand (character, bool): Symbol to represent the thousands separator.
 #'  Set to \code{FALSE} to disable the separator.
@@ -49,18 +41,14 @@ set_formatter_textarea <- function(widget, columns, hoz_align = "left") {
 #'  Set to \code{FALSE} to display all decimals that are provided.
 #' @example examples/formatters/formatter_money.R
 #' @export
-set_formatter_money <- function(
-    widget,
-    columns,
+formatter_money <- function(
     decimal = c(",", "."),
     thousand = c(".", ","),
-    symbol = "$", # "\U20AC"
+    symbol = "$ ", # "\U20AC"
     symbol_after = "p",
     negative_sign = "-",
-    precision = FALSE,
-    hoz_align = "left") {
+    precision = FALSE) {
   # Body
-  if (!testthat::is_testing()) .Deprecated("formatter_money")
   col_update <- list(
     formatter = "money",
     formatterParams = list(
@@ -70,14 +58,13 @@ set_formatter_money <- function(
       symbolAfter = symbol_after,
       negativeSign = negative_sign,
       precision = precision
-    ),
-    hozAlign = hoz_align
+    )
   )
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }
 
-#' Set image formatter
-#' @inherit set_formatter_html params return
+#' Image formatter
+#' @inherit formatter_html return
 #' @param height (character): A CSS value for the height of the image.
 #' @param width (character): A CSS value for the width of the image.
 #' @param url_prefix (character): String to add to the start of the cell value
@@ -86,16 +73,12 @@ set_formatter_money <- function(
 #'  when generating the image src url.
 #' @example examples/formatters/formatter_image.R
 #' @export
-set_formatter_image <- function(
-    widget,
-    columns,
+formatter_image <- function(
     height = "50px",
     width = "50px",
     url_prefix = NULL,
-    url_suffix = NULL,
-    hoz_align = "center") {
+    url_suffix = NULL) {
   # Body
-  if (!testthat::is_testing()) .Deprecated("formatter_image")
   col_update <- list(
     formatter = "image",
     formatterParams = compact(list(
@@ -103,14 +86,13 @@ set_formatter_image <- function(
       width = width,
       urlPrefix = url_prefix,
       urlSuffix = url_suffix
-    )),
-    hozAlign = hoz_align
+    ))
   )
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }
 
-#' Set link formatter
-#' @inherit set_formatter_html params return
+#' Link formatter
+#' @inherit formatter_html return
 #' @param label_field (character): Column to be used as label for the link.
 #' @param url_prefix (character): Prefix to add to the URL value.
 #' @param url (JavaScript function): A JavaScript function that return the URL value.
@@ -119,16 +101,12 @@ set_formatter_image <- function(
 #' @param target (character): Target attribute of the anchor tag.
 #' @example examples/formatters/formatter_link.R
 #' @export
-set_formatter_link <- function(
-    widget,
-    columns,
+formatter_link <- function(
     label_field = NULL,
     url_prefix = NULL,
     url = NULL,
-    target = "_blank",
-    hoz_align = "left") {
+    target = "_blank") {
   # Body
-  if (!testthat::is_testing()) .Deprecated("formatter_link")
   col_update <- list(
     formatter = "link",
     formatterParams = compact(list(
@@ -136,34 +114,27 @@ set_formatter_link <- function(
       urlPrefix = url_prefix,
       url = url,
       target = target
-    )),
-    hozAlign = hoz_align
+    ))
   )
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }
 
-#' Set star rating formatter
-#' @inherit set_formatter_html params return
+#' Star rating formatter
+#' @inherit formatter_html return
 #' @param number_of_stars The maximum number of stars to be displayed.
-#'  If set to \code{NA}, the maximum value of the column is used.
+#'  If set to \code{NA}, the maximum value of the column is used in `set_columns()`
 #' @example examples/formatters/formatter_star.R
 #' @export
-set_formatter_star <- function(widget, columns, number_of_stars = NA, hoz_align = "center") {
-  if (is.na(number_of_stars)) {
-    number_of_stars <- max(widget$x$data[columns])
-  }
-  if (!testthat::is_testing()) .Deprecated("formatter_star")
-
+formatter_star <- function(number_of_stars = NA) {
   col_update <- list(
     formatter = "star",
-    formatterParams = list(stars = number_of_stars),
-    hozAlign = hoz_align
+    formatterParams = list(stars = number_of_stars)
   )
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }
 
-#' Set progress formatter
-#' @inherit set_formatter_html params return
+#' Progress formatter
+#' @inherit formatter_html return
 #' @param min (numeric): The minimum value for progress bar.
 #'  If set to \code{NA}, the minimum value of the column is used.
 #' @param max (numeric): The maximum value for progress bar.
@@ -177,25 +148,14 @@ set_formatter_star <- function(widget, columns, number_of_stars = NA, hoz_align 
 #' @param legend_align (character): The text alignment of the legend.
 #' @example examples/formatters/formatter_progress.R
 #' @export
-set_formatter_progress <- function(
-    widget,
-    columns,
+formatter_progress <- function(
     min = NA,
     max = NA,
     color = c("yellow", "orange", "red"),
     legend = NA,
     legend_color = "#000000",
-    legend_align = c("center", "left", "right", "justify"),
-    hoz_align = "left") {
-  if (!testthat::is_testing()) .Deprecated("formatter_progress")
+    legend_align = c("center", "left", "right", "justify")) {
   # Body
-  if (is.na(min)) {
-    min <- min(widget$x$data[columns])
-  }
-
-  if (is.na(max)) {
-    max <- max(widget$x$data[columns])
-  }
 
   col_update <- list(
     formatter = "progress",
@@ -206,24 +166,22 @@ set_formatter_progress <- function(
       legend = legend,
       legendColor = legend_color,
       legendAlign = match.arg(legend_align)
-    ),
-    hozAlign = hoz_align
+    )
   )
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }
 
-#' Set tick cross formatter
-#' @inherit set_formatter_html params return
+#' Tick cross formatter
+#' @inherit formatter_html return
 #' @example examples/formatters/formatter_tick_cross.R
 #' @export
-set_formatter_tick_cross <- function(widget, columns, hoz_align = "center") {
-  if (!testthat::is_testing()) .Deprecated("formatter_tick_cross")
-  col_update <- list(formatter = "tickCross", hozAlign = hoz_align)
-  modify_col_def(widget, columns, col_update)
+formatter_tick_cross <- function() {
+  col_update <- list(formatter = "tickCross")
+  return(col_update)
 }
 
 #' Set toggle switch formatter
-#' @inherit set_formatter_html params return
+#' @inherit formatter_html return
 #' @param size (numeric): The size of the switch in pixels.
 #' @param on_value (character): The value of the cell for the switch to be on.
 #' @param off_value (character) The value of the cell for the switch to be off.
@@ -233,9 +191,7 @@ set_formatter_tick_cross <- function(widget, columns, hoz_align = "center") {
 #' @param clickable (bool): Enable switch functionality to toggle the cell value on click.
 #' @example examples/formatters/formatter_toggle_switch.R
 #' @export
-set_formatter_toggle_switch <- function(
-    widget,
-    columns,
+formatter_toggle_switch <- function(
     size = 20,
     on_value = "on",
     off_value = "off",
@@ -244,7 +200,6 @@ set_formatter_toggle_switch <- function(
     off_color = "red",
     clickable = TRUE) {
   # Body
-  if (!testthat::is_testing()) .Deprecated("formatter_toggle_switch")
   col_update <- list(
     formatter = "toggle",
     formatterParams = list(
@@ -257,7 +212,7 @@ set_formatter_toggle_switch <- function(
       clickable = clickable
     )
   )
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }
 
 #' Set datetime formatter
@@ -265,7 +220,7 @@ set_formatter_toggle_switch <- function(
 #' @details
 #' To use this formatter, you need to include
 #' the [luxon](https://moment.github.io/luxon/) HTML dependency with `tabulator(..., luxon = TRUE)`.
-#' @inherit set_formatter_html params return
+#' @inherit formatter_html return
 #' @param input_format (character): The datetime input format.
 #' @param output_format (character): The datetime output format.
 #' @param invalid_placeholder (character): The value to be displayed
@@ -273,15 +228,11 @@ set_formatter_toggle_switch <- function(
 #' @param timezone (character): The timezone of the datetime.
 #' @example examples/formatters/formatter_datetime.R
 #' @export
-set_formatter_datetime <- function(
-    widget,
-    columns,
+formatter_datetime <- function(
     input_format = "yyyy-MM-dd hh:ss:mm",
     output_format = "yy/MM/dd",
     invalid_placeholder = "(invalid datetime)",
-    timezone = NA,
-    hoz_align = "left") {
-  if (!testthat::is_testing()) .Deprecated("formatter_datetime")
+    timezone = NA) {
   # Body
   col_update <- list(
     formatter = "datetime",
@@ -290,47 +241,36 @@ set_formatter_datetime <- function(
       outputFormat = output_format,
       invalidPlaceholder = invalid_placeholder,
       timezone = timezone
-    ),
-    hozAlign = hoz_align
+    )
   )
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }
 
 #' Set color formatter
-#' @inherit set_formatter_html params return
+#' @inherit formatter_html return
 #' @example examples/formatters/formatter_color.R
 #' @export
-set_formatter_color <- function(widget, columns) {
-  if (!testthat::is_testing()) .Deprecated("formatter_color")
+formatter_color <- function() {
   col_update <- list(formatter = "color")
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }
 
 #' Set traffic light formatter
-#' @inherit set_formatter_progress params return
+#' @inherit formatter_progress params return
 #' @example examples/formatters/formatter_traffic_light.R
 #' @export
-set_formatter_traffic_light <- function(
-    widget,
-    columns,
+formatter_traffic_light <- function(
     min = NA,
     max = NA,
-    color = c("green", "orange", "red"),
-    hoz_align = "center") {
-  if (!testthat::is_testing()) .Deprecated("formatter_traffic_light")
+    color = c("green", "orange", "red")) {
   # Body
-  if (is.na(min)) min <- min(widget$x$data[columns])
-
-  if (is.na(max)) max <- max(widget$x$data[columns])
-
   col_update <- list(
     formatter = "traffic",
     formatterParams = list(
       min = min,
       max = max,
       color = color
-    ),
-    hozAlign = hoz_align
+    )
   )
-  modify_col_def(widget, columns, col_update)
+  return(col_update)
 }

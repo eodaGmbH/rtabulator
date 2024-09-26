@@ -8,6 +8,6 @@ data <- data.frame(
 js_func <- htmlwidgets::JS("(cellValue) => `${cellValue}%`")
 
 tabulator(data) |>
-  set_formatter_progress("value") |>
-  set_formatter_progress("value2", legend = TRUE, legend_align = "left") |>
-  set_formatter_progress("value3", legend = js_func, legend_align = "right")
+  set_columns("value", formatter = formatter_progress()) |>
+  set_columns("value2", formatter = formatter_progress(legend = TRUE, legend_align = "left")) |>
+  set_columns("value3", formatter = formatter_progress(legend = js_func, legend_align = "right"))

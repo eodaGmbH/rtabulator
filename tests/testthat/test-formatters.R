@@ -8,7 +8,7 @@ test_that("set html formatter", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_html(column = col)
+    set_columns(columns = col, formatter = formatter_html())
 
   # Assert
   expected_column_def <- list(
@@ -33,7 +33,7 @@ test_that("set formatter plaintext", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_plaintext(column = col)
+    set_columns(columns = col, formatter = formatter_plaintext())
 
   # Assert
   expected_column_def <- list(
@@ -57,7 +57,7 @@ test_that("set formatter textarea", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_textarea(column = col)
+    set_columns(columns = col, formatter = formatter_textarea())
 
   # Assert
   expected_column_def <- list(
@@ -81,7 +81,7 @@ test_that("set formatter money", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_money(column = col)
+    set_columns(column = col, formatter = formatter_money())
 
   # Assert
   expected_column_def <- list(
@@ -92,7 +92,7 @@ test_that("set formatter money", {
     formatterParams = list(
       decimal = ",",
       thousand = ".",
-      symbol = "$",
+      symbol = "$ ",
       symbolAfter = "p",
       negativeSign = "-",
       precision = FALSE
@@ -114,7 +114,7 @@ test_that("set formatter image", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_image(column = col)
+    set_columns(column = col, formatter = formatter_image())
 
   # Assert
   expected_column_def <- list(
@@ -142,7 +142,7 @@ test_that("set formatter link", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_link(column = col)
+    set_columns(columns = col, formatter = formatter_link())
 
   # Assert
   expected_column_def <- list(
@@ -169,7 +169,10 @@ test_that("set formatter star", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_star(column = col)
+    set_columns(
+      columns = col,
+      formatter = formatter_star(number_of_stars = 3)
+    )
 
   # Assert
   expected_column_def <- list(
@@ -196,7 +199,10 @@ test_that("set formatter progress", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_progress(column = col)
+    set_columns(
+      columns = col,
+      formatter = formatter_progress(min = 1, max = 3)
+    )
 
   # Assert
   expected_column_def <- list(
@@ -228,7 +234,7 @@ test_that("set formatter tick cross", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_tick_cross(column = col)
+    set_columns(column = col, formatter = formatter_tick_cross())
 
   # Assert
   expected_column_def <- list(
@@ -252,7 +258,10 @@ test_that("set formatter toggle switch", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_toggle_switch(column = col)
+    set_columns(
+      column = col, formatter =
+        formatter_toggle_switch()
+    )
 
   # Assert
   expected_column_def <- list(
@@ -286,7 +295,7 @@ test_that("set formatter datetime", {
 
   # Act
   t <- tabulator(df, luxon = TRUE) |>
-    set_formatter_datetime(column = col)
+    set_columns(column = col, formatter = formatter_datetime())
 
   # Assert
   expected_column_def <- list(
@@ -317,7 +326,7 @@ test_that("set formatter color", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_color(column = col)
+    set_columns(column = col, formatter = formatter_color())
 
   # Assert
   expected_column_def <- list(
@@ -342,7 +351,10 @@ test_that("set formatter traffic light", {
 
   # Act
   t <- tabulator(df) |>
-    set_formatter_traffic_light(column = col)
+    set_columns(
+      columns = col,
+      formatter = formatter_traffic_light(min = 0, max = 100)
+    )
 
   # Assert
   expected_column_def <- list(

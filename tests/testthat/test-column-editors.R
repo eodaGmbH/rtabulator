@@ -1,7 +1,7 @@
 test_that("set editor input", {
   # Prepare
-  col = "input_var"
-  df <- data.frame(input_var = c("a","b","c"))
+  col <- "input_var"
+  df <- data.frame(input_var = c("a", "b", "c"))
 
 
   # Act
@@ -30,8 +30,8 @@ test_that("set editor input", {
 
 test_that("set editor area input", {
   # Prepare
-  col = "input_var"
-  df <- data.frame(input_var = c("a","b","c"))
+  col <- "input_var"
+  df <- data.frame(input_var = c("a", "b", "c"))
 
 
   # Act
@@ -58,5 +58,3 @@ test_that("set editor area input", {
   expect_s3_class(t, "rtabulator")
   expect_s3_class(t, "htmlwidget")
 })
-
-

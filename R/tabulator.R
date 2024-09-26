@@ -67,7 +67,7 @@ tabulator <- function(
 
   dependencies <- list()
   if (isTRUE(luxon)) {
-    dependencies <- c(dependencies, list(luxon_dependency))
+    dependencies <- c(dependencies, list(luxon = luxon_dependency))
   }
 
   if (theme != "default") {
@@ -75,7 +75,7 @@ tabulator <- function(
   }
 
   if (sheetjs) {
-    dependencies <- c(dependencies, list(sheetjs_dependency))
+    dependencies <- c(dependencies, list(sheet = sheetjs_dependency))
   }
 
   # create widget

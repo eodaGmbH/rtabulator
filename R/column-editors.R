@@ -18,9 +18,9 @@ set_column_editor_input <- function(widget,
                                     select_contents = TRUE,
                                     elementAttributes = list(
                                       maxlength = 10
-                                    )){
-  editor = "input"
-  editorParams = list(
+                                    )) {
+  editor <- "input"
+  editorParams <- list(
     search = search,
     mask = mask,
     selectContents = select_contents,
@@ -49,10 +49,9 @@ set_column_editor_text_area <- function(widget,
                                         mask = "",
                                         select_contents = TRUE,
                                         vertical_navigation = "editor",
-                                        shift_enter_submit = TRUE
-){
-  editor = "textarea"
-  editorParams = list(
+                                        shift_enter_submit = TRUE) {
+  editor <- "textarea"
+  editorParams <- list(
     elementAttributes = elementAttributes,
     mask = mask,
     selectContents = select_contents,
@@ -76,19 +75,18 @@ set_column_editor_text_area <- function(widget,
 #' @export
 #'
 set_column_editor_numeric <- function(widget,
-                                        columns,
-                                        min = 0,
-                                        max = 100,
-                                        step = 1,
-                                        elementAttributes = list(
-                                          maxlength = 10
-                                        ),
-                                        mask = "",
-                                        select_contents = TRUE,
-                                        vertical_navigation = "table"
-){
-  editor = "number"
-  editorParams = list(
+                                      columns,
+                                      min = 0,
+                                      max = 100,
+                                      step = 1,
+                                      elementAttributes = list(
+                                        maxlength = 10
+                                      ),
+                                      mask = "",
+                                      select_contents = TRUE,
+                                      vertical_navigation = "table") {
+  editor <- "number"
+  editorParams <- list(
     min = min,
     max = max,
     elementAttributes = elementAttributes,
@@ -99,5 +97,3 @@ set_column_editor_numeric <- function(widget,
 
   set_column_editor(widget, columns, editor, editorParams)
 }
-
-
