@@ -8,7 +8,7 @@ formatter_star(number_of_stars = NA)
 }
 \arguments{
 \item{number_of_stars}{The maximum number of stars to be displayed.
-If set to \code{NA}, the maximum value of the column is used.}
+If set to \code{NA}, the maximum value of the column is used in \code{set_columns()}}
 }
 \value{
 A list of column options for setting up the formatter.

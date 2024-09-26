@@ -22,8 +22,9 @@ Modify column definition
 }
 \examples{
 
-df <- data.frame(values = c(1,2,3), names = c("a","b","c"))
+df <- data.frame(values = c(1, 2, 3), names = c("a", "b", "c"))
 tabulator(df) |>
-  modify_col_def(c("values","names"),
-  col_update = list(hozAlign = "center"))
+  modify_col_def(c("values", "names"),
+    col_update = list(hozAlign = "center")
+  )
 }
