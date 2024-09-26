@@ -163,13 +163,16 @@ test_that("set formatter star", {
   # Prepare
   col <- "star_value"
   df <- data.frame(
-    x = c(1,2,3)
+    x = c(1, 2, 3)
   ) |> stats::setNames(col)
 
 
   # Act
   t <- tabulator(df) |>
-    set_columns(columns = col, formatter = formatter_star())
+    set_columns(
+      columns = col,
+      formatter = formatter_star(number_of_stars = 3)
+    )
 
   # Assert
   expected_column_def <- list(
@@ -190,13 +193,16 @@ test_that("set formatter progress", {
   # Prepare
   col <- "progress_value"
   df <- data.frame(
-    x = c(1,2,3)
+    x = c(1, 2, 3)
   ) |> stats::setNames(col)
 
 
   # Act
   t <- tabulator(df) |>
-    set_columns(columns = col, formatter = formatter_progress())
+    set_columns(
+      columns = col,
+      formatter = formatter_progress(min = 1, max = 3)
+    )
 
   # Assert
   expected_column_def <- list(
@@ -252,8 +258,10 @@ test_that("set formatter toggle switch", {
 
   # Act
   t <- tabulator(df) |>
-    set_columns(column = col, formatter =
-                  formatter_toggle_switch())
+    set_columns(
+      column = col, formatter =
+        formatter_toggle_switch()
+    )
 
   # Assert
   expected_column_def <- list(
@@ -343,7 +351,10 @@ test_that("set formatter traffic light", {
 
   # Act
   t <- tabulator(df) |>
-    set_columns(columns = col, formatter = formatter_traffic_light())
+    set_columns(
+      columns = col,
+      formatter = formatter_traffic_light(min = 0, max = 100)
+    )
 
   # Assert
   expected_column_def <- list(
@@ -361,4 +372,3 @@ test_that("set formatter traffic light", {
   expect_s3_class(t, "rtabulator")
   expect_s3_class(t, "htmlwidget")
 })
-

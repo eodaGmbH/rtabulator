@@ -163,7 +163,7 @@ test_that("set formatter star", {
   # Prepare
   col <- "star_value"
   df <- data.frame(
-    x = c(1,2,3)
+    x = c(1, 2, 3)
   ) |> stats::setNames(col)
 
 
@@ -190,7 +190,7 @@ test_that("set formatter progress", {
   # Prepare
   col <- "progress_value"
   df <- data.frame(
-    x = c(1,2,3)
+    x = c(1, 2, 3)
   ) |> stats::setNames(col)
 
 
@@ -360,4 +360,3 @@ test_that("set formatter traffic light", {
   expect_s3_class(t, "rtabulator")
   expect_s3_class(t, "htmlwidget")
 })
-
